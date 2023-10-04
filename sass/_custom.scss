@@ -3,6 +3,23 @@
 $primary: getColour(primary-color, 0.85);
 $secondary: getColour(primary-background-color);
 
-
+// button radius 
 $border-radius: 2px;
 
+// Fonts
+
+$font-family-sans-serif: "roboto";
+$font-size-base: 1.125rem;
+$headings-font-family: "playfair";
+
+$btn-font-family: "bebas";
+$btn-font-size: 21px;
+
+
+// carousel
+
+$carousel-indicator-active-bg: getColour(accent-color, 1);
+$carousel-indicator-width: 40px;
+$carousel-indicator-height: 6px;
+$carousel-indicator-spacer: 5px;
+$carousel-control-width: 10%;

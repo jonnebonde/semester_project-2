@@ -1,5 +1,31 @@
-.carousel-inner {
-  img {
-    height: 500px !important;
+.carousel {
+  max-width: 1920px;
+  margin: 0 auto;
+
+  .home-hero-overlay-container {
+    background-color: getColour(accent-color, 1);
+    color: getColour(white);
+    padding: 10px;
+    top: 6rem;
   }
-}
+
+  a {
+    bottom: 6rem;
+    font-family: getFont(bebas);
+    button {
+      padding: 10px 40px;
+     
+    }
+  }
+
+  
+
+  .carousel-inner {
+  
+    img {
+      object-fit: cover;
+      height: 500px !important;
+    }
+  }
+
+} 

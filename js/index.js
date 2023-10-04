@@ -56,8 +56,7 @@ function renderHeroCarousel(data) {
     }
 
     const carouselItem = document.createElement("img");
-    carouselItem.classList.add("d-block");
-    carouselItem.classList.add("w-100");
+    carouselItem.classList.add("d-block", "w-100");
     carouselItem.setAttribute("src", item.media[0]);
     carouselItem.setAttribute("alt", item.title);
 
