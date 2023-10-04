@@ -1,0 +1,42 @@
+.navbar {
+  padding: 0 !important;
+
+  &-brand {
+    margin-left: 2rem;
+    
+    svg{
+      height: 70px;
+        width: 50px;
+
+      @media (min-width: $width-small) {
+        max-height: 80px;
+        max-width: 60px;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  &-nav {
+    margin-right: 2rem;
+    gap: 1rem;
+  }
+
+  .top-nav-container {
+    background-color: getColour(primary-background-color);
+    padding: 0.5rem 0;
+
+    @media (min-width: $width-small) {
+      padding: 2.5rem 0;
+    }
+  
+  }
+  
+  .bottom-nav-container {
+    background-color: getColour(primary-background-color, 0.8);
+    padding: 0.5rem 0;
+
+  }
+
+}
+

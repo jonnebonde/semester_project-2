@@ -1,0 +1,30 @@
+$colours: (
+  primary-background-color: rgba(54, 54, 54, 1),
+  secondary-background-color: rgba(50, 76, 42, 0.1),
+
+  white: #FFFFFF,
+  black: #000000,
+
+  primary-color: rgba(255, 92, 0, 1),
+
+  accent-color: rgba(50, 76, 42, 0.9),
+  accent-color-hover: rgba(50, 76, 42, 1),
+
+  error-message-color: rgba(232,43,72,1),
+  success-message-color: rgba(29,131,72,1)
+
+);
+
+@function getColour($colour, $alpha: 1) {
+  $original-color: map-get($colours, $colour);
+  @if $alpha != 1 {
+    @return rgba(red($original-color), green($original-color), blue($original-color), $alpha);
+  }
+  @else {
+    @return $original-color;
+  }
+}
+
+$width-small: 576px;
+$width-medium: 768px ;
+$width-large: 992px;
