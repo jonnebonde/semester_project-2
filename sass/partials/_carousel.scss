@@ -1,31 +1,45 @@
 .carousel {
-  max-width: 1920px;
-  margin: 0 auto;
+  background-color: getColour(primary-background-color, 0.2);
+  height: 350px;  
+
+  @media (min-width: $width-small) {
+    height: 500px ;
+    width: 100%;
+  }
 
   .home-hero-overlay-container {
     background-color: getColour(accent-color, 1);
     color: getColour(white);
     padding: 10px;
-    top: 6rem;
+    top: 2rem;
+
+    @media (min-width: $width-small) {
+      top: 5rem;
+    }
   }
 
   a {
-    bottom: 6rem;
+    bottom: 1rem;
     font-family: getFont(bebas);
+
+    @media (min-width: $width-small) {
+      bottom: 6rem;
+    }
+
     button {
-      padding: 10px 40px;
-     
+      padding: 5px 25px;
     }
   }
-
-  
 
   .carousel-inner {
-  
+    max-width: 1920px;
+    height: 100%;
+    width: 100%;
+
     img {
+      width: 100%;
       object-fit: cover;
-      height: 500px !important;
+      height: 100%;
     }
   }
-
-} 
+}

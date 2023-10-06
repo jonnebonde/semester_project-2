@@ -1,73 +1,65 @@
-import apiCall from "./utils/api/apiCall.js";
+import { baseUrl } from "./settings/api.js";
+import  { renderHeroCarousel } from "./components/ui/carousel/renderCarouselHomePage.js";
+import displayMessage from "./components/ui/displayMessage.js";
 
 
-// pagination url example = ?limit=20&offset=20
-// sorting url example = ?sort=title&sortOrder=asc
-// 
 
-const baseUrl = "https://api.noroff.dev/api/v1/auction";
+/* const homePageUrlArray = [
+  fetch(baseUrl + "/listings?limit=8&sort=created"),
+  fetch(baseUrl + "/listings?limit=8&sort=endsAt&sortOrder=asc&_active=true"),
+]
 
-const apiUrl = baseUrl + "/listings?limit=6&sort=created" ;
-
-(async function () {
+async function multiUrlFetch(array) {
   try {
-    const data = await apiCall(apiUrl);
-    console.log(data);
-    renderHeroCarousel(data)
+    const results = await Promise.allSettled(array);
+    console.log(results);
+    const successResultData = [];
+    results.map(obj => {
+      if(obj.status === "fulfilled") {
+        successResultData.push(obj.value);
+      }
+    })
+
+    const successData = await Promise.all(successResultData.map((item) => {
+      return item.json();
+    }));
+
+    renderHeroCarousel(successData[0]);
+    console.log(successData);
+
   } catch (error) {
     console.log(error);
   }
-})();
+}
+
+multiUrlFetch(homePageUrlArray); */
 
 
-function renderHeroCarousel(data) {
-
-  console.log(data)
-
-  const carouselImageContainer = document.querySelector(".carousel-inner");
-  const carouselIndicatorsContainer = document.querySelector(".carousel-indicators");
-
-  const carouselItemsElementsArray = [];
-  const carouselIndicatorsElementsArray = [];
-
-  for (let i = 0; i < data.length; i++) {
-
-    if(i === 4) {
-      break;
+async function fetchHomePageData() {
+  try {
+    const carouselImages = await fetch(baseUrl + "/listings?limit=8&sort=created");
+    if(!carouselImages.ok) {
+      throw new Error(displayMessage("Something went wrong..", ".carousel-inner", "An error occured" ));
     }
+    const carouselData = await carouselImages.json();
+    console.log(carouselData);
 
-    const item = data[i];
+    renderHeroCarousel(carouselData);
 
-    const carouselIndicator = document.createElement("button");
-    carouselIndicator.setAttribute("type", "button");
-    carouselIndicator.setAttribute("data-bs-target", "#carouselExampleIndicators");
-    carouselIndicator.setAttribute("data-bs-slide-to", i);
-    carouselIndicator.setAttribute("aria-label", `Slide ${i}`);
-
-
-    const carouselItemContainer = document.createElement("div");
-    
-    carouselItemContainer.classList.add("carousel-item");
-
-    if(i === 0) {
-      carouselItemContainer.classList.add("active");
-      carouselIndicator.classList.add("active");
-      carouselIndicator.setAttribute("aria-current", "true");
+    const lastChanceAuctions = await fetch(baseUrl + "/listings?limit=8&sort=endsAt&sortOrder=asc&_active=true");
+    if(!lastChanceAuctions.ok) {
+      throw new Error(displayMessage("Something went wrong..", ".carousel-inner", "An error occured" ));
     }
+    const lastChanceAuctionsData = await lastChanceAuctions.json();
 
-    const carouselItem = document.createElement("img");
-    carouselItem.classList.add("d-block", "w-100");
-    carouselItem.setAttribute("src", item.media[0]);
-    carouselItem.setAttribute("alt", item.title);
-
-    carouselItemContainer.appendChild(carouselItem);
-
-    carouselIndicatorsContainer.appendChild(carouselIndicator);
-    carouselImageContainer.appendChild(carouselItemContainer);
-
-    carouselIndicatorsElementsArray.push(carouselIndicator);
-    carouselItemsElementsArray.push(carouselItemContainer);
+    console.log(lastChanceAuctionsData);
+  }
+  catch(error) {
+    console.log(error);
   }
 }
+
+fetchHomePageData();
+
 
 

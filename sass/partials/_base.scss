@@ -30,3 +30,10 @@ a:hover,
   background-color: getColour(white, 0.1) !important;
   border-color: none !important;
 }
+
+.error {
+  color: getColour(error-message-color);
+  background-color: getColour(white, 1);
+  padding: 10px;
+  border-radius: 2px;
+}
