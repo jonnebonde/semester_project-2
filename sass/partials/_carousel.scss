@@ -1,9 +1,10 @@
 .carousel {
   background-color: getColour(primary-background-color, 0.2);
-  height: 350px;  
+  height: 350px;
+  margin-bottom: 8rem;
 
   @media (min-width: $width-small) {
-    height: 500px ;
+    height: 500px;
     width: 100%;
   }
 

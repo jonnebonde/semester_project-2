@@ -1,12 +1,25 @@
 html,
 body {
   height: 100%;
-  
 }
 
 body {
   display: flex;
   flex-direction: column;
+}
+
+section {
+  max-width: 1920px;
+  margin: 0 auto;
+
+  .section-heading {
+    text-align: center;
+    border-bottom: 2px solid getColour(accent-color, 1);
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+  
 }
 
 .wrapper {
@@ -37,3 +50,4 @@ a:hover,
   padding: 10px;
   border-radius: 2px;
 }
+

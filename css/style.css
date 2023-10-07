@@ -33,6 +33,18 @@ body {
   flex-direction: column;
 }
 
+section {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+section .section-heading {
+  text-align: center;
+  border-bottom: 2px solid rgb(50, 76, 42);
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
 .wrapper {
   flex: 1 0 auto;
   background-color: rgba(50, 76, 42, 0.1);
@@ -124,6 +136,7 @@ a:hover,
 .carousel {
   background-color: rgba(54, 54, 54, 0.2);
   height: 350px;
+  margin-bottom: 8rem;
 }
 @media (min-width: 576px) {
   .carousel {

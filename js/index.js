@@ -1,65 +1,56 @@
 import { baseUrl } from "./settings/api.js";
-import  { renderHeroCarousel } from "./components/ui/carousel/renderCarouselHomePage.js";
+import { renderHeroCarousel } from "./components/ui/carousel/renderCarouselHomePage.js";
 import displayMessage from "./components/ui/displayMessage.js";
+import apiCall from "./components/api/apiCall.js";
 
-
-
-/* const homePageUrlArray = [
-  fetch(baseUrl + "/listings?limit=8&sort=created"),
-  fetch(baseUrl + "/listings?limit=8&sort=endsAt&sortOrder=asc&_active=true"),
-]
-
-async function multiUrlFetch(array) {
+(async function () {
   try {
-    const results = await Promise.allSettled(array);
-    console.log(results);
-    const successResultData = [];
-    results.map(obj => {
-      if(obj.status === "fulfilled") {
-        successResultData.push(obj.value);
-      }
-    })
-
-    const successData = await Promise.all(successResultData.map((item) => {
-      return item.json();
-    }));
-
-    renderHeroCarousel(successData[0]);
-    console.log(successData);
-
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-multiUrlFetch(homePageUrlArray); */
-
-
-async function fetchHomePageData() {
-  try {
-    const carouselImages = await fetch(baseUrl + "/listings?limit=8&sort=created");
-    if(!carouselImages.ok) {
-      throw new Error(displayMessage("Something went wrong..", ".carousel-inner", "An error occured" ));
-    }
-    const carouselData = await carouselImages.json();
-    console.log(carouselData);
-
+    const carouselData = await apiCall(baseUrl + "/listings?limit=8&sort=created");
     renderHeroCarousel(carouselData);
-
-    const lastChanceAuctions = await fetch(baseUrl + "/listings?limit=8&sort=endsAt&sortOrder=asc&_active=true");
-    if(!lastChanceAuctions.ok) {
-      throw new Error(displayMessage("Something went wrong..", ".carousel-inner", "An error occured" ));
-    }
-    const lastChanceAuctionsData = await lastChanceAuctions.json();
-
-    console.log(lastChanceAuctionsData);
-  }
-  catch(error) {
+  } catch (error) {
+    displayMessage("There was an error fetching the data, please try to refresh the page", ".message-container", "error");
     console.log(error);
   }
+})();
+
+(async function () {
+  try {
+    const carouselData = await apiCall(baseUrl + "/listings?limit=8&_bids=true");
+    renderListingsCards(carouselData);
+  } catch (error) {
+    displayMessage("There was an error fetching the data, please try to refresh the page", ".message-container", "error");
+    console.log(error);
+  }
+})();
+
+function renderListingsCards(data) {
+
+  console.log(data);
+    
+    const container = document.querySelector(".listings-results-container");
+    container.innerHTML = "";
+
+    data.forEach(function (listing) {
+      container.innerHTML += `
+                                  <a class="card " style="width: 18rem;" href="details.html?id=${listing.id}">
+                                      <div class="listing-card-image" style="background-image: url(${listing.media[0]})"></div>
+                                      <div class="listing-card-content">
+                                          <h4>${listing.title}</h4>
+                                          <p>${findHighestBid(listing.bids)} kr</p>
+                                      </div>
+                                  </a>
+                            `;
+    });
 }
 
-fetchHomePageData();
+function findHighestBid(bids) {
 
+  let highestBid = 0;
+  bids.forEach(function (bid) {
+    if (bid.amount > highestBid) {
+      highestBid = bid.amount;
+    }
+  });
 
-
+  return highestBid;
+}
