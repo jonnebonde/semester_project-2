@@ -9,13 +9,16 @@ export function renderHeroCarousel(data) {
   const carouselItemsElementsArray = [];
   const carouselIndicatorsElementsArray = [];
 
+
+  
+
   for (let i = 0; i < data.length; i++) {
     carouselLoader.classList.add("d-none");
     carouselImageContainer.classList.remove("justify-content-center", "align-items-center");
-
+ 
     if (i === 4) {
       break;
-    }
+    } 
 
     const item = data[i];
 
@@ -37,8 +40,10 @@ export function renderHeroCarousel(data) {
 
     const carouselItem = document.createElement("img");
     carouselItem.classList.add("d-block", "w-100");
+
     carouselItem.setAttribute("src", item.media[0]);
     carouselItem.setAttribute("alt", item.title);
+    carouselItem.setAttribute("onerror", "src='/assets/img/no-image-icon-23485.png'");
 
     carouselItemContainer.appendChild(carouselItem);
 

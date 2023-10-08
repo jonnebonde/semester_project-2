@@ -50,13 +50,6 @@ section .section-heading {
   background-color: rgba(50, 76, 42, 0.1);
 }
 
-.active-page,
-a:hover,
-.btn-primary:hover,
-.btn-secondary:hover {
-  text-decoration: underline !important;
-}
-
 .btn-primary:hover {
   background-color: rgb(255, 92, 0) !important;
   border-color: none !important;
@@ -100,6 +93,12 @@ a:hover,
 .navbar button {
   font-family: "montserrat" !important;
 }
+.navbar .active-page,
+.navbar a:hover,
+.navbar .btn-primary:hover,
+.navbar .btn-secondary:hover {
+  text-decoration: underline !important;
+}
 .navbar-brand {
   margin-left: 2rem;
 }
@@ -140,7 +139,7 @@ a:hover,
 }
 @media (min-width: 576px) {
   .carousel {
-    height: 500px;
+    height: 400px;
     width: 100%;
   }
 }
@@ -177,6 +176,23 @@ a:hover,
   -o-object-fit: cover;
      object-fit: cover;
   height: 100%;
+}
+
+.Homepage_hero_section img {
+  height: 500px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card {
+  height: 260px;
+  width: 360px;
+}
+.card .card-img-top {
+  height: 218px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /*!

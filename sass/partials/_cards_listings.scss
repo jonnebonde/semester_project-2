@@ -1,7 +1,10 @@
 .card {
+    height: 260px;
+    width: 360px;
 
-  .listing-card-image {
-    
+  .card-img-top {
+    height: 218px;
+    object-fit: cover;
   }
 }
 

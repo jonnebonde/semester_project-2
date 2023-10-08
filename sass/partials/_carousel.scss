@@ -4,7 +4,7 @@
   margin-bottom: 8rem;
 
   @media (min-width: $width-small) {
-    height: 500px;
+    height: 400px;
     width: 100%;
   }
 
@@ -42,5 +42,14 @@
       object-fit: cover;
       height: 100%;
     }
+  }
+}
+
+
+.Homepage_hero_section {
+  img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
   }
 }

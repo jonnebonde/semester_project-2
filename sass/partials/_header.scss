@@ -5,6 +5,13 @@
     font-family: "montserrat" !important;
   }
 
+  .active-page,
+a:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  text-decoration: underline !important;
+}
+
   &-brand {
     margin-left: 2rem;
     

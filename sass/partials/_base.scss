@@ -27,12 +27,7 @@ section {
   background-color: getColour(secondary-background-color);
 }
 
-.active-page,
-a:hover,
-.btn-primary:hover,
-.btn-secondary:hover {
-  text-decoration: underline !important;
-}
+
 
 .btn-primary:hover {
   background-color: getColour(primary-color, 1) !important;
