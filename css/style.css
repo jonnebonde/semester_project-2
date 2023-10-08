@@ -40,9 +40,10 @@ section {
 section .section-heading {
   text-align: center;
   border-bottom: 2px solid rgb(50, 76, 42);
-  width: 90%;
   margin: 0 auto;
+  margin-top: 2rem;
   margin-bottom: 2rem;
+  width: 90%;
 }
 
 .wrapper {
@@ -133,14 +134,15 @@ section .section-heading {
 }
 
 .carousel {
-  background-color: rgba(54, 54, 54, 0.2);
   height: 350px;
-  margin-bottom: 8rem;
+  margin-bottom: 6rem;
 }
 @media (min-width: 576px) {
   .carousel {
     height: 400px;
     width: 100%;
+    max-width: 1920px;
+    background-color: rgba(54, 54, 54, 0.2);
   }
 }
 .carousel .home-hero-overlay-container {
@@ -178,11 +180,9 @@ section .section-heading {
   height: 100%;
 }
 
-.Homepage_hero_section img {
-  height: 500px;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+.listings-results-container {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .card {
@@ -291,7 +291,7 @@ section .section-heading {
   --bs-heading-color: inherit;
   --bs-link-color: rgba(255, 92, 0, 0.85);
   --bs-link-color-rgb: 255, 92, 0;
-  --bs-link-decoration: underline;
+  --bs-link-decoration: none !important;
   --bs-link-hover-color: rgba(191, 69, 0, 0.88);
   --bs-link-hover-color-rgb: 191, 69, 0;
   --bs-code-color: #d63384;
@@ -552,7 +552,7 @@ sup {
 
 a {
   color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
-  text-decoration: underline;
+  text-decoration: none !important;
 }
 a:hover {
   --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
@@ -3531,7 +3531,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: transparent;
   --bs-btn-box-shadow: 0 0 0 #000;
   --bs-btn-focus-shadow-rgb: 206, 74, 0;
-  text-decoration: underline;
+  text-decoration: none !important;
 }
 .btn-link:focus-visible {
   color: var(--bs-btn-color);

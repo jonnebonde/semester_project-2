@@ -15,11 +15,11 @@ section {
   .section-heading {
     text-align: center;
     border-bottom: 2px solid getColour(accent-color, 1);
-    width: 90%;
     margin: 0 auto;
+    margin-top: 2rem;
     margin-bottom: 2rem;
+    width: 90%;
   }
-  
 }
 
 .wrapper {

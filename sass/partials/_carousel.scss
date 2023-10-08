@@ -1,11 +1,12 @@
 .carousel {
-  background-color: getColour(primary-background-color, 0.2);
   height: 350px;
-  margin-bottom: 8rem;
+  margin-bottom: 6rem;
 
   @media (min-width: $width-small) {
     height: 400px;
     width: 100%;
+    max-width: 1920px;
+    background-color: getColour(primary-background-color, 0.2);
   }
 
   .home-hero-overlay-container {
@@ -42,14 +43,5 @@
       object-fit: cover;
       height: 100%;
     }
-  }
-}
-
-
-.Homepage_hero_section {
-  img {
-    height: 500px;
-    width: 100%;
-    object-fit: cover;
   }
 }
