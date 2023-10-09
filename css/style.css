@@ -46,6 +46,12 @@ section .section-heading {
   width: 90%;
 }
 
+.last_chance-listings-results-container,
+.newest-listings-results-container {
+  width: 95%;
+  margin: 0 auto;
+}
+
 .wrapper {
   flex: 1 0 auto;
   background-color: rgba(50, 76, 42, 0.1);
