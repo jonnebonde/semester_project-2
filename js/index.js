@@ -12,7 +12,7 @@ import renderNavBar from "./components/ui/navBar/renderNav.js";
 
 renderNavBar();
 
-/* (async function () {
+(async function () {
   try {
     const newestAuctionData = await apiCall(baseUrl + "/listings?limit=8&sort=created&_bids=true&_active=true");
     renderHeroCarousel(newestAuctionData, ".carousel-inner");
@@ -32,4 +32,4 @@ renderNavBar();
     displayMessage("There was an error fetching the data, please try to refresh the page", ".message-container", "error");
     console.log(error);
   }
-})(); */
+})();
