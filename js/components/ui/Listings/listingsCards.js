@@ -15,7 +15,7 @@ export function renderListingsCards(data, target) {
     const cardImg = document.createElement("img");
     cardImg.classList.add("card-img-top");
     cardImg.setAttribute("src", listing.media[0]);
- /*    cardImg.setAttribute("onerror", "src='/assets/img/no-image-icon-23485.png'"); */
+    cardImg.setAttribute("onerror", "src='./assets/img/no-image-icon-23485.png'");
     card.appendChild(cardImg);
 
     const cardContent = document.createElement("div");
