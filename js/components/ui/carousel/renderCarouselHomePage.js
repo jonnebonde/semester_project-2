@@ -43,7 +43,7 @@ export function renderHeroCarousel(data = [], targetElement) {
 
     carouselItem.setAttribute("src", item.media[0]);
     carouselItem.setAttribute("alt", item.title);
-    carouselItem.setAttribute("onerror", "src='./assets/img/no-image-icon-23485.png'");
+    carouselItem.setAttribute("onerror", "src='semester_project-2/assets/img/no-image-icon-23485.png'");
 
     carouselItemContainer.appendChild(carouselItem);
 

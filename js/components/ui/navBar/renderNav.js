@@ -61,7 +61,7 @@ export default function renderNavBar() {
   homeLink.setAttribute("href", "./index.html");
   homeLink.textContent = "Home";
 
-  if( pathname === "/index.html") {
+  if( pathname === "semester_project-2/index.html") {
     homeLink.classList.add("link-underline-opacity-100");
     homeLink.setAttribute("aria-current", "page");
   }
