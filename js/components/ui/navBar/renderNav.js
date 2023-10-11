@@ -58,7 +58,7 @@ export default function renderNavBar() {
 
   const homeLink = document.createElement("a");
   homeLink.classList.add("navlink", "link-light", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover");
-  homeLink.setAttribute("href", "/index.html");
+  homeLink.setAttribute("href", "index.html");
   homeLink.textContent = "Home";
 
   if( pathname === "/index.html") {
