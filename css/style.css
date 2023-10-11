@@ -13,7 +13,7 @@
 }
 @font-face {
   font-family: "montserrat";
-  src: url(/assets/fonts/Montserrat-VariableFont_wght.ttf);
+  src: url(./assets/fonts/Montserrat-VariableFont_wght.ttf);
   font-weight: normal;
   font-style: normal;
 }

@@ -16,11 +16,11 @@ export default function renderNavBar() {
 
   const signUpLink = document.createElement("a");
   signUpLink.classList.add("navlink", "link-dark", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover", "primary-link");
-  signUpLink.setAttribute("href", "/login-and-signin.html?signup=true");
+  signUpLink.setAttribute("href", "./login-and-signin.html?signup=true");
   signUpLink.textContent = "Sign up";
 
 
-  if( pathname === "/login-and-signin.html?signup=true") {
+  if( pathname === "./login-and-signin.html?signup=true") {
     signUpLink.classList.add("link-underline-opacity-100");
     signUpLink.setAttribute("aria-current", "page");
   }
@@ -35,7 +35,7 @@ export default function renderNavBar() {
   loginLink.setAttribute("href", "./login-and-signin.html?login=true");
   loginLink.textContent = "Login";
 
-  if( pathname === "/login-and-signin.html?login=true") {
+  if( pathname === "./login-and-signin.html?login=true") {
     loginLink.classList.add("link-underline-opacity-100");
     loginLink.setAttribute("aria-current", "page");
   }
@@ -73,7 +73,7 @@ export default function renderNavBar() {
 
   const buyLink = document.createElement("a");
   buyLink.classList.add("navlink", "link-light", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover");
-  buyLink.setAttribute("href", "/listings.html");
+  buyLink.setAttribute("href", "./listings.html");
   buyLink.textContent = "Buy";
 
   if( pathname === "./listings.html") {
@@ -98,10 +98,10 @@ export default function renderNavBar() {
 
     const sellLink = document.createElement("a");
     sellLink.classList.add("navlink", "text-light");
-    sellLink.setAttribute("href", "/sell.html");
+    sellLink.setAttribute("href", "./sell.html");
     sellLink.textContent = "Sell";
 
-    if( pathname === "/sell.html") {
+    if( pathname === "./sell.html") {
       sellLink.classList.add("active-class");
       sellLink.setAttribute("aria-current", "page");
     }
