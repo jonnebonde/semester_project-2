@@ -28,14 +28,10 @@ section {
   margin: 0 auto;
 }
 
-
-
 .wrapper {
   flex: 1 0 auto;
   background-color: getColour(secondary-background-color);
 }
-
-
 
 .btn-primary:hover {
   background-color: getColour(primary-color, 1) !important;
@@ -54,3 +50,23 @@ section {
   border-radius: 2px;
 }
 
+.primary-link {
+  background-color: getColour(primary-color, 0.85) !important;
+  color: getColour(black);
+  padding: 8px 16px !important;
+  border-radius: 2px;
+}
+
+.primary-link:hover {
+  background-color: getColour(primary-color, 1) !important;
+}
+
+.secondary-link {
+  color: getColour(white) !important;
+  padding: 8px 16px !important;
+  border-radius: 2px;
+}
+
+.secondary-link:hover {
+  background-color: getColour(white, 0.1) !important;
+}

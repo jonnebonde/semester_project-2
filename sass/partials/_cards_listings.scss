@@ -4,12 +4,20 @@
 }
 
 .card {
+  background-color: getColour(white, 0.6) !important;
+  border: 1px getColour(accent-color, 1) solid !important;
   height: 260px;
   width: 360px;
+
+  &:hover {
+    box-shadow: 0 0.5rem 1rem getColour(primary-background-color, 0.85);
+    background-color: getColour(white, 1) !important;
+  }
 
 .card-img-top {
   height: 218px;
   object-fit: cover;
 }
+
 }
 

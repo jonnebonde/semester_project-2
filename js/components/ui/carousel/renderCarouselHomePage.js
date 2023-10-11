@@ -1,10 +1,10 @@
-import { carouselImageContainer } from "../../constants/constants.js";
 import { renderCarouselHeadingOverlay } from "./renderCarouselHeadingOverlay.js";
 import { renderCarouselBtns } from "./renderCarouselControllers.js";
 
-export function renderHeroCarousel(data) {
+export function renderHeroCarousel(data = [], targetElement) {
   const carouselIndicatorsContainer = document.querySelector(".carousel-indicators");
   const carouselLoader = document.querySelector(".loader-carousel");
+  const carouselImageContainer = document.querySelector(targetElement);
 
   const carouselItemsElementsArray = [];
   const carouselIndicatorsElementsArray = [];

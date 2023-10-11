@@ -1,0 +1,22 @@
+footer {
+  background-color: getColour(primary-background-color, 1);
+  padding: 3rem 0 0 1rem;
+
+  .footer-brand {
+    padding: 10px 10px;
+  }
+
+  .footer-main-logo {
+    height: 30px;
+    margin-right: 20px;
+  }
+
+  p {
+    color: getColour(white, 1);
+  }
+
+  .footer-rights {
+    font-size: 14px;
+    margin-top: 2rem;
+  }
+}
