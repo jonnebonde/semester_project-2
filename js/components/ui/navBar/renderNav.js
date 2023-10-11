@@ -32,7 +32,7 @@ export default function renderNavBar() {
 
   const loginLink = document.createElement("a");
   loginLink.classList.add("navlink", "link-light", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover", "secondary-link");
-  loginLink.setAttribute("href", "/login-and-signin.html?login=true");
+  loginLink.setAttribute("href", "./login-and-signin.html?login=true");
   loginLink.textContent = "Login";
 
   if( pathname === "/login-and-signin.html?login=true") {
@@ -61,7 +61,7 @@ export default function renderNavBar() {
   homeLink.setAttribute("href", "./index.html");
   homeLink.textContent = "Home";
 
-  if( pathname === "semester_project-2/index.html") {
+  if( pathname === "./index.html") {
     homeLink.classList.add("link-underline-opacity-100");
     homeLink.setAttribute("aria-current", "page");
   }
@@ -76,7 +76,7 @@ export default function renderNavBar() {
   buyLink.setAttribute("href", "/listings.html");
   buyLink.textContent = "Buy";
 
-  if( pathname === "/listings.html") {
+  if( pathname === "./listings.html") {
     buyLink.classList.add("link-underline-opacity-100");
     buyLink.setAttribute("aria-current", "page");
   }
