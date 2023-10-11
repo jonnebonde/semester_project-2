@@ -8,13 +8,13 @@
 @import "./partials/footer";
 
 
-@import "../node_modules/bootstrap/scss/mixins/banner";
+/* @import "/bootstrap_scss/mixins/banner";
 @include bsBanner("");
-
+ */
 
 // scss-docs-start import-stack
 // Configuration
-@import "../node_modules/bootstrap/scss/functions";
+@import "/bootstrap_scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/variables-dark";
 @import "../node_modules/bootstrap/scss/maps";
