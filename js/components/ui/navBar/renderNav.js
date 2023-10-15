@@ -6,25 +6,30 @@
 export default function renderNavBar() {
   const { pathname } = document.location;
 
+  const currentUrl = new URLSearchParams(window.location.search);
+
+  const register = currentUrl.get("register");
+
+
   const topNavContainer = document.querySelector(".top-nav-container");
 
   const topNavUl = document.createElement("ul");
   topNavUl.classList.add("navbar-nav", "flex-row");
 
-  const signUpLi = document.createElement("li");
-  signUpLi.classList.add("nav-item");
+  const registerLi = document.createElement("li");
+  registerLi.classList.add("nav-item");
 
-  const signUpLink = document.createElement("a");
-  signUpLink.classList.add("navlink", "link-dark", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover", "primary-link");
-  signUpLink.setAttribute("href", "login-and-signin.html?signup=true");
-  signUpLink.textContent = "Sign up";
+  const registerLink = document.createElement("a");
+  registerLink.classList.add("navlink", "link-dark", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover", "primary-link");
+  registerLink.setAttribute("href", "login-and-register.html?register=true");
+  registerLink.textContent = "Register";
 
 
-  if( pathname === "login-and-signin.html?signup=true") {
-    signUpLink.classList.add("link-underline-opacity-100");
-    signUpLink.setAttribute("aria-current", "page");
+  if(register === "true") {
+    registerLink.classList.add("link-underline-opacity-100");
+    registerLink.setAttribute("aria-current", "page");
   }
-  signUpLi.appendChild(signUpLink);
+  registerLi.appendChild(registerLink);
 
 
   const loginLi = document.createElement("li");
@@ -32,17 +37,17 @@ export default function renderNavBar() {
 
   const loginLink = document.createElement("a");
   loginLink.classList.add("navlink", "link-light", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover", "secondary-link");
-  loginLink.setAttribute("href", "login-and-signin.html?login=true");
+  loginLink.setAttribute("href", "login-and-register.html?register=false");
   loginLink.textContent = "Login";
 
-  if( pathname === "login-and-signin.html?login=true") {
+  if(register === "false") {
     loginLink.classList.add("link-underline-opacity-100");
     loginLink.setAttribute("aria-current", "page");
   }
 
   loginLi.appendChild(loginLink);
 
-  topNavUl.appendChild(signUpLi);
+  topNavUl.appendChild(registerLi);
   topNavUl.appendChild(loginLi);
 
   topNavContainer.appendChild(topNavUl);
@@ -61,7 +66,12 @@ export default function renderNavBar() {
   homeLink.setAttribute("href", "index.html");
   homeLink.textContent = "Home";
 
-  if( pathname === "index.html") {
+
+
+  if( pathname === "/index.html") {
+    	
+    
+
     homeLink.classList.add("link-underline-opacity-100");
     homeLink.setAttribute("aria-current", "page");
   }

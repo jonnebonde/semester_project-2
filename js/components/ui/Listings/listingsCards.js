@@ -4,10 +4,9 @@ export function renderListingsCards(data, target) {
   const container = document.querySelector(target);
 
 
-  console.log(container)
+
   data.forEach(function (listing) {
 
-    console.log(listing.bids);
     const card = document.createElement("a");
     card.classList.add("card");
     card.setAttribute("href", `details.html?id=${listing.id}`);

@@ -33,6 +33,10 @@ body {
   flex-direction: column;
 }
 
+main {
+  margin-bottom: 6rem;
+}
+
 section {
   max-width: 1920px;
   margin: 0 auto;
@@ -217,6 +221,17 @@ section .section-heading {
   height: 218px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.login_register_form-container {
+  max-width: 500px !important;
+  width: 100% !important;
+  margin: 0 auto;
+}
+.login_register_form-container button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 10px 40px;
 }
 
 footer {
