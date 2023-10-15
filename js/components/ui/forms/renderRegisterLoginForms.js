@@ -21,11 +21,13 @@ export function renderLoginSignupForms() {
 
   if (register === "true") {
     renderForm("register");
+    document.title = "Register | Auction House";
     loginRegisterTopHeading.textContent = "Register";
     loginRegisterBottomHeading.textContent = "Already have an account?";
     loginRegisterChangeFormButton.textContent = "Login";
 
   } else {
+    document.title = "Login | Auction House";
     loginRegisterTopHeading.textContent = "Login";
     loginRegisterBottomHeading.textContent = "Don't have an account yet?";
     loginRegisterChangeFormButton.textContent = "Register";
@@ -101,9 +103,11 @@ function renderForm(formType) {
     agreeInput.setAttribute("required", true);
 
     const agreeLabel = document.createElement("label");
+    agreeLabel.id = "register-form-agree-label";
     agreeLabel.classList.add("form-check-label");
-    agreeLabel.setAttribute("for", "checkbox");
-    agreeLabel.textContent = "Agree";
+    agreeLabel.setAttribute("data-bs-toggle", "modal");
+    agreeLabel.setAttribute("data-bs-target", "#exampleModal");
+    agreeLabel.textContent = "Agree to terms and conditions";
 
     agreeContainer.appendChild(agreeInput);
     agreeContainer.appendChild(agreeLabel);
