@@ -18,11 +18,12 @@ export function validateRegister(e) {
   const repeatPasswordInput = document.querySelector("#repeat-password");
 
   const email = validateEmail(emailInput.value);
-  const username = validateLength(usernameInput.value);
+  const username = validateUserName(usernameInput.value, 3, 20);
   const newPassword = validateLength(newPasswordInput.value, 7);
   const repeatPassword = validateRepeatedPassword(newPassword, newPasswordInput.value, repeatPasswordInput.value);
+  const checkTerms = document.querySelector("#checkbox").checked;
 
-  console.log(repeatPassword);
+  console.log(username);
 
   if (email) {
     displayMessage("success", "Email is valid", "#emailHelp");
@@ -32,13 +33,13 @@ export function validateRegister(e) {
     changeInputStatus(emailInput, "error");
   }
 
-  if (username) {
+  /* if (username) {
     displayMessage("success", "Username is valid", "#usernameHelp");
     changeInputStatus(usernameInput, "success");
   } else {
     displayMessage("error", "Username must be at least 3 characters long", "#usernameHelp");
     changeInputStatus(usernameInput, "error");
-  }
+  } */
 
   if (newPassword) {
     displayMessage("success", "Password is valid", "#passwordHelp");
@@ -56,7 +57,7 @@ export function validateRegister(e) {
     changeInputStatus(repeatPasswordInput, "error");
   }
 
-  
+
 
   function validateLength(value, len) {
     if (value.trim().length > len) {
@@ -67,7 +68,7 @@ export function validateRegister(e) {
   function validateRepeatedPassword(status, password, repeatPassword) {
     if (!status) {
       return false;
-    } else if (status === true && password === repeatPassword) {  
+    } else if (status === true && password === repeatPassword ) {  
       return true;
     }
   }
@@ -85,7 +86,7 @@ export function validateRegister(e) {
   buttonSpinner.show(); */
 
   /*  regiserNewUser(newUser, buttonSpinner); */
-  if (email && username && newPassword && repeatPassword) {
+  if (email && username && newPassword && repeatPassword && checkTerms) {
     console.log("register");
   }
 }
