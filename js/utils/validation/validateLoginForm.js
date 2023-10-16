@@ -1,33 +1,31 @@
 import { baseUrl } from "../../settings/api.js";
-import { emailChecker } from "./emailChecker.js";
+import { validateEmail } from "./validateEmail.js";
 import { addUserInfoToStorage } from "../storage/userStorage.js";
+import { renderLoadingSpinner } from "../../components/ui/loadingIndicatorForButtons.js";
+import displayMessage from "../../components/ui/displayMessage.js";
 
-export function handleLogin(e) {
+export function validateLogin(e) {
   e.preventDefault();
 
   const submitLoginFormBtn = document.querySelector("#login-submit_btn");
-  const submitLoginFormBtnSpinner = document.querySelector("#login-submit_btn-spinner");
-  const submitLoginFormBtnText = document.querySelector("#login-submit_btn-text");
 
-  submitLoginFormBtnText.textContent = "loading...";
-  submitLoginFormBtnSpinner.classList.remove("d-none");
-  submitLoginFormBtnSpinner.classList.add("d-block");
+  const buttonSpinner = renderLoadingSpinner(submitLoginFormBtn);
+  buttonSpinner.show();
 
-  console.log("login");
 
   const email = document.querySelector("#email").value;
   const password = document.querySelector("#password").value;
 
   if (!emailChecker(email)) {
-    alert("The email must be a noroff.no or stud.noroff.no email address");
+    displayMessage("error", "The email must be a noroff.no or stud.noroff.no email address", ".message-container");
     return;
   }
-  loginToService(email, password);
+  loginToService(email, password, buttonSpinner);
 
 }
 
 
-export async function loginToService(email, password) {
+export async function loginToService(email, password, loader) {
 
   const url = baseUrl + "/auth/login";
 
@@ -54,6 +52,7 @@ export async function loginToService(email, password) {
 
     if (json) {
       console.log(json);
+      loader.hide();
       addUserInfoToStorage(json);
     
     }

@@ -74,8 +74,19 @@ section .section-heading {
 .error {
   color: rgb(232, 43, 72);
   background-color: #FFFFFF;
-  padding: 10px;
-  border-radius: 2px;
+}
+
+.success {
+  color: rgb(29, 131, 72);
+  background-color: #FFFFFF;
+}
+
+.success-border {
+  border: 1px solid rgb(29, 131, 72) !important;
+}
+
+.error-border {
+  border: 1px solid rgb(232, 43, 72) !important;
 }
 
 .primary-link {
@@ -232,7 +243,7 @@ section .section-heading {
 
 .login_register_form-container {
   max-width: 500px !important;
-  width: 100% !important;
+  width: 90% !important;
   margin: 0 auto;
 }
 .login_register_form-container #register-form-agree-label:hover, .login_register_form-container #register-form-agree-label:focus, .login_register_form-container #register-form-agree-label:active {

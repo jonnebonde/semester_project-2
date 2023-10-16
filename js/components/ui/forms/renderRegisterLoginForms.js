@@ -1,14 +1,12 @@
+import { renderLoadingSpinner } from "../loadingIndicatorForButtons.js";
+
 export function renderLoginSignupForms() {
   const currentUrl = new URLSearchParams(window.location.search);
   const register = currentUrl.get("register");
 
-
-
-
   const loginRegisterTopHeading = document.querySelector("#login_register-top_heading");
   const loginRegisterBottomHeading = document.querySelector("#login_register-bottom_heading");
   const loginRegisterChangeFormButton = document.querySelector("#login_register-change-form_btn");
-  
 
   loginRegisterChangeFormButton.addEventListener("click", () => {
     if (register === "true") {
@@ -16,7 +14,6 @@ export function renderLoginSignupForms() {
     } else {
       window.location.href = "login-and-register.html?register=true";
     }
-
   });
 
   if (register === "true") {
@@ -25,7 +22,6 @@ export function renderLoginSignupForms() {
     loginRegisterTopHeading.textContent = "Register";
     loginRegisterBottomHeading.textContent = "Already have an account?";
     loginRegisterChangeFormButton.textContent = "Login";
-
   } else {
     document.title = "Login | Auction House";
     loginRegisterTopHeading.textContent = "Login";
@@ -36,7 +32,6 @@ export function renderLoginSignupForms() {
 }
 
 function renderForm(formType) {
-
   const loginRegisterContainer = document.querySelector(".login_register_form-container");
 
   const fields = [
@@ -48,7 +43,7 @@ function renderForm(formType) {
 
   if (formType === "login") {
     fields.splice(1, 1);
-    fields.splice(2, 1); 
+    fields.splice(2, 1);
   }
 
   const form = document.createElement("form");
@@ -68,14 +63,6 @@ function renderForm(formType) {
     input.type = fieldData.type;
     input.classList.add("form-control");
     input.setAttribute("aria-describedby", `${fieldData.id}Help`);
-    input.setAttribute("required", true);
-
-    if (fieldData.type === "password") {
-      input.setAttribute("minlength", 8);
-    } else {
-      input.setAttribute("minlength", 3);
-    }
-    input.setAttribute("autocomplete", fields.id)
     input.id = fieldData.id;
 
     fieldContainer.appendChild(label);
@@ -100,7 +87,7 @@ function renderForm(formType) {
     agreeInput.type = "checkbox";
     agreeInput.classList.add("form-check-input");
     agreeInput.id = "checkbox";
-    agreeInput.setAttribute("required", true);
+ 
 
     const agreeLabel = document.createElement("label");
     agreeLabel.id = "register-form-agree-label";
@@ -119,12 +106,6 @@ function renderForm(formType) {
   submitButton.type = "submit";
   submitButton.classList.add("btn", "btn-primary", "d-flex", "link-dark", "link-underline-opacity-0", "link-underline-opacity-100-hover");
 
-  const submitButtonSpinner = document.createElement("span");
-  submitButtonSpinner.id = `${formType}-submit_btn-spinner`;
-  submitButtonSpinner.classList.add("spinner-border", "spinner-border-sm", "d-none");
-  submitButtonSpinner.setAttribute("role", "status");
-  submitButtonSpinner.setAttribute("aria-hidden", true);
-
   const submitButtonText = document.createElement("span");
   submitButtonText.id = `${formType}-submit_btn-text`;
 
@@ -132,12 +113,11 @@ function renderForm(formType) {
   submitButtonText.setAttribute("role", "status");
   submitButtonText.setAttribute("aria-hidden", true);
 
-  submitButton.appendChild(submitButtonText); 
-  submitButton.appendChild(submitButtonSpinner);
+  submitButton.appendChild(submitButtonText);
+
 
   form.appendChild(submitButton);
 
-  loginRegisterContainer.innerHTML = ""; 
+  loginRegisterContainer.innerHTML = "";
   loginRegisterContainer.appendChild(form);
-
 }

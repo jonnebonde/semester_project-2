@@ -1,5 +1,13 @@
+import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 
 
+
+/* const token = getUserInfoFromStorage().token; */
+const token = false;
+
+
+
+console.log(token);
 
 
 
@@ -99,9 +107,11 @@ export default function renderNavBar() {
 
   bottomNavContainer.appendChild(bottomNavUl);
 
-  const token = false;
+
 
   if (token) {
+    console.log("token");
+
 
     const sellLi = document.createElement("li");
     sellLi.classList.add("nav-item");

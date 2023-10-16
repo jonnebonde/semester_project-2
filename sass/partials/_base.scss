@@ -50,8 +50,19 @@ section {
 .error {
   color: getColour(error-message-color);
   background-color: getColour(white, 1);
-  padding: 10px;
-  border-radius: 2px;
+}
+
+.success {
+  color: getColour(success-message-color);
+  background-color: getColour(white, 1);
+}
+
+.success-border {
+  border: 1px solid getColour(success-message-color) !important;
+}
+
+.error-border {
+  border: 1px solid getColour(error-message-color) !important;
 }
 
 .primary-link {
