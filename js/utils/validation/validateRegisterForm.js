@@ -1,10 +1,9 @@
 import { baseUrl } from "../../settings/api.js";
-import { validateEmail } from "./validateEmail.js";
 import { loginToService } from "./validateLoginForm.js";
 import displayMessage from "../../components/ui/displayMessage.js";
 import { renderLoadingSpinner } from "../../components/ui/loadingIndicatorForButtons.js";
 import changeInputStatus from "../../components/ui/changeInputStatus.js";
-import { validateUserName } from "./validateUserName.js";
+import { validateUserName, validateEmail, validateLength, validateRepeatedPassword } from "./validationTools.js";
 
 export function validateRegister(e) {
   e.preventDefault();
@@ -23,6 +22,7 @@ export function validateRegister(e) {
   const repeatPassword = validateRepeatedPassword(newPassword, newPasswordInput.value, repeatPasswordInput.value);
   const checkTerms = document.querySelector("#checkbox").checked;
 
+
   console.log(username);
 
   if (email) {
@@ -32,14 +32,6 @@ export function validateRegister(e) {
     displayMessage("error", "The email must be a noroff.no or stud.noroff.no email address", "#emailHelp");
     changeInputStatus(emailInput, "error");
   }
-
-  /* if (username) {
-    displayMessage("success", "Username is valid", "#usernameHelp");
-    changeInputStatus(usernameInput, "success");
-  } else {
-    displayMessage("error", "Username must be at least 3 characters long", "#usernameHelp");
-    changeInputStatus(usernameInput, "error");
-  } */
 
   if (newPassword) {
     displayMessage("success", "Password is valid", "#passwordHelp");
@@ -57,21 +49,12 @@ export function validateRegister(e) {
     changeInputStatus(repeatPasswordInput, "error");
   }
 
-
-
-  function validateLength(value, len) {
-    if (value.trim().length > len) {
-      return true;
-    }
+  if(checkTerms) {
+    displayMessage("success", "Terms are accepted", "#register-form-agree-label");
+  } else {
+    displayMessage("error", "Please accept the terms", "#register-form-agree-label");
   }
 
-  function validateRepeatedPassword(status, password, repeatPassword) {
-    if (!status) {
-      return false;
-    } else if (status === true && password === repeatPassword ) {  
-      return true;
-    }
-  }
 
   /*   const newUser = {
       name: username.value,
@@ -87,6 +70,7 @@ export function validateRegister(e) {
 
   /*  regiserNewUser(newUser, buttonSpinner); */
   if (email && username && newPassword && repeatPassword && checkTerms) {
+    buttonSpinner.show();
     console.log("register");
   }
 }
@@ -121,6 +105,7 @@ async function regiserNewUser(details, loader) {
 
     console.log(json);
     displayMessage("success", "User created", ".message-container");
+
     loginToService(email, password);
   } catch (error) {
     console.log(error);

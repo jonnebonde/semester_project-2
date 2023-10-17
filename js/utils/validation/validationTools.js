@@ -16,3 +16,31 @@ export function validateUserName(name, minLength, maxLength) {
   displayMessage("success", "Username is valid", "#usernameHelp");
   return true;
 }
+
+export function validateEmail(email) {
+  const emailRegex = /\b[A-Za-z0-9._%+-]+@(stud\.)?noroff\.no\b/;
+
+  function checkEmail(email) {
+    return emailRegex.test(email);
+  }
+
+  if (checkEmail(email)) {
+    return true;
+  }
+
+  return false;
+}
+
+export function validateLength(value, len) {
+  if (value.trim().length > len) {
+    return true;
+  }
+}
+
+export function validateRepeatedPassword(status, password, repeatPassword) {
+  if (!status) {
+    return false;
+  } else if (status === true && password === repeatPassword) {
+    return true;
+  }
+}

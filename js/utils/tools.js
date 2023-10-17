@@ -1,3 +1,9 @@
+/**
+ * Finds the highest bid amount from an array of bids.
+ *
+ * @param {Array} bids - An array of bid objects.
+ * @returns {number} The highest bid amount.
+ */
 export function findHighestBid(bids) {
   let highestBid = 0;
   bids.forEach(function (bid) {
@@ -9,6 +15,11 @@ export function findHighestBid(bids) {
   return highestBid;
 }
 
+/**
+ * Calculates the time difference between the current time and a given end time.
+ * @param {string} timeUntilEnds - The end time in string format.
+ * @returns {string} - A string indicating the time difference in days and hours.
+ */
 export function timeDifference(timeUntilEnds) {
   let timeDifference = new Date(timeUntilEnds) - new Date();
 
@@ -20,3 +31,5 @@ export function timeDifference(timeUntilEnds) {
 
   return convertTimeToDays(timeDifference);
 }
+
+
