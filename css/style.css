@@ -221,17 +221,32 @@ section .section-heading {
 .card {
   background-color: rgba(255, 255, 255, 0.6) !important;
   border: 1px rgb(50, 76, 42) solid !important;
-  height: 260px;
-  width: 360px;
+  height: 158px;
+  width: 180px;
+}
+.card time {
+  text-align: center;
+  font-size: 14px;
+}
+@media (min-width: 576px) {
+  .card {
+    height: 260px;
+    width: 360px;
+  }
 }
 .card:hover, .card:focus, .card:active {
   box-shadow: 0 0.5rem 1rem rgba(54, 54, 54, 0.85);
   background-color: #FFFFFF !important;
 }
 .card .card-img-top {
-  height: 218px;
+  height: 120px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media (min-width: 576px) {
+  .card .card-img-top {
+    height: 218px;
+  }
 }
 
 .login_register_container button {
@@ -6317,7 +6332,7 @@ textarea.form-control-lg {
   width: 100%;
   margin-right: -100%;
   backface-visibility: hidden;
-  transition: transform 0.6s ease-in-out;
+  transition: transform 0.1s ease-in-out !important;
 }
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {

@@ -1,6 +1,6 @@
 import { baseUrl } from "../settings/api.js";
 import { renderHeroCarousel } from "../components/ui/carousel/renderCarouselHomePage.js";
-import { renderListingsCards } from "../components/ui/Listings/listingsCards.js";
+import { renderListingsCards } from "../components/ui/Listings/renderListingsCards.js";
 import displayMessage from "../components/ui/displayMessage.js";
 import apiCall from "../utils/api/apiCall.js";
 import renderNavBar from "../components/ui/navBar/renderNav.js";

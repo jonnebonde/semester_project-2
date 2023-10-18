@@ -13,8 +13,8 @@ const registerForm = document.querySelector("#register-form");
 
 testBtn.addEventListener("click", validateRegister) */
 
- if (loginForm) {
+if (loginForm) {
   loginForm.addEventListener("submit", validateLogin);
 } else if (registerForm) {
   registerForm.addEventListener("submit", validateRegister);
-} 
+}
