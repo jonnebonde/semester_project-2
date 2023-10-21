@@ -44,8 +44,17 @@
     background-color: getColour(primary-background-color, 0.8);
     padding: 0.5rem 0;
     
-   
+  }
 
+  #logged-in-btn-group {
+    
+    a:hover,
+    a:focus,
+    a:active {
+      filter: brightness(180%);
+
+    }
+   
   }
 
 }

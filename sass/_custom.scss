@@ -3,8 +3,10 @@
 $primary: getColour(primary-color, 0.85);
 $secondary: getColour(primary-background-color);
 
+
+
 // button radius 
-$border-radius: 2px;
+$border-radius: 4px;
 
 // Fonts
 
@@ -23,8 +25,17 @@ $carousel-indicator-height: 6px;
 $carousel-indicator-spacer: 5px;
 $carousel-control-width: 10%;
 
-// links
+// dropdown
 
+$dropdown-item-padding-y: 0 !default;
+$dropdown-item-padding-x: 0 !default;
+
+$body-bg-dark: getColour(primary-background-color, 1) !default;
+$body-color-dark: getColour(white) !default;
+$body-tertiary-bg-dark: getColour(white, 0.2);
+
+$border-color-dark: none;
+$border-color-translucent-dark: none;
 
 // carousel
 
