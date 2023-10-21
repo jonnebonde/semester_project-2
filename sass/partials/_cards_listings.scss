@@ -6,19 +6,19 @@
 .card {
   background-color: getColour(white, 0.6) !important;
   border: 1px getColour(accent-color, 1) solid !important;
-  height: 158px;
-  width: 180px;
+  height: 140px;
+  width: 175px;
 
   time {
     text-align: center;
     font-size: 14px;
   }
-
   
-  @media (min-width: $width-small) {
+  @media (min-width: $width-medium) {
     height: 260px;
     width: 360px;
   }
+
 
   &:hover,
   &:focus,
@@ -28,10 +28,10 @@
   }
 
 .card-img-top {
-  height: 120px;
+  height: 150px;
   object-fit: cover;
   
-  @media (min-width: $width-small) {
+  @media (min-width: $width-medium) {
     height: 218px;
   }
 }

@@ -9,16 +9,13 @@ export function renderHeroCarousel(data = [], targetElement) {
   const carouselItemsElementsArray = [];
   const carouselIndicatorsElementsArray = [];
 
-
-  
-
   for (let i = 0; i < data.length; i++) {
     carouselLoader.classList.add("d-none");
     carouselImageContainer.classList.remove("justify-content-center", "align-items-center");
- 
+
     if (i === 4) {
       break;
-    } 
+    }
 
     const item = data[i];
 

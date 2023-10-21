@@ -1,9 +1,10 @@
 import { baseUrl } from "../settings/api.js";
 import { renderHeroCarousel } from "../components/ui/carousel/renderCarouselHomePage.js";
 import { renderListingsCards } from "../components/ui/Listings/renderListingsCards.js";
-import displayMessage from "../components/ui/displayMessage.js";
+import displayMessage from "../components/ui/state_handlers/displayMessage.js";
 import apiCall from "../utils/api/apiCall.js";
 import renderNavBar from "../components/ui/navBar/renderNav.js";
+import userLogout from "../components/logout.js";
 
 
 
@@ -11,6 +12,7 @@ import renderNavBar from "../components/ui/navBar/renderNav.js";
 // fix the fetches to use the flexiFetchApiDataFunction on a later date
 
 renderNavBar();
+userLogout();
 
 (async function () {
   try {

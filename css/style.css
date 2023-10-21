@@ -221,14 +221,14 @@ section .section-heading {
 .card {
   background-color: rgba(255, 255, 255, 0.6) !important;
   border: 1px rgb(50, 76, 42) solid !important;
-  height: 158px;
-  width: 180px;
+  height: 140px;
+  width: 175px;
 }
 .card time {
   text-align: center;
   font-size: 14px;
 }
-@media (min-width: 576px) {
+@media (min-width: 792px) {
   .card {
     height: 260px;
     width: 360px;
@@ -239,11 +239,11 @@ section .section-heading {
   background-color: #FFFFFF !important;
 }
 .card .card-img-top {
-  height: 120px;
+  height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-@media (min-width: 576px) {
+@media (min-width: 792px) {
   .card .card-img-top {
     height: 218px;
   }

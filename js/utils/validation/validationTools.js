@@ -1,4 +1,4 @@
-import displayMessage from "../../components/ui/displayMessage.js";
+import displayMessage from "../../components/ui/state_handlers/displayMessage.js";
 
 export function validateUserName(name, minLength, maxLength) {
   const nameRegex = new RegExp(`^[A-Za-z0-9_]{${minLength},${maxLength}}$`);

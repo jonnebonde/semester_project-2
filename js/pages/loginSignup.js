@@ -1,10 +1,10 @@
 import renderNavBar from "../components/ui/navBar/renderNav.js";
-import { renderLoginSignupForms } from "../components/ui/forms/renderRegisterLoginForms.js";
+import { renderLoginSignupFormsPage } from "../components/ui/forms/renderRegisterLoginFormsPage.js";
 import { validateLogin } from "../utils/validation/validateLoginForm.js";
 import { validateRegister } from "../utils/validation/validateRegisterForm.js";
 
 renderNavBar();
-renderLoginSignupForms();
+renderLoginSignupFormsPage();
 
 const loginForm = document.querySelector("#login-form");
 const registerForm = document.querySelector("#register-form");

@@ -1,9 +1,8 @@
-import { baseUrl } from "../../settings/api.js";
-import { loginToService } from "./validateLoginForm.js";
-import displayMessage from "../../components/ui/displayMessage.js";
-import { renderLoadingSpinner } from "../../components/ui/loadingIndicatorForButtons.js";
-import changeInputStatus from "../../components/ui/changeInputStatus.js";
+import displayMessage from "../../components/ui/state_handlers/displayMessage.js";
+import { renderLoadingSpinner } from "../../components/ui/state_handlers/loadingIndicatorForButtons.js";
+import changeInputStatus from "../../components/ui/state_handlers/changeInputStatus.js";
 import { validateUserName, validateEmail, validateLength, validateRepeatedPassword } from "./validationTools.js";
+import { regiserNewUser } from "../../utils/api/apiRegister.js";
 
 export function validateRegister(e) {
   e.preventDefault();
@@ -21,9 +20,6 @@ export function validateRegister(e) {
   const newPassword = validateLength(newPasswordInput.value, 7);
   const repeatPassword = validateRepeatedPassword(newPassword, newPasswordInput.value, repeatPasswordInput.value);
   const checkTerms = document.querySelector("#checkbox").checked;
-
-
-  console.log(username);
 
   if (email) {
     displayMessage("success", "Email is valid", "#emailHelp");
@@ -49,65 +45,21 @@ export function validateRegister(e) {
     changeInputStatus(repeatPasswordInput, "error");
   }
 
-  if(checkTerms) {
+  if (checkTerms) {
     displayMessage("success", "Terms are accepted", "#register-form-agree-label");
   } else {
     displayMessage("error", "Please accept the terms", "#register-form-agree-label");
   }
 
-
-  /*   const newUser = {
-      name: username.value,
-      email: email.value,
-      avatar: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png",
-      password: newPassword.value,
-    }; */
-
-  /* ;
-
-
-  buttonSpinner.show(); */
-
-  /*  regiserNewUser(newUser, buttonSpinner); */
-  if (email && username && newPassword && repeatPassword && checkTerms) {
-    buttonSpinner.show();
-    console.log("register");
-  }
-}
-
-async function regiserNewUser(details, loader) {
-  const url = baseUrl + "/auth/register";
-
-  const name = details.name;
-  const email = details.email;
-  const password = details.password;
-  const avatar = details.avatar;
-
-  const data = JSON.stringify({ name: name, email: email, password: password, avatar: avatar });
-
-  const options = {
-    method: "POST",
-    body: data,
-    headers: {
-      "Content-Type": "application/json",
-    },
+  const newUser = {
+    userName: usernameInput.value,
+    email: emailInput.value,
+    avatar: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png",
+    password: newPasswordInput.value,
   };
 
-  try {
-    const response = await fetch(url, options);
-    const json = await response.json();
-
-    if (response.status !== 200) {
-      displayMessage("error", json.errors[0].message, ".message-container");
-      loader.hide();
-      return;
-    }
-
-    console.log(json);
-    displayMessage("success", "User created", ".message-container");
-
-    loginToService(email, password);
-  } catch (error) {
-    console.log(error);
+  if (email && username && newPassword && repeatPassword && checkTerms) {
+    buttonSpinner.show();
+    regiserNewUser(newUser, buttonSpinner);
   }
 }
