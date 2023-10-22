@@ -3,6 +3,8 @@ import { findHighestBid, timeDifference } from "../../../utils/tools.js";
 export function renderListingsCards(data, target) {
   const container = document.querySelector(target);
 
+  container.innerHTML = "";
+
 
 
   data.forEach(function (listing) {
@@ -35,6 +37,8 @@ export function renderListingsCards(data, target) {
     cardContent.appendChild(cardTime);
 
     card.appendChild(cardContent);
+
+  
 
     container.appendChild(card);
   });
