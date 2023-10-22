@@ -1,13 +1,16 @@
 import { baseUrl } from "../../settings/api.js";
 
 export default async function apiCall(url) {
-  console.log("url", url);
   const response = await fetch(url);
   const result = await response.json();
   return result;
 }
 
-export async function getAllListings(limit, offset, sort = "title", sortOrder = "asc") {
+
+
+// dont know if this is needed or a good idea, but it works fine
+
+/* export async function getAllListings(limit, offset, sort = "title", sortOrder = "asc") {
   try {
     let allListings = [];
 
@@ -26,7 +29,10 @@ export async function getAllListings(limit, offset, sort = "title", sortOrder = 
   } catch (error) {
     throw error;
   }
-}
+} */
+
+
+
 
 
 //limit=${limit}&offset=${offset}&sort=${sort}&sortOrder=${sortOrder}&_bids=${bids}&_active=${active

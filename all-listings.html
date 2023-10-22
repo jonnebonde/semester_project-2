@@ -26,21 +26,34 @@
       </nav>
     </header>
     <main>
-     <section class="all-listings-filter-container container">
+     <section class="all-listings-filter-container container-fluid">
       <div class="section-heading">
         <h2>Filter</h2>
       </div>
+        <div class="all-listings-sortorder-btn-group d-flex flex-column">
+          <h3 class="text-center">Sort by</h3>
+          <div class="d-flex justify-content-center">
+            <button id="all_listings-btn" type="button" class="btn btn-primary mx-3">Ascending</button>
+            <button id="all_listings-btn" type="button" class="btn btn-primary mx-3">Descending</button>
+          </div>
+        
+        </div>
+        
+
+   
      </section>
      <section class="all-listings-results-container container-fluid">
       <div class="section-heading">
         <h2>All Auctions</h2>
       </div>
-      <div class="listings-container d-flex flex-wrap justify-content-center gap-4">
-      </div>
+      
       <div class="paginate_buttons container-fluid d-flex justify-content-center m-3">
         <button  id="all_listings_previous_page-btn" type="button" class="btn btn-primary mx-5">Previous</button>
         <button id="all_listings_next_page-btn"  type="button" class="btn btn-primary mx-5">Next</button>
       </div>
+      <div class="listings-container d-flex flex-wrap justify-content-center gap-4">
+      </div>
+      
      </section>
     </main>
   

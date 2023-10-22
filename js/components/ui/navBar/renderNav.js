@@ -33,7 +33,7 @@ export default function renderNavBar() {
   bottomNavUl.classList.add("navbar-nav", "flex-row", "justify-content-between", "gap-5");
 
   const homeLink = renderNavlinks("Home", "index.html", pathname === "index.html");
-  const buyLink = renderNavlinks("Buy", "all-listings.html", pathname === "all-listings.html");
+  const buyLink = renderNavlinks("Buy", "all-listings.html?limit=20&offset=0&sort=title&sortOrder=asc", pathname === "all-listings.html");
 
   bottomNavUl.appendChild(homeLink);
   bottomNavUl.appendChild(buyLink);
