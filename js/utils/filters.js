@@ -1,6 +1,7 @@
 import { setNewUrl, getCurrentUrl } from "./urlStates.js";
+import { getListings } from "./api/apiListings.js";
 
-let { sortUrl, limitUrl, } = getCurrentUrl();
+let { sortUrl, limitUrl } = getCurrentUrl();
 
 export function sortListingsOrder() {
   const sortOrderBtn = document.querySelector(".all-listings-sortorder-btn-group");
@@ -10,8 +11,10 @@ export function sortListingsOrder() {
 
     if (e.target.textContent === "Ascending") {
       setNewUrl(limitUrl, 0, sortUrl, "asc");
+      getListings(limitUrl, 0, sortUrl, "asc")
     } else {
       setNewUrl(limitUrl, 0, sortUrl, "desc");
+      getListings(limitUrl, 0, sortUrl, "desc")
     }
   });
 }

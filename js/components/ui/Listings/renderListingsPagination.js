@@ -30,6 +30,10 @@ function handleNextPageClick(e) {
   let offset = parseInt(offsetUrl);
   let limit = parseInt(limitUrl);
 
+  if(limit > 100) {
+    limit = 100;
+  }
+
   offset += limit;
   setNewUrl(limit, offset, sortUrl, sortOrderUrl);
   checkListingsResultLength(e);
@@ -43,6 +47,11 @@ function handlePrevPageClick(e) {
   let limit = parseInt(limitUrl);
 
   offset -= limit;
+
+  if (offset < 0 || offset > limit) {
+    offset = 0;
+  }
+
   setNewUrl(limit, offset, sortUrl, sortOrderUrl);
   checkListingsResultLength(e);
   getListings(limit, offset, sortUrl, sortOrderUrl);

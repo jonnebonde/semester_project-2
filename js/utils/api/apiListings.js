@@ -3,6 +3,7 @@ import { baseUrl } from "../../settings/api.js";
 import { renderListingsCards } from "../../components/ui/Listings/renderListingsCards.js";
 import { renderListingsPagination } from "../../components/ui/Listings/renderListingsPagination.js";
 import { getCurrentUrl } from "../urlStates.js";
+import displayMessage from "../../components/ui/state_handlers/displayMessage.js";
 
 let { sortUrl, sortOrderUrl, limitUrl, offsetUrl } = getCurrentUrl();
 
@@ -15,11 +16,13 @@ export async function getListings(limit = limitUrl, offset = offsetUrl, sort = s
     );
 
     console.log(limit, offset, sort, sortOrder);
+    console.log(allListings);
 
     renderListingsPagination(allListings);
     renderListingsCards(allListings, ".listings-container");
   } catch (error) {
     console.log(error);
+    displayMessage("error", error, ".listings-container");
   }
 }
 
