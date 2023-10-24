@@ -23,5 +23,5 @@ export function setNewUrl(limit, offset, sort, sortOrder) {
 
   console.log(limit, offset, sort, sortOrder);
 
-  getListings(limit, offset, sort, sortOrder);
+  
 }

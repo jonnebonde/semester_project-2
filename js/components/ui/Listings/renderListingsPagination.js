@@ -1,3 +1,4 @@
+import { getListings } from "../../../utils/api/apiListings.js";
 import { getCurrentUrl, setNewUrl } from "../../../utils/urlStates.js";
 
 const nextPageBtn = document.querySelector("#all_listings_next_page-btn");
@@ -32,6 +33,7 @@ function handleNextPageClick(e) {
   offset += limit;
   setNewUrl(limit, offset, sortUrl, sortOrderUrl);
   checkListingsResultLength(e);
+  getListings(limit, offset, sortUrl, sortOrderUrl);
 }
 
 function handlePrevPageClick(e) {
@@ -43,6 +45,7 @@ function handlePrevPageClick(e) {
   offset -= limit;
   setNewUrl(limit, offset, sortUrl, sortOrderUrl);
   checkListingsResultLength(e);
+  getListings(limit, offset, sortUrl, sortOrderUrl);
 }
 
 function checkListingsResultLength(allListings) {
