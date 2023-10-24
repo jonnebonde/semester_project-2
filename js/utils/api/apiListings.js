@@ -22,7 +22,7 @@ export async function getListings(limit = limitUrl, offset = offsetUrl, sort = s
     renderListingsCards(allListings, ".listings-container");
   } catch (error) {
     console.log(error);
-    displayMessage("error", error, ".listings-container");
+    displayMessage("error", "Ooppps something went wrong", ".listings-container");
   }
 }
 

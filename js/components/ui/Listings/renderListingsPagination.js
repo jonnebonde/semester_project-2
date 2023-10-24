@@ -48,7 +48,7 @@ function handlePrevPageClick(e) {
 
   offset -= limit;
 
-  if (offset < 0 || offset > limit) {
+  if (offset < 0) {
     offset = 0;
   }
 
