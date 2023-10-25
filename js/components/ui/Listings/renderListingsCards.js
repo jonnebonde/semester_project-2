@@ -9,6 +9,8 @@ export function renderListingsCards(data, target) {
 
   data.forEach(function (listing) {
 
+    console.log(listing);
+
     const card = document.createElement("a");
     card.classList.add("card");
     card.setAttribute("href", `details.html?id=${listing.id}`);

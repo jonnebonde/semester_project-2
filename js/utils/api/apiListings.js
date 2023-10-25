@@ -12,7 +12,7 @@ console.log(sortUrl, sortOrderUrl, limitUrl, offsetUrl);
 export async function getListings(limit = limitUrl, offset = offsetUrl, sort = sortUrl, sortOrder = sortOrderUrl) {
   try {
     const allListings = await apiCall(
-      baseUrl + `/listings?limit=${limit}&offset=${offset}&sort=${sort}&sortOrder=${sortOrder}&_bids=true&_active=true`
+      baseUrl + `/listings?limit=${limit}&offset=${offset}&sortOrder=${sortOrder}&_tag=car&_bids=true&_active=true`
     );
 
     console.log(limit, offset, sort, sortOrder);
@@ -22,7 +22,7 @@ export async function getListings(limit = limitUrl, offset = offsetUrl, sort = s
     renderListingsCards(allListings, ".listings-container");
   } catch (error) {
     console.log(error);
-    displayMessage("error", "Ooppps something went wrong", ".listings-container");
+    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listings-container");
   }
 }
 

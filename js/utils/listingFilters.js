@@ -18,3 +18,7 @@ export function sortListingsOrder() {
     }
   });
 }
+
+function sortListingsBy () {
+  
+}
