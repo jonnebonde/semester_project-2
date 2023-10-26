@@ -2,7 +2,7 @@ import { validateEmail, validateLength } from "./validationTools.js";
 import { renderLoadingSpinner } from "../../components/ui/state_handlers/loadingIndicatorForButtons.js";
 import displayMessage from "../../components/ui/state_handlers/displayMessage.js";
 import changeInputStatus from "../../components/ui/state_handlers/changeInputStatus.js";
-import { loginToService } from "../../utils/api/apiLogin.js";
+import { loginToService } from "../../utils/api/post/apiLogin.js";
 
 export function validateLogin(e) {
   e.preventDefault();

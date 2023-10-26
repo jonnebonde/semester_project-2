@@ -1,5 +1,5 @@
-import { baseUrl } from "../../settings/api.js";
-import displayMessage from "../../components/ui/state_handlers/displayMessage.js";
+import { baseUrl } from "../../../settings/api.js";
+import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 import { loginToService } from "./apiLogin.js";
 
 export async function regiserNewUser(details, loader) {

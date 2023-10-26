@@ -11,10 +11,10 @@
     @media (min-width: $width-small) {
       margin-left: 2rem;
     }
-    
-    svg{
+
+    svg {
       height: 70px;
-        width: 50px;
+      width: 50px;
 
       @media (min-width: $width-small) {
         max-height: 80px;
@@ -37,25 +37,18 @@
     @media (min-width: $width-small) {
       padding: 1.5rem 0;
     }
-  
   }
-  
+
   .bottom-nav-container {
     background-color: getColour(primary-background-color, 0.8);
     padding: 0.5rem 0;
-    
   }
 
   #logged-in-btn-group {
-    
     a:hover,
     a:focus,
     a:active {
       filter: brightness(180%);
-
     }
-   
   }
-
 }
-

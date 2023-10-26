@@ -2,7 +2,7 @@ import displayMessage from "../../components/ui/state_handlers/displayMessage.js
 import { renderLoadingSpinner } from "../../components/ui/state_handlers/loadingIndicatorForButtons.js";
 import changeInputStatus from "../../components/ui/state_handlers/changeInputStatus.js";
 import { validateUserName, validateEmail, validateLength, validateRepeatedPassword } from "./validationTools.js";
-import { regiserNewUser } from "../../utils/api/apiRegister.js";
+import { regiserNewUser } from "../../utils/api/post/apiRegister.js";
 
 export function validateRegister(e) {
   e.preventDefault();

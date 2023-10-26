@@ -1,6 +1,6 @@
-import { baseUrl } from "../../settings/api.js";
-import displayMessage from "../../components/ui/state_handlers/displayMessage.js";
-import { addUserInfoToStorage } from "../storage/userStorage.js";  
+import { baseUrl } from "../../../settings/api.js";
+import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
+import { addUserInfoToStorage } from "../../storage/userStorage.js";  
 
 export async function loginToService(loginInfo, loader) {
   const url = baseUrl + "/auth/login";

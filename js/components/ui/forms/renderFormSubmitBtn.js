@@ -14,5 +14,4 @@ export function renderFormSubmitBtn(type) {
   submitButton.appendChild(submitButtonText);
 
   return submitButton;
-
 }

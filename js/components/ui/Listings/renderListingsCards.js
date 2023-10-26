@@ -1,19 +1,18 @@
 import { findHighestBid, timeDifference } from "../../../utils/tools.js";
 
+
+
 export function renderListingsCards(data, target) {
   const container = document.querySelector(target);
 
   container.innerHTML = "";
 
-
-
   data.forEach(function (listing) {
-
     console.log(listing);
 
     const card = document.createElement("a");
     card.classList.add("card");
-    card.setAttribute("href", `details.html?id=${listing.id}`);
+    card.setAttribute("href", `listing.html?id=${listing.id}`);
 
     const cardImg = document.createElement("img");
     cardImg.classList.add("card-img-top");
@@ -34,14 +33,18 @@ export function renderListingsCards(data, target) {
     const cardTime = document.createElement("time");
     cardTime.textContent = timeDifference(listing.endsAt);
 
+  
+
+    
+
     cardContent.appendChild(cardTitle);
     cardContent.appendChild(cardBid);
     cardContent.appendChild(cardTime);
 
     card.appendChild(cardContent);
 
-  
-
     container.appendChild(card);
   });
 }
+
+

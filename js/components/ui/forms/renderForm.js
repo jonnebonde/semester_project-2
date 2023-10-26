@@ -1,6 +1,8 @@
 import { renderFormTextInputs } from "./renderFormTextInputs.js";
 import { renderFormSubmitBtn } from "./renderFormSubmitBtn.js";
 import { renderFormTermsCheckBox } from "./renderFormTermsCheckBox.js";
+import { validateLogin } from "../../../utils/validation/validateLoginForm.js";
+import { validateRegister } from "../../../utils/validation/validateRegisterForm.js";
 
 export function renderForm(target, fields, type) {
   const formContainer = target;
@@ -24,5 +26,9 @@ export function renderForm(target, fields, type) {
 
   formContainer.appendChild(form);
 
+  if (type === "register") {
+    form.addEventListener("submit", validateRegister);
+  } else {
+    form.addEventListener("submit", validateLogin);
+  }
 }
-

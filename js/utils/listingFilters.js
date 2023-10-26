@@ -1,5 +1,5 @@
 import { setNewUrl, getCurrentUrl } from "./urlStates.js";
-import { getListings } from "./api/apiListings.js";
+import { getListings } from "./api/apiGetListings.js";
 
 let { sortUrl, limitUrl } = getCurrentUrl();
 
@@ -17,8 +17,4 @@ export function sortListingsOrder() {
       getListings(limitUrl, 0, sortUrl, "desc")
     }
   });
-}
-
-function sortListingsBy () {
-  
 }

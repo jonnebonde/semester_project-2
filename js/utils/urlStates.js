@@ -1,4 +1,4 @@
-import { getListings } from "../utils/api/apiListings.js";
+import { getListings } from "./api/apiGetListings.js";
 
 export function getCurrentUrl() {
   const urlParams = new URLSearchParams(window.location.search);
