@@ -1,4 +1,4 @@
-import { getListings } from "./api/apiGetListings.js";
+import { getListings } from "./api/get/apiGetListings.js";
 
 export function getCurrentUrl() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -11,7 +11,7 @@ export function getCurrentUrl() {
   return { limitUrl, offsetUrl, sortUrl, sortOrderUrl };
 }
 
-export function setNewUrl(limit, offset, sort, sortOrder) {
+export function setNewUrl(limit, offset, sort, sortOrder, tags) {
   const urlParams = new URLSearchParams(window.location.search);
 
   urlParams.set("sort", sort);
@@ -22,6 +22,4 @@ export function setNewUrl(limit, offset, sort, sortOrder) {
   window.history.replaceState({}, "", `${window.location.pathname}?${urlParams}`);
 
   console.log(limit, offset, sort, sortOrder);
-
-  
 }

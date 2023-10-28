@@ -12,7 +12,7 @@
 //    is the upcoming slide in transition.
 
 .carousel {
-  position: relative;
+  /* position: relative; */
 }
 
 .carousel.pointer-event {
@@ -153,11 +153,11 @@
 // like a button) with data-bs-target for each slide your carousel holds.
 
 .carousel-indicators {
-  position: absolute;
+  /* position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 2;
+  z-index: 2; */
   display: flex;
   justify-content: center;
   padding: 0;

@@ -3,4 +3,3 @@ import { renderLoginSignupFormsPage } from "../components/ui/forms/renderRegiste
 
 renderNavBar();
 renderLoginSignupFormsPage();
-

@@ -10,12 +10,10 @@ export function renderCarouselBtns(className, target, slide) {
   const carouselIcon = document.createElement("span");
   const carouselIconSpan = document.createElement("span");
 
-
-  if(slide === "prev") {
+  if (slide === "prev") {
     carouselIcon.classList.add("carousel-control-prev-icon");
     carouselIconSpan.textContent = "Previous";
-  }
-  else {
+  } else {
     carouselIcon.classList.add("carousel-control-next-icon");
     carouselIconSpan.textContent = "Next";
   }
