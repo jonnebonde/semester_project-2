@@ -1,5 +1,6 @@
 import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 
+
 export function renderNavBarLoggedInMenu() {
   const loggedInUserName = getUserInfoFromStorage().name;
   const loggedInUserAvatar = getUserInfoFromStorage().avatar;
@@ -8,7 +9,6 @@ export function renderNavBarLoggedInMenu() {
   const loggedInBtnGroup = document.createElement("div");
   loggedInBtnGroup.classList.add("btn-group");
   loggedInBtnGroup.id = "logged-in-btn-group";
-
 
   const loggedInBtn = document.createElement("button");
   loggedInBtn.classList.add("btn", "btn-secondary", "dropdown-toggle");

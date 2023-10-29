@@ -11,9 +11,13 @@ export async function regiserNewUser(details, loader) {
     password: details.password,
     avatar: details.avatar,
   };
-  
 
-  const data = JSON.stringify({ name: userCredentials.name, email: userCredentials.email, password: userCredentials.password, avatar: userCredentials.avatar });
+  const data = JSON.stringify({
+    name: userCredentials.name,
+    email: userCredentials.email,
+    password: userCredentials.password,
+    avatar: userCredentials.avatar,
+  });
 
   console.log(data);
   const options = {
@@ -36,11 +40,11 @@ export async function regiserNewUser(details, loader) {
     }
 
     const loginInfo = {
-      email: email,
-      password: password,
+      email: userCredentials.email,
+      password: userCredentials.password,
     };
 
-    console.log(json);
+    console.log(json, loginInfo);
     displayMessage("success", "User created", ".message-container");
 
     loginToService(loginInfo, loader);

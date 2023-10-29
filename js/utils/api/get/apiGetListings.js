@@ -11,13 +11,11 @@ console.log(sortUrl, sortOrderUrl, limitUrl, offsetUrl);
 
 export async function getListings(limit = limitUrl, offset = offsetUrl, sort = sortUrl, sortOrder = sortOrderUrl) {
   try {
-    const allListings = await apiCall(
-      baseUrl + `/listings?limit=${limit}&offset=${offset}&sortOrder=${sortOrder}&_bids=true&_active=true`
-    );
+    const allListings = await apiCall(baseUrl + `/listings?limit=${limit}&offset=${offset}&sortOrder=${sortOrder}&_bids=true&_active=true`);
 
     console.log(limit, offset, sort, sortOrder);
     console.log(allListings);
-      
+
     renderListingsPagination(allListings);
     renderListings(allListings, ".listings-container", "card");
   } catch (error) {
@@ -25,5 +23,3 @@ export async function getListings(limit = limitUrl, offset = offsetUrl, sort = s
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listings-container");
   }
 }
-
-

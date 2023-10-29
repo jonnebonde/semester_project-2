@@ -1,8 +1,9 @@
-import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
+import { getSuperSecretToken, getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 import { renderNavBarLoggedInMenu } from "./renderNavLoggedInMenu.js";
 import { renderNavlinks } from "./renderNavLinks.js";
 
-const token = getUserInfoFromStorage().token;
+const token = getSuperSecretToken();
+const username = getUserInfoFromStorage().name;
 /* const token = false; */
 
 /* console.log(token); */
@@ -40,7 +41,7 @@ export default function renderNavBar() {
 
   bottomNavContainer.appendChild(bottomNavUl);
 
-  if (token) {
+  if (token && username) {
     console.log("token");
 
     topNavContainer.removeChild(topNavUl);

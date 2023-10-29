@@ -45,10 +45,18 @@
   }
 
   #logged-in-btn-group {
+    min-width: 170px;
+
     a:hover,
     a:focus,
     a:active {
       filter: brightness(180%);
+    }
+
+    .dropdown-menu {
+      width: 170px;
+      right: 0;
+      left: auto;
     }
   }
 }

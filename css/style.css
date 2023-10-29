@@ -177,10 +177,18 @@ section .section-heading {
   background-color: rgba(54, 54, 54, 0.8);
   padding: 0.5rem 0;
 }
+.navbar #logged-in-btn-group {
+  min-width: 170px;
+}
 .navbar #logged-in-btn-group a:hover,
 .navbar #logged-in-btn-group a:focus,
 .navbar #logged-in-btn-group a:active {
   filter: brightness(180%);
+}
+.navbar #logged-in-btn-group .dropdown-menu {
+  width: 170px;
+  right: 0;
+  left: auto;
 }
 
 .homepage_hero_section {
@@ -191,6 +199,7 @@ section .section-heading {
   max-height: 600px;
   -o-object-fit: cover;
      object-fit: cover;
+  filter: brightness(0.6);
 }
 .homepage_hero_section #home-hero-view-all_btn {
   bottom: 2rem;

@@ -26,7 +26,8 @@ export function renderFormTextInputs(fields, minBid) {
     if (fieldData.type === "number" && fieldData.id === "bid") {
       input.min = minBid + 1;
       input.max = user.credits;
-      input.placeholder = minBid + 1;
+      input.value = minBid + 1;
+
     }
     fieldContainer.appendChild(label);
     fieldContainer.appendChild(input);

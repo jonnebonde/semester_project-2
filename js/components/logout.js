@@ -1,4 +1,4 @@
-import { deleteFromLocalStorage } from "../utils/storage/localStorage.js";
+import { deleteUserInfoFromStorage } from "../utils/storage/userStorage.js";
 
 export default function userLogout() {
   const logOutBtn = document.querySelector("#logout-btn");
@@ -8,7 +8,7 @@ export default function userLogout() {
       const logOutConfirm = confirm("Are you sure you want to log out?");
 
       if (logOutConfirm) {
-        deleteFromLocalStorage("user");
+        deleteUserInfoFromStorage();
         location.href = "/index.html";
       }
     }

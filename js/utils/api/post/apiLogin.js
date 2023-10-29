@@ -1,6 +1,6 @@
 import { baseUrl } from "../../../settings/api.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
-import { addUserInfoToStorage } from "../../storage/userStorage.js";  
+import { addUserInfoToStorage, saveSuperSecretToken } from "../../storage/userStorage.js";
 
 export async function loginToService(loginInfo, loader) {
   const url = baseUrl + "/auth/login";
@@ -8,7 +8,11 @@ export async function loginToService(loginInfo, loader) {
   const email = loginInfo.email;
   const password = loginInfo.password;
 
+  console.log(typeof email, typeof password);
+
   const data = JSON.stringify({ email: email, password: password });
+
+  console.log(data);
 
   const options = {
     method: "POST",
@@ -34,6 +38,7 @@ export async function loginToService(loginInfo, loader) {
       displayMessage("success", "You are now logged in", ".message-container");
       console.log(json);
       addUserInfoToStorage(json);
+      saveSuperSecretToken(json.accessToken);
       location.href = "/index.html"; // redirect to all listings.html when page is done
     }
   } catch (error) {
