@@ -29,15 +29,17 @@ export function timeDifference(timeUntilEnds) {
     let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
    
     if(days >= 1) {
-      return `Ends in ${days} days, ${hours} hours`;
+      return `${days} days, ${hours} hours`;
     } else if (hours >= 1) {
-      return `Ends in ${hours} hours, ${minutes} minutes`;
+      return ` ${hours} hours, ${minutes} minutes`;
     } else {
-      return `Ends in ${minutes} minutes`;
+      return ` ${minutes} minutes`;
     }
   }
 
   return convertTimeToDays(timeDifference);
 }
+
+
 
 

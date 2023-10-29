@@ -1,9 +1,34 @@
-/* .listing-info-container {
+.listing-info-container {
   display: block;
-  margin-top: 5rem;
   max-width: 650px;
 
   @media (min-width: $width-small) {
     max-width: 100%;
   }
-} */
+  #bid-form {
+    #bid-container {
+      display: flex;
+      align-items: baseline;
+
+      input {
+        max-width: 200px;
+        margin-left: 1rem;
+      }
+    }
+    button {
+      width: 100%;
+    }
+
+    button:hover {
+      text-decoration: underline;
+    }
+
+    span {
+      width: 100%;
+      text-align: center;
+    }
+
+    
+
+  }
+}

@@ -5,7 +5,16 @@ export function renderCarouselBtns(className, target, slide) {
   carouselBtn.setAttribute("type", "button");
   carouselBtn.setAttribute("data-bs-target", target);
   carouselBtn.setAttribute("data-bs-slide", slide);
-  carouselBtn.setAttribute("aria-label", "Previous");
+  carouselBtn.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+  carouselBtn.style.height = "20%";
+  carouselBtn.style.marginTop = "auto";
+  carouselBtn.style.marginBottom = "auto";
+
+  if (slide === "prev") {
+    carouselBtn.setAttribute("aria-label", "Previous");
+  } else {
+    carouselBtn.setAttribute("aria-label", "Next");
+  }
 
   const carouselIcon = document.createElement("span");
   const carouselIconSpan = document.createElement("span");

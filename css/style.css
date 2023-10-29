@@ -199,6 +199,16 @@ section .section-heading {
   padding: 10px 20px;
 }
 
+.carousel {
+  min-width: none;
+}
+@media (min-width: 992px) {
+  .carousel {
+    width: 100%;
+    min-width: 500px;
+    max-width: 650px;
+  }
+}
 .carousel .carousel-item {
   height: 100%;
 }
@@ -227,15 +237,34 @@ section .section-heading {
   margin: auto;
 }
 
-/* .listing-info-container {
+.listing-info-container {
   display: block;
-  margin-top: 5rem;
   max-width: 650px;
-
-  @media (min-width: $width-small) {
+}
+@media (min-width: 576px) {
+  .listing-info-container {
     max-width: 100%;
   }
-} */
+}
+.listing-info-container #bid-form #bid-container {
+  display: flex;
+  align-items: baseline;
+}
+.listing-info-container #bid-form #bid-container input {
+  max-width: 200px;
+  margin-left: 1rem;
+}
+.listing-info-container #bid-form button {
+  width: 100%;
+}
+.listing-info-container #bid-form button:hover {
+  text-decoration: underline;
+}
+.listing-info-container #bid-form span {
+  width: 100%;
+  text-align: center;
+}
+
 .listings-results-container {
   width: 90%;
   margin: 0 auto;

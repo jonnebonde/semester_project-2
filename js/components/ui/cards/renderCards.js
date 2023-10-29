@@ -22,7 +22,7 @@ export function renderCards(listing, container, type) {
   cardBid.textContent = `Current bid: ${findHighestBid(listing.bids)} kr`;
 
   const cardTime = document.createElement("time");
-  cardTime.textContent = timeDifference(listing.endsAt);
+  cardTime.textContent = "Ends in: " + timeDifference(listing.endsAt);
 
   cardContent.appendChild(cardTitle);
   cardContent.appendChild(cardBid);

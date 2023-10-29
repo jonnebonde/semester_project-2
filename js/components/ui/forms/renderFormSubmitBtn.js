@@ -6,8 +6,12 @@ export function renderFormSubmitBtn(type) {
 
   const submitButtonText = document.createElement("span");
   submitButtonText.id = `${type}-submit_btn-text`;
-
   submitButtonText.textContent = "Submit";
+
+  if (type === "bid") {
+    submitButtonText.textContent = "Place bid";
+  }
+
   submitButtonText.setAttribute("role", "status");
   submitButtonText.setAttribute("aria-hidden", true);
 
