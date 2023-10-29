@@ -1,12 +1,14 @@
+/**
+ * Renders the navigation bar based on the user's authentication status and current page location.
+ * @returns {void}
+ */
+
 import { getSuperSecretToken, getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 import { renderNavBarLoggedInMenu } from "./renderNavLoggedInMenu.js";
 import { renderNavlinks } from "./renderNavLinks.js";
 
 const token = getSuperSecretToken();
 const username = getUserInfoFromStorage().name;
-/* const token = false; */
-
-/* console.log(token); */
 
 export default function renderNavBar() {
   const { pathname } = document.location;
@@ -19,6 +21,7 @@ export default function renderNavBar() {
 
   const topNavUl = document.createElement("ul");
   topNavUl.classList.add("navbar-nav", "flex-row");
+
 
   const registerLink = renderNavlinks("Register", "login-and-register.html?register=true", register === "true", "primary-link");
   const loginLink = renderNavlinks("Login", "login-and-register.html?register=false", register === "false", "secondary-link");
@@ -47,6 +50,8 @@ export default function renderNavBar() {
     topNavContainer.removeChild(topNavUl);
 
     const loggedInBtnGroup = renderNavBarLoggedInMenu();
+
+    
 
     topNavContainer.appendChild(loggedInBtnGroup);
 

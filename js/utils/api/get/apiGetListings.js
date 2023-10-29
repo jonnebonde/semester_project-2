@@ -13,9 +13,6 @@ export async function getListings(limit = limitUrl, offset = offsetUrl, sort = s
   try {
     const allListings = await apiCall(baseUrl + `/listings?limit=${limit}&offset=${offset}&sortOrder=${sortOrder}&_bids=true&_active=true`);
 
-    console.log(limit, offset, sort, sortOrder);
-    console.log(allListings);
-
     renderListingsPagination(allListings);
     renderListings(allListings, ".listings-container", "card");
   } catch (error) {

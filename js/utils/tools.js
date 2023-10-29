@@ -27,8 +27,8 @@ export function timeDifference(timeUntilEnds) {
     let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-   
-    if(days >= 1) {
+
+    if (days >= 1) {
       return `${days} days, ${hours} hours`;
     } else if (hours >= 1) {
       return ` ${hours} hours, ${minutes} minutes`;
@@ -39,7 +39,3 @@ export function timeDifference(timeUntilEnds) {
 
   return convertTimeToDays(timeDifference);
 }
-
-
-
-

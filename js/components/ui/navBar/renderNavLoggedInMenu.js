@@ -10,6 +10,7 @@ export function renderNavBarLoggedInMenu() {
   loggedInBtnGroup.classList.add("btn-group");
   loggedInBtnGroup.id = "logged-in-btn-group";
 
+
   const loggedInBtn = document.createElement("button");
   loggedInBtn.classList.add("btn", "btn-secondary", "dropdown-toggle");
   loggedInBtn.setAttribute("type", "button");
@@ -35,7 +36,7 @@ export function renderNavBarLoggedInMenu() {
   const loggedInBtnDropdownMenuItem1 = document.createElement("li");
 
   const loggedInBtnDropdownMenuItemCredits = document.createElement("p");
-  loggedInBtnDropdownMenuItemCredits.classList.add("text-center");
+  loggedInBtnDropdownMenuItemCredits.classList.add("text-center", "nav-credit", "p-2", "m-0");
   loggedInBtnDropdownMenuItemCredits.setAttribute("href", "#");
   loggedInBtnDropdownMenuItemCredits.textContent = `${loggedInUserCredits} kr`;
 

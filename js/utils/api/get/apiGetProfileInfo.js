@@ -1,17 +1,12 @@
 import { baseUrl } from "../../../settings/api.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 import { addUserInfoToStorage, getSuperSecretToken, getUserInfoFromStorage } from "../../storage/userStorage.js";
-import renderNavBar from "../../../components/ui/navBar/renderNav.js";
-
-
-
+import { updateCredits } from "../../../components/ui/state_handlers/updateCredits.js";
 
 export async function getProfileInfo() {
   const user = getUserInfoFromStorage();
   const token = getSuperSecretToken().token;
   const userName = user.name;
-
-
 
   const url = baseUrl + "/profiles/" + userName;
 
@@ -29,10 +24,7 @@ export async function getProfileInfo() {
 
     console.log(json.credits);
     addUserInfoToStorage(json);
-    renderNavBar();
-
-
-
+    updateCredits(json.credits);
   } catch (error) {
     console.log(error);
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listings-container");

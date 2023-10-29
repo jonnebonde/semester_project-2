@@ -4,6 +4,7 @@ import { findHighestBid } from "../../../utils/tools.js";
 import { renderFormSubmitBtn } from "./renderFormSubmitBtn.js";
 import { renderFormTextInputs } from "./renderFormTextInputs.js";
 import { submitBidForm } from "../../../settings/formKeys.js";
+import { setBidMessage } from "../../ui/state_handlers/displayBidMessages.js";
 
 export function renderBidForm(target, data) {
   const user = getUserInfoFromStorage("user");
@@ -23,26 +24,20 @@ export function renderBidForm(target, data) {
 
   target.appendChild(bidForm);
 
+  target.appendChild(bidForm);
   bidForm.addEventListener("submit", validateBid);
 
-  if (!user || !token) {
-    bidForm.textContent = "Please register or login to bid on this listing";
-    bidForm.style.fontWeight = "bold";
-    bidForm.style.color = "red";
-    return;
-  }
+  switch (true) {
+    case user.length === 0 && token.length === 0:
+      setBidMessage("Please register or login to place a bid", bidForm);
+      break;
 
-  if (credits < highestCurrentBid + 1) {
-    bidForm.textContent = "You don't have enough credits to bid on this listing";
-    bidForm.style.fontWeight = "bold";
-    bidForm.style.color = "red";
-    return;
-  }
+    case user.name === data.seller.name:
+      setBidMessage("You can't bid on your own listing", bidForm);
+      break;
 
-  if (user.name === data.seller.name) {
-    bidForm.textContent = "You can't bid on your own listing";
-    bidForm.style.fontWeight = "bold";
-    bidForm.style.color = "red";
-    return;
+    case credits < highestCurrentBid + 1:
+      setBidMessage("You don't have enough credits to place a bid", bidForm);
+      break;
   }
 }

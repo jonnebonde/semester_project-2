@@ -12,7 +12,7 @@ export function renderListingPage(data) {
   renderlistingInfoText(data, textContainer);
 
   const timeAndBidContainer = document.createElement("div");
-  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5", "d-flex", "flex-column");
+  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5", "d-flex", "flex-column", "message");
 
   renderTimeAndBidContainer(data, timeAndBidContainer);
 

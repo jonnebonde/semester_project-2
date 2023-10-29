@@ -27,7 +27,6 @@ export function renderFormTextInputs(fields, minBid) {
       input.min = minBid + 1;
       input.max = user.credits;
       input.value = minBid + 1;
-
     }
     fieldContainer.appendChild(label);
     fieldContainer.appendChild(input);
