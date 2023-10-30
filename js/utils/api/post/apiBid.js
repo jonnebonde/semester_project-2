@@ -7,12 +7,12 @@
  * @param {number} bidInfo.bid - The amount of the bid.
  * @returns {Promise<void>} - A Promise that resolves when the bid is successfully placed.
  */
-import { getUserInfoFromStorage, getSuperSecretToken } from "../../storage/userStorage.js";
+import { getSuperSecretToken } from "../../storage/userStorage.js";
 import { baseUrl } from "../../../settings/api.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 import { renderTimeAndBidContainer } from "../../../components/ui/listing/renderTimeAndBidContainer.js";
 import { renderBidForm } from "../../../components/ui/forms/renderBidForm.js";
-import { getProfileInfo } from "../get/apiGetProfileInfo.js";
+import { updateCredits } from "../../../components/ui/state_handlers/updateCredits.js";
 
 export async function postBid(bidInfo) {
   const token = getSuperSecretToken().token;
@@ -35,14 +35,8 @@ export async function postBid(bidInfo) {
     const json = await response.json();
 
     if (response.status === 200) {
-      console.log(json);
-      displayMessage("success", "Bid was successfully placed", ".listing-time-bid-container");
       biddingContainer.innerHTML = "";
-
-      renderTimeAndBidContainer(json, biddingContainer);
-      renderBidForm(biddingContainer, json);
-      getProfileInfo();
-
+      confirmedBidHandler(json, biddingContainer);
       return;
     }
 
@@ -50,6 +44,14 @@ export async function postBid(bidInfo) {
     console.log(json);
   } catch (error) {
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listing-time-bid-container");
+    renderBidForm(target, data);
     console.log(error);
   }
+}
+
+function confirmedBidHandler(data, target) {
+  displayMessage("success", "Bid was successfully placed", ".listing-time-bid-container");
+  renderTimeAndBidContainer(data, target);
+  renderBidForm(target, data);
+  updateCredits();
 }

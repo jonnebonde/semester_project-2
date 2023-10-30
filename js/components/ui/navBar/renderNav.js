@@ -22,7 +22,6 @@ export default function renderNavBar() {
   const topNavUl = document.createElement("ul");
   topNavUl.classList.add("navbar-nav", "flex-row");
 
-
   const registerLink = renderNavlinks("Register", "login-and-register.html?register=true", register === "true", "primary-link");
   const loginLink = renderNavlinks("Login", "login-and-register.html?register=false", register === "false", "secondary-link");
 
@@ -50,8 +49,6 @@ export default function renderNavBar() {
     topNavContainer.removeChild(topNavUl);
 
     const loggedInBtnGroup = renderNavBarLoggedInMenu();
-
-    
 
     topNavContainer.appendChild(loggedInBtnGroup);
 

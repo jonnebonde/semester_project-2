@@ -1,7 +1,6 @@
 import { baseUrl } from "../../../settings/api.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
-import { addUserInfoToStorage, getSuperSecretToken, getUserInfoFromStorage } from "../../storage/userStorage.js";
-import { updateCredits } from "../../../components/ui/state_handlers/updateCredits.js";
+import { getSuperSecretToken, getUserInfoFromStorage } from "../../storage/userStorage.js";
 
 export async function getProfileInfo() {
   const user = getUserInfoFromStorage();
@@ -16,15 +15,12 @@ export async function getProfileInfo() {
     },
   };
 
-  console.log(token, userName);
-
   try {
     const response = await fetch(url, options);
     const json = await response.json();
 
     console.log(json.credits);
-    addUserInfoToStorage(json);
-    updateCredits(json.credits);
+    return json;
   } catch (error) {
     console.log(error);
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listings-container");

@@ -5,7 +5,7 @@ import apiCall from "../utils/api/get/apiCall.js";
 import renderNavBar from "../components/ui/navBar/renderNav.js";
 import userLogout from "../components/logout.js";
 
-// fix the fetches to use the flexiFetchApiDataFunction on a later date
+
 
 renderNavBar();
 userLogout();
@@ -13,7 +13,6 @@ userLogout();
 (async function () {
   try {
     const newestAuctionData = await apiCall(baseUrl + "/listings?limit=8&sort=created&_bids=true&_active=true");
-
     renderListings(newestAuctionData, ".newest-listings-results-container", "card");
   } catch (error) {
     displayMessage("There was an error fetching the data, please try to refresh the page", ".newest-listings-results-container", "error");

@@ -5,6 +5,8 @@ export function renderCarousel(data = [], targetElement) {
   const carouselLoader = document.querySelector(".loader-carousel");
   const carouselImageContainer = document.querySelector(targetElement);
 
+  carouselImageContainer.classList.remove("d-grid", "justify-content-center", "align-content-center");
+
   let carouselImages = data.media;
 
   if (carouselImages.length === 0 || carouselImages === undefined) {

@@ -267,6 +267,7 @@ section .section-heading {
 }
 .listing-info-container #bid-form button {
   width: 100%;
+  max-width: 500px;
 }
 .listing-info-container #bid-form button:hover {
   text-decoration: underline;
@@ -274,6 +275,15 @@ section .section-heading {
 .listing-info-container #bid-form span {
   width: 100%;
   text-align: center;
+}
+
+.listing-seller-info-container img {
+  max-width: 200px;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .listings-results-container {

@@ -1,4 +1,14 @@
 export default function displayMessage(type, message, target) {
   const messageContainer = document.querySelector(target);
-  messageContainer.innerHTML = `<div class="message ${type}">${message}</div>`;
+
+  const messageElement = document.createElement("div");
+
+  messageElement.classList.add("message", type);
+  messageElement.textContent = message;
+
+  messageContainer.appendChild(messageElement);
+
+  setTimeout(function () {
+    messageElement.remove();
+  }, 3000);
 }
