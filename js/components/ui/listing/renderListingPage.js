@@ -56,7 +56,7 @@ function renderListingSellerInfo(data) {
   sellerInfoAvatar.classList.add("listing-seller-avatar", "rounded");
   sellerInfoAvatar.setAttribute("src", data.seller.avatar);
   sellerInfoAvatar.setAttribute("alt", data.seller.name);
-  sellerInfoAvatar.setAttribute("onerror", "src=https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png");
+  sellerInfoAvatar.setAttribute("onerror", "src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'");
 
   sellerInfoAvatarContainer.appendChild(sellerInfoAvatar);
 
