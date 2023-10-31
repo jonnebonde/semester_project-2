@@ -2,7 +2,7 @@ import { renderCarouselBtns } from "./renderCarouselControllers.js";
 
 export function renderCarousel(data = [], targetElement) {
   const carouselIndicatorsContainer = document.querySelector(".carousel-indicators");
-  const carouselLoader = document.querySelector(".loader-carousel");
+  const carouselLoader = document.querySelector(".loader");
   const carouselImageContainer = document.querySelector(targetElement);
 
   carouselImageContainer.classList.remove("d-grid", "justify-content-center", "align-content-center");

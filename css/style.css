@@ -116,7 +116,7 @@ section .section-heading {
   width: 97% !important;
 }
 
-.loader-carousel {
+.loader {
   width: 48px;
   height: 48px;
   border: 5px solid rgb(255, 92, 0);
@@ -210,16 +210,6 @@ section .section-heading {
   padding: 10px 20px;
 }
 
-.carousel {
-  min-width: none;
-}
-@media (min-width: 992px) {
-  .carousel {
-    width: 100%;
-    min-width: 500px;
-    max-width: 650px;
-  }
-}
 .carousel .carousel-item {
   height: 100%;
 }
@@ -284,6 +274,18 @@ section .section-heading {
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.listing-bid-table-container tbody {
+  font-size: 15px;
+}
+.listing-bid-table-container th {
+  background-color: rgba(54, 54, 54, 0.8) !important;
+  color: #FFFFFF !important;
+}
+.listing-bid-table-container td {
+  padding: 7px !important;
+  word-break: break-all;
 }
 
 .listings-results-container {

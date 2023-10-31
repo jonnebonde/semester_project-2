@@ -13,6 +13,7 @@ import displayMessage from "../../../components/ui/state_handlers/displayMessage
 import { renderTimeAndBidContainer } from "../../../components/ui/listing/renderTimeAndBidContainer.js";
 import { renderBidForm } from "../../../components/ui/forms/renderBidForm.js";
 import { updateCredits } from "../../../components/ui/state_handlers/updateCredits.js";
+import { renderListingBidsTable } from "../../../components/ui/listing/renderListingBidsTable.js";
 
 export async function postBid(bidInfo) {
   const token = getSuperSecretToken().token;
@@ -54,4 +55,5 @@ function confirmedBidHandler(data, target) {
   renderTimeAndBidContainer(data, target);
   renderBidForm(target, data);
   updateCredits();
+  renderListingBidsTable(data)
 }

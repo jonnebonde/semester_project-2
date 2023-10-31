@@ -7,7 +7,8 @@ export async function getProfileInfo() {
   const token = getSuperSecretToken().token;
   const userName = user.name;
 
-  const url = baseUrl + "/profiles/" + userName;
+  const url = baseUrl + "/profiles/" + userName + "?_listings=true&_count";
+ /*  const url = baseUrl + "/profiles/" + userName + "/bids?_listings=true"; */
 
   const options = {
     headers: {
@@ -19,7 +20,7 @@ export async function getProfileInfo() {
     const response = await fetch(url, options);
     const json = await response.json();
 
-    console.log(json.credits);
+    console.log(json);
     return json;
   } catch (error) {
     console.log(error);

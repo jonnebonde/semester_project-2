@@ -1,12 +1,4 @@
 .carousel {
-  min-width: none;
-
-  @media (min-width: $width-large) {
-    width: 100%;
-    min-width: 500px;
-    max-width: 650px;
-  }
-
   .carousel-item {
     height: 100%;
 

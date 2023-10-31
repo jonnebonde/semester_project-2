@@ -27,15 +27,36 @@ export function timeDifference(timeUntilEnds) {
     let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    let timeString = "";
 
-    if (days >= 1) {
-      return `${days} days, ${hours} hours`;
-    } else if (hours >= 1) {
-      return ` ${hours} hours, ${minutes} minutes`;
-    } else {
-      return ` ${minutes} minutes`;
+
+    // If the time difference is less than 1 minute, return "less than 1 minute" author: @mariusbjoroy/copilot 
+    switch (true) {
+      case days >= 1:
+        timeString = `${days} days, ${hours} hours`;
+        break;
+      case hours >= 1:
+        timeString = `${hours} hours, ${minutes} minutes`;
+        break;
+      default:
+        timeString = `${minutes} minutes`;
+        break;
     }
+
+    return timeString;
   }
 
   return convertTimeToDays(timeDifference);
+}
+
+export function formatTimeAndData(date) {
+  const dateObj = new Date(date);
+  const day = dateObj.getDate();
+  const month = dateObj.getMonth() + 1;
+  const year = dateObj.getFullYear();
+  const hours = dateObj.getHours();
+  const minutes = dateObj.getMinutes();
+  const seconds = dateObj.getSeconds();
+  const formattedTimeAndDate = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+  return formattedTimeAndDate;
 }
