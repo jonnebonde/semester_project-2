@@ -276,6 +276,17 @@ section .section-heading {
      object-fit: cover;
 }
 
+.listing-bid-table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 576px) {
+  .listing-bid-table-container {
+    width: 80%;
+  }
+}
 .listing-bid-table-container tbody {
   font-size: 15px;
 }

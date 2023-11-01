@@ -29,8 +29,6 @@ export function renderListingPage(data) {
   const token = getSuperSecretToken();
   const user = getUserInfoFromStorage("user");
 
-  console.log(token, user, "hi");
-
   if (token.length !== 0 && user.length !== 0) {
     const listingSellerInfoContainer = document.querySelector(".listing-seller-info-container");
     const listingBidHistoryContainer = document.querySelector(".listing-bid-history-container");
