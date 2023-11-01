@@ -11,6 +11,8 @@ export function renderListingPage(data) {
   renderCarousel(data, ".carousel-inner");
   const listingTitle = document.querySelector("#listing-title-container h1");
   listingTitle.textContent = data.title;
+  document.title = data.title + " | Auction House";
+
 
   const listingInfoContainer = document.querySelector(".listing-info-container");
   const textContainer = document.querySelector(".listing-text-container");
