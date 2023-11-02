@@ -1,3 +1,5 @@
+import { renderCarousel } from "../components/ui/carousel/renderCarousel.js";
+
 const tagForm = document.querySelector("#tag-form");
 const input = document.querySelector("#tagInput");
 const output = document.querySelector(".tags");
@@ -8,7 +10,6 @@ function outputTag(tagFormat) {
   <button class="tag ">
   <span>${tagFormat} </span>
   <i class="fas fa-times remove-btn"></i>
-   
   </button>
   `;
 
@@ -19,20 +20,21 @@ function outputTag(tagFormat) {
 
 tagForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  collectTagValues()
+
   if (input.value === "") {
     e.preventDefault();
   } else if (output.children.length >= 7) {
     outputTag(input.value);
-    collectTagValues()
+    collectTagValues();
 
     input.disabled = true;
     input.placeholder = "Max number of tags reached!";
   } else {
     outputTag(input.value);
+    collectTagValues();
   }
 
-  console.log(output)
+  console.log(output);
 });
 
 if (input) {
@@ -48,26 +50,31 @@ window.addEventListener("click", (e) => {
     e.target.parentElement.remove();
     input.disabled = false;
     input.placeholder = "Add a tag..";
-    collectTagValues()
+    collectTagValues();
   }
 });
 
 // Initialize an empty array to store tag values
 
-
-
 function collectTagValues() {
   const tagValues = [];
   // Iterate through the children of the output element (tags)
-for (const tag of output.children) {
-  // Extract the text content of each tag and push it to the tagValues array
-  const tagValue = tag.querySelector('span').textContent;
-  tagValues.push(tagValue.trim()); // Trim to remove extra whitespace
+  for (const tag of output.children) {
+    // Extract the text content of each tag and push it to the tagValues array
+    const tagValue = tag.querySelector("span").textContent;
+    tagValues.push(tagValue.trim());
+  }
+
+  // Now, tagValues array contains the values of all the tags
+  const mediaObject = {
+    media: tagValues
+  };
+  console.log(mediaObject);
+
+  // Remove any existing carousel items
+
+
+  // Render the carousel with the new mediaObject
+  renderCarousel(mediaObject, ".carousel-inner");
 }
-
-// Now, tagValues array contains the values of all the tags
-console.log(tagValues);
-
-}
-
 

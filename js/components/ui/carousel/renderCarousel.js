@@ -5,19 +5,28 @@ export function renderCarousel(data = [], targetElement) {
   const carouselLoader = document.querySelector(".loader");
   const carouselImageContainer = document.querySelector(targetElement);
 
+  carouselImageContainer.textContent = "";
+  carouselIndicatorsContainer.textContent = "";
+
+
+
+  console.log(data);
+
   carouselImageContainer.classList.remove("d-grid", "justify-content-center", "align-content-center");
 
   let carouselImages = data.media;
 
-  if (carouselImages.length === 0 || carouselImages === undefined) {
+  console.log(carouselImages);
+
+ /*  if (carouselImages.length === 0 || carouselImages === undefined) {
     carouselImages = ["/assets/img/no-image-icon-23485.png"];
-  }
+  } */
 
   const carouselItemsElementsArray = [];
   const carouselIndicatorsElementsArray = [];
 
   for (let i = 0; i < carouselImages.length; i++) {
-    carouselLoader.classList.add("d-none");
+   /*  carouselLoader.classList.add("d-none"); */
     carouselImageContainer.classList.remove("justify-content-center", "align-items-center");
 
     const item = carouselImages[i];
