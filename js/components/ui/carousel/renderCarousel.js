@@ -9,6 +9,9 @@ export function renderCarousel(data = [], targetElement) {
   carouselIndicatorsContainer.textContent = "";
 
 
+  
+
+
 
   console.log(data);
 
@@ -18,9 +21,9 @@ export function renderCarousel(data = [], targetElement) {
 
   console.log(carouselImages);
 
- /*  if (carouselImages.length === 0 || carouselImages === undefined) {
+  if (carouselImages.length === 0 || carouselImages === undefined) {
     carouselImages = ["/assets/img/no-image-icon-23485.png"];
-  } */
+  }
 
   const carouselItemsElementsArray = [];
   const carouselIndicatorsElementsArray = [];
@@ -73,3 +76,5 @@ export function renderCarousel(data = [], targetElement) {
     }
   }
 }
+
+
