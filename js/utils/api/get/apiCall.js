@@ -1,4 +1,4 @@
-import { baseUrl } from "../../../settings/api.js";
+import { baseUrl } from "../../../settings/apiUrl.js";
 
 export default async function apiCall(url) {
   const response = await fetch(url);

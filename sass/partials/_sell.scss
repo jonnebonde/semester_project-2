@@ -37,6 +37,8 @@
       display: inline-block;
       margin: 0.2em;
       cursor: pointer;
+    }
+     
 
       span {
         font-size: 0.8em;
@@ -49,6 +51,11 @@
 
     .tags {
       margin-bottom: 1.5em;
+
+      img {
+        height: 50px;
+        width: 50px;
+      }
     }
   }
-}
+

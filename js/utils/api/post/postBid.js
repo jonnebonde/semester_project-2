@@ -8,7 +8,7 @@
  * @returns {Promise<void>} - A Promise that resolves when the bid is successfully placed.
  */
 import { getSuperSecretToken } from "../../storage/userStorage.js";
-import { baseUrl } from "../../../settings/api.js";
+import { baseUrl } from "../../../settings/apiUrl.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 import { renderTimeAndBidContainer } from "../../../components/ui/listing/renderTimeAndBidContainer.js";
 import { renderBidForm } from "../../../components/ui/forms/renderBidForm.js";

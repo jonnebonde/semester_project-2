@@ -1,4 +1,4 @@
-import { postBid } from "../api/post/apiBid.js";
+import { postBid } from "../api/post/postBid.js";
 
 export function validateBid(e) {
   e.preventDefault();

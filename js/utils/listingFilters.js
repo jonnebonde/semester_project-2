@@ -1,5 +1,5 @@
 import { setNewUrl, getCurrentUrl } from "./urlStates.js";
-import { getListings } from "./api/get/apiGetListings.js";
+import { getListings } from "./api/get/getListings.js";
 
 let { sortUrl, limitUrl } = getCurrentUrl();
 

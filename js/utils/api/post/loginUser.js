@@ -1,4 +1,4 @@
-import { baseUrl } from "../../../settings/api.js";
+import { baseUrl } from "../../../settings/apiUrl.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 import { addUserInfoToStorage, saveSuperSecretToken } from "../../storage/userStorage.js";
 

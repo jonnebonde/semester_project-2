@@ -1,9 +1,9 @@
-import { baseUrl } from "../settings/api.js";
+import { baseUrl } from "../settings/apiUrl.js";
 import { renderListings } from "../components/ui/Listings/renderListings.js";
 import displayMessage from "../components/ui/state_handlers/displayMessage.js";
 import apiCall from "../utils/api/get/apiCall.js";
 import renderNavBar from "../components/ui/navBar/renderNav.js";
-import userLogout from "../components/logout.js";
+import userLogout from "../components/userLogout.js";
 
 
 

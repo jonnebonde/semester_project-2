@@ -1,4 +1,4 @@
-import { getListings } from "../../../utils/api/get/apiGetListings.js";
+import { getListings } from "../../../utils/api/get/getListings.js";
 import { getCurrentUrl, setNewUrl } from "../../../utils/urlStates.js";
 
 const nextPageBtn = document.querySelector("#all_listings_next_page-btn");

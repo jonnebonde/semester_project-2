@@ -8,11 +8,6 @@ export function renderCarousel(data = [], targetElement) {
   carouselImageContainer.textContent = "";
   carouselIndicatorsContainer.textContent = "";
 
-
-  
-
-
-
   console.log(data);
 
   carouselImageContainer.classList.remove("d-grid", "justify-content-center", "align-content-center");
@@ -29,7 +24,7 @@ export function renderCarousel(data = [], targetElement) {
   const carouselIndicatorsElementsArray = [];
 
   for (let i = 0; i < carouselImages.length; i++) {
-   /*  carouselLoader.classList.add("d-none"); */
+    /*  carouselLoader.classList.add("d-none"); */
     carouselImageContainer.classList.remove("justify-content-center", "align-items-center");
 
     const item = carouselImages[i];
@@ -76,5 +71,3 @@ export function renderCarousel(data = [], targetElement) {
     }
   }
 }
-
-

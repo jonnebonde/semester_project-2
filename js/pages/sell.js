@@ -8,7 +8,8 @@ const max = document.querySelector(".max");
 function outputTag(tagFormat) {
   const tag = `
   <button class="tag ">
-  <span>${tagFormat} </span>
+  <img src="${tagFormat}" alt="tag icon" />
+  
   <i class="fas fa-times remove-btn"></i>
   </button>
   `;
@@ -60,7 +61,7 @@ function collectTagValues() {
   // Iterate through the children of the output element (tags)
   for (const tag of output.children) {
     // Extract the text content of each tag and push it to the tagValues array
-    const tagValue = tag.querySelector("span").textContent;
+    const tagValue = tag.querySelector("img").getAttribute("src");
     tagValues.push(tagValue.trim());
   }
 

@@ -384,14 +384,18 @@ section .section-heading {
   margin: 0.2em;
   cursor: pointer;
 }
-.tag-input .input-wrap .tag span {
+.tag-input .input-wrap span {
   font-size: 0.8em;
 }
-.tag-input .input-wrap .tag b {
+.tag-input .input-wrap b {
   padding-bottom: 1em;
 }
-.tag-input .input-wrap .tags {
+.tag-input .tags {
   margin-bottom: 1.5em;
+}
+.tag-input .tags img {
+  height: 50px;
+  width: 50px;
 }
 
 footer {

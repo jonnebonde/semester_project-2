@@ -1,6 +1,6 @@
-import { baseUrl } from "../../../settings/api.js";
+import { baseUrl } from "../../../settings/apiUrl.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
-import { loginToService } from "./apiLogin.js";
+import { loginToService } from "./loginUser.js";
 
 export async function regiserNewUser(details, loader) {
   const url = baseUrl + "/auth/register";

@@ -1,5 +1,5 @@
-import apiCall from "../get/apiCall.js";
-import { baseUrl } from "../../../settings/api.js";
+import apiCall from "./apiCall.js";
+import { baseUrl } from "../../../settings/apiUrl.js";
 import { renderListingPage } from "../../../components/ui/listing/renderListingPage.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 

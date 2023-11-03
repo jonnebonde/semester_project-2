@@ -1,4 +1,4 @@
-import { getProfileInfo } from "../../../utils/api/get/apiGetProfileInfo.js";
+import { getProfileInfo } from "../../../utils/api/get/getProfileInfo.js";
 import { addUserInfoToStorage } from "../../../utils/storage/userStorage.js";
 import displayMessage from "./displayMessage.js";
 

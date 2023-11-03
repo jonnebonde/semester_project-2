@@ -1,5 +1,5 @@
 import apiCall from "./apiCall.js";
-import { baseUrl } from "../../../settings/api.js";
+import { baseUrl } from "../../../settings/apiUrl.js";
 import { renderListings } from "../../../components/ui/Listings/renderListings.js";
 import { renderListingsPagination } from "../../../components/ui/Listings/renderListingsPagination.js";
 import { getCurrentUrl } from "../../urlStates.js";
