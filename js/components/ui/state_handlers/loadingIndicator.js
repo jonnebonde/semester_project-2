@@ -5,16 +5,17 @@ export function renderLoadingSpinner(targetElement) {
   buttonSpinner.setAttribute("aria-hidden", true);
 
   function show() {
-    targetElement.textContent = "loading...";
     targetElement.appendChild(buttonSpinner);
   }
 
   function hide() {
     if (buttonSpinner.parentNode === targetElement) {
       targetElement.removeChild(buttonSpinner);
-      targetElement.textContent = "Submit";
     }
   }
 
-  return { show, hide };
+  return {
+    show,
+    hide,
+  };
 }

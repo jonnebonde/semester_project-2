@@ -2,32 +2,53 @@
   input {
     border: none;
     padding: 0.5em;
-    width: 100%;
   }
 
   input:focus {
     outline: none;
   }
 
+
+
   .tag {
     background-color: getColour(accent-color, 1) !important;
     color: getColour(white, 1) !important;
     border-radius: 5px;
     padding: 0.2em 0.5em;
-    display: inline-block;
+    display: flex;
+    width: fit-content;
     margin: 0.2em;
-    cursor: pointer;
-     
-  
 
+    i {
+      margin-left: 0.5em;
+      cursor: pointer;
+      font-size: 25px;
+
+      &:hover {
+        color: getColour(white, 0.5) !important;
+      }
+    }
   }
 }
 
-.tags {
-  margin-bottom: 1.5em;
+.images {
 
-  img {
-    height: 50px;
-    width: 50px;
+  .form-image {
+    object-fit: cover;
+
+    i {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      font-size: 25px;
+      background-color: getColour(white, 1) !important;
+
+      &:hover {
+        color: getColour(white, 0.5) !important;
+      }
+    }
   }
 }
+
+

@@ -5,15 +5,18 @@ import { renderTagInput } from "./renderTagInputContainer.js";
 import { setupTagInput } from "./renderTagInputFieldValues.js";
 import { renderImageInputContainer } from "./renderImageInputContainer.js";
 import { setupImageInput } from "./renderimageInputValues.js";
+import { validateCreateListing } from "../../../utils/validation/validateCreateListingForm.js";
 
-
-
+/**
+ * Renders a form for creating a new listing.
+ * @returns {void}
+ */
 export function renderCreateListingForm() {
   const formMainContainer = document.querySelector("#sell-create-listing-form-container");
 
   const createListingForm = document.createElement("form");
   createListingForm.id = "sell-create-listing-form";
-  createListingForm.classList.add("row", "row-cols-md-2", "row-cols-1");
+  createListingForm.classList.add("row", "row-cols-lg-2", "row-cols-1");
 
   const formContainerOne = document.createElement("div");
   formContainerOne.classList.add("col");
@@ -50,17 +53,11 @@ export function renderCreateListingForm() {
 
   setupImageInput();
 
-
-
-
   const dateInput = renderFormTextInputs(createlistingFormDateInput);
   formContainerOne.appendChild(dateInput[0]);
 
   // formcontainerTwo content
-
-
-
-
+  // it will contain a preview of the listing with a carousel of images
 
   // submitBtnContainer content
 
@@ -70,8 +67,3 @@ export function renderCreateListingForm() {
   createListingForm.addEventListener("submit", validateCreateListing);
 }
 
-function validateCreateListing(e) {
-  e.preventDefault();
-
-  console.log("asdrfg");
-}

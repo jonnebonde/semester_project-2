@@ -1,16 +1,16 @@
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
+import { renderLoadingSpinner } from "../state_handlers/loadingIndicator.js";
 
 export function setupImageInput() {
   const input = document.querySelector("#listing-image-input");
   const output = document.querySelector(".images");
   const addImageBtn = document.querySelector("#add-image-btn");
+  const spinner = renderLoadingSpinner(addImageBtn);
 
   function createImageElement(imageFormat) {
-    // Create div container for the tag
     const imageContainer = document.createElement("div");
-    imageContainer.classList.add("form-image", "border-1");
+    imageContainer.classList.add("form-image", "position-relative");
 
-    // Create span for the tag text
     const thumbnail = document.createElement("img");
     thumbnail.src = imageFormat;
     thumbnail.setAttribute("alt", "image");
@@ -18,12 +18,9 @@ export function setupImageInput() {
     thumbnail.setAttribute("width", "100px");
     thumbnail.setAttribute("height", "100px");
 
-
-    // Create remove button icon
     const removeBtn = document.createElement("i");
-    removeBtn.classList.add("fas", "fa-times", "remove-btn");
+    removeBtn.classList.add("fas", "fa-times", "remove-btn", "position-absolute");
 
-    // Append tagText and removeBtn to the tagContainer
     imageContainer.appendChild(thumbnail);
     imageContainer.appendChild(removeBtn);
 
@@ -38,62 +35,75 @@ export function setupImageInput() {
 
   addImageBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    spinner.show();
 
+    const imageUrl = input.value;
 
-
-
-
-    if (input.value === "") {
-      e.preventDefault();
-    } else if (output.children.length >= 7) {
-      outputImage(input.value);
-      collectImageValues();
-
-      input.disabled = true;
-      input.placeholder = "Max number of tags reached!";
+    if (imageUrl === "") {
+      displayMessage("error", "Please enter an image URL", ".images");
     } else {
-      outputImage(input.value);
-      collectImageValues();
+      checkImageUrl(imageUrl).then((result) => {
+        if (result) {
+          spinner.hide();
+          handleImageIfExist(imageUrl);
+        } else {
+          displayMessage("error", "Please enter a valid image URL", ".images");
+        }
+      });
     }
 
-    console.log(output);
+    function handleImageIfExist() {
+      e.preventDefault();
 
+      if (output.children.length >= 7) {
+        outputImage(input.value);
+        collectImageValues(input.value);
+        input.disabled = true;
+        input.placeholder = "Max number of images reached!";
+      } else {
+        outputImage(input.value);
+        collectImageValues(input.value);
+      }
+
+      console.log(output);
+    }
   });
-
-  if (input) {
-    input.addEventListener("input", () => {
-      const rmvWhitespace = input.value.replace(/\s/g, "");
-      input.value = rmvWhitespace.replace(/\s[^a-zA-Z0-9]/g, "");
-    });
-  }
 
   window.addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-btn")) {
       e.target.parentElement.remove();
       input.disabled = false;
       input.placeholder = "Add a tag..";
-      collectImageValues();
+      collectImageValues(input.value);
     }
   });
+}
 
-  // Initialize an empty array to store tag values
-
-  function collectImageValues() {
-    const imageValues = [];
-    // Iterate through the children of the output element (tags)
-    for (const image of output.children) {
-      // Extract the text content of each tag and push it to the tagValues array
-      const imageValue = image.firstChild.textContent;
-      imageValues.push(imageValue.trim());
+async function checkImageUrl(imageUrl) {
+  try {
+    const response = await fetch(imageUrl);
+    if (response.ok) {
+      return true;
+    } else {
+      return false;
     }
-
-    // Now, tagValues array contains the values of all the tags
-    const imageObject = {
-      media: imageValues,
-    };
-    console.log(imageObject);
+  } catch (error) {
+    console.error("Error validating image URL:", error);
   }
 }
 
+export function collectImageValues() {
+  const imageValues = [];
+  const output = document.querySelector(".images");
 
+  for (const image of output.children) {
+    const imageValue = image.children[0].src;
+    imageValues.push(imageValue.trim());
+  }
 
+  const imageObject = {
+    media: imageValues,
+  };
+  console.log(imageObject);
+  return imageObject;
+}

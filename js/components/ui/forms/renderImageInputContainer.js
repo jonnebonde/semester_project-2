@@ -11,6 +11,7 @@ export function renderImageInputContainer() {
 
   // Create a div for input and button
   const inputButtonDiv = document.createElement("div");
+  inputButtonDiv.classList.add("w-100", "d-flex");
 
   // Create the input element
   const input = document.createElement("input");
@@ -18,12 +19,14 @@ export function renderImageInputContainer() {
   input.setAttribute("placeholder", "Example: https://www.example.com/image.jpg");
   input.setAttribute("id", "listing-image-input");
   input.setAttribute("autocomplete", "off");
+  input.classList.add("w-75", "border-0");
 
   // Create the button element
   const addButton = document.createElement("button");
   addButton.setAttribute("type", "button");
   addButton.setAttribute("id", "add-image-btn");
   addButton.textContent = "Add image";
+  addButton.classList.add("btn", "btn-primary", "w-25");
 
   // Append input and button to the div
   inputButtonDiv.appendChild(input);
@@ -37,7 +40,7 @@ export function renderImageInputContainer() {
 
   // Create the tags container div
   const imagesContainer = document.createElement("div");
-  imagesContainer.classList.add("images");
+  imagesContainer.classList.add("images", "d-flex", "flex-wrap", "align-items-center", "gap-2");
 
   // Append label, inputButtonDiv, descriptionHelp, and tagsContainer to the main container
   imageInputContainer.appendChild(label);

@@ -1,36 +1,40 @@
+/**
+ * Renders a tag input container with a label, input field, button, description help, and tags container.
+ * @returns {HTMLDivElement} The tag input container element.
+ */
 export function renderTagInput() {
-  // Create the outer div container
+
   const tagInputContainer = document.createElement("div");
   tagInputContainer.classList.add("mb-3", "tag-input");
 
-  // Create the label element
+
   const label = document.createElement("label");
   label.setAttribute("for", "listing-tag-input");
   label.classList.add("form-label");
   label.textContent = "Tags";
 
-  // Create a div for input and button
+
   const inputButtonDiv = document.createElement("div");
-  inputButtonDiv.classList.add("input-button", "d-flex");
-
-// fikse hva some skjedde med tags input og button
+  inputButtonDiv.classList.add("w-100", "d-flex");
 
 
-  // Create the input element
   const input = document.createElement("input");
   input.setAttribute("type", "text");
   input.setAttribute("placeholder", "Add a tag..");
   input.setAttribute("id", "listing-tag-input");
   input.setAttribute("autocomplete", "off");
   input.setAttribute("maxlength", "15");
+  input.classList.add("w-75");
 
-  // Create the button element
+
   const addButton = document.createElement("button");
   addButton.setAttribute("type", "button");
   addButton.setAttribute("id", "add-tag-btn");
   addButton.textContent = "Add tag";
+  addButton.classList.add("btn", "btn-primary", "w-25");
 
   // Append input and button to the div
+
   inputButtonDiv.appendChild(input);
   inputButtonDiv.appendChild(addButton);
 
@@ -42,9 +46,10 @@ export function renderTagInput() {
 
   // Create the tags container div
   const tagsContainer = document.createElement("div");
-  tagsContainer.classList.add("tags");
+  tagsContainer.classList.add("tags", "d-flex", "flex-wrap", "align-items-center");
 
   // Append label, inputButtonDiv, descriptionHelp, and tagsContainer to the main container
+
   tagInputContainer.appendChild(label);
   tagInputContainer.appendChild(inputButtonDiv);
   tagInputContainer.appendChild(descriptionHelp);
@@ -52,6 +57,3 @@ export function renderTagInput() {
 
   return tagInputContainer;
 }
-
-// used chatgpt to generate this code
-
