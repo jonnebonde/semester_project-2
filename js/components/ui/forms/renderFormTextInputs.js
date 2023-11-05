@@ -15,6 +15,25 @@ export function renderFormTextInputs(fields, minBid) {
     label.classList.add("form-label");
     label.textContent = fieldData.label;
 
+    if(fieldData.type === "textarea") {
+      const textarea = document.createElement("textarea");
+      textarea.classList.add("form-control");
+      textarea.id = fieldData.id;
+      textarea.rows = "3"; 
+
+      const helpText = document.createElement("div");
+      helpText.id = `${fieldData.id}Help`;
+      helpText.classList.add("form-text");
+      helpText.textContent = fieldData.helpText;
+      fieldContainer.appendChild(helpText);
+
+      fieldContainer.appendChild(label);
+      fieldContainer.appendChild(textarea);
+      fieldContainer.appendChild(helpText);
+      fieldContainers.push(fieldContainer);
+      return;
+    }
+
     const input = document.createElement("input");
     input.type = fieldData.type;
     input.classList.add("form-control");

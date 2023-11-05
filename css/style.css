@@ -352,48 +352,28 @@ section .section-heading {
   cursor: pointer;
 }
 
-.tag-input {
-  padding: 1rem;
-}
-.tag-input .input-wrap {
-  border: 1px solid black;
-  border-radius: 5px;
-  display: flex;
-  margin: 1.5em 0;
-}
-.tag-input .input-wrap input {
-  background: none;
+.tag-input input {
   border: none;
   padding: 0.5em;
   width: 100%;
 }
-.tag-input .input-wrap input:focus {
+.tag-input input:focus {
   outline: none;
 }
-.tag-input .input-wrap span {
-  margin: 0 0.5em 0 0.2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.tag-input .input-wrap .tag {
-  background: #f1f1f1;
+.tag-input .tag {
+  background-color: rgb(50, 76, 42) !important;
+  color: #FFFFFF !important;
   border-radius: 5px;
   padding: 0.2em 0.5em;
   display: inline-block;
   margin: 0.2em;
   cursor: pointer;
 }
-.tag-input .input-wrap span {
-  font-size: 0.8em;
-}
-.tag-input .input-wrap b {
-  padding-bottom: 1em;
-}
-.tag-input .tags {
+
+.tags {
   margin-bottom: 1.5em;
 }
-.tag-input .tags img {
+.tags img {
   height: 50px;
   width: 50px;
 }

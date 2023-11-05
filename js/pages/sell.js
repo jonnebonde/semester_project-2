@@ -1,84 +1,22 @@
-import { renderCarousel } from "../components/ui/carousel/renderCarousel.js";
+import renderNavbar from "../components/ui/navBar/renderNav.js";
+import { renderCreateListingForm } from "../components/ui/forms/renderCreateListingForm.js";
+import { getUserInfoFromStorage, getSuperSecretToken } from "../utils/storage/userStorage.js";
 
-const tagForm = document.querySelector("#tag-form");
-const input = document.querySelector("#tagInput");
-const output = document.querySelector(".tags");
-const max = document.querySelector(".max");
+const user = getUserInfoFromStorage("user");
+const token = getSuperSecretToken();
 
-function outputTag(tagFormat) {
-  const tag = `
-  <button class="tag ">
-  <img src="${tagFormat}" alt="tag icon" />
-  
-  <i class="fas fa-times remove-btn"></i>
-  </button>
-  `;
-
-  output.innerHTML += tag;
-
-  input.value = "";
+if (!user || !token) {
+  location.href = "/index.html";
+} else {
+  renderNavbar();
+  renderCreateListingForm();
 }
 
-tagForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+// Remove any existing carousel items
 
-  if (input.value === "") {
-    e.preventDefault();
-  } else if (output.children.length >= 7) {
-    outputTag(input.value);
-    collectTagValues();
+// Render the carousel with the new mediaObject
 
-    input.disabled = true;
-    input.placeholder = "Max number of tags reached!";
-  } else {
-    outputTag(input.value);
-    collectTagValues();
-  }
-
-  console.log(output);
-});
-
-if (input) {
-  input.addEventListener("input", () => {
-    const rmvWhitespace = input.value.replace(/\s/g, "");
-    input.value = rmvWhitespace.replace(/\s[^a-zA-Z0-9]/g, "");
-  });
-}
-
-window.addEventListener("click", (e) => {
-  if (e.target.classList.contains("remove-btn")) {
-    e.target.parentElement.remove();
-    input.disabled = false;
-    input.placeholder = "Add a tag..";
-    collectTagValues();
-  }
-});
-
-// Initialize an empty array to store tag values
-
-function collectTagValues() {
-  const tagValues = [];
-  // Iterate through the children of the output element (tags)
-  for (const tag of output.children) {
-    // Extract the text content of each tag and push it to the tagValues array
-    const tagValue = tag.querySelector("img").getAttribute("src");
-    tagValues.push(tagValue.trim());
-  }
-
-  // Now, tagValues array contains the values of all the tags
-  const mediaObject = {
-    media: tagValues,
-  };
-  console.log(mediaObject);
-
-  // Remove any existing carousel items
-
-  // Render the carousel with the new mediaObject
-  renderCarousel(mediaObject, ".carousel-inner");
-}
-
-
-// mockup data for testing
+/* // mockup data for testing
 const images = {
   media: [
     "https://images.unsplash.com/photo-1698863984285-7e8f781f6b7e?auto=format&fit=crop&q=80&w=2488&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -113,4 +51,4 @@ fetch(images.media)
 
   .catch((error) => {
     console.error("Error validating image URL:", error);
-  });
+  }); */

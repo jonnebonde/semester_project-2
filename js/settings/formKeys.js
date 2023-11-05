@@ -11,3 +11,16 @@ export const registerForm = [
 ];
 
 export const submitBidForm = [{ label: "Bid", type: "number", id: "bid", helpText: "" }];
+
+export const createListingFormTextInputs = [
+  { label: "Title", type: "text", id: "title", helpText: "Enter a descriptive title for your listing" },
+  { label: "Description", type: "textarea", id: "description", helpText: "Enter a description for your listing" },
+];
+
+export const createlistingFormDateInput= [
+  { label: "End date", type: "datetime-local", id: "end-date", helpText: "Enter the end date for your listing" },
+];
+
+
+
+

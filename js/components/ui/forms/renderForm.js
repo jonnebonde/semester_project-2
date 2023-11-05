@@ -26,17 +26,13 @@ export function renderForm(target, fields, type) {
 
   formContainer.appendChild(form);
 
-  switch (type) {
-    case "register":
-      form.addEventListener("submit", validateRegister);
-      break;
-    case "login":
-      form.addEventListener("submit", validateLogin);
-      break;
-    case "createListing":
-      form.addEventListener("submit", validateCreateListing);
-      break;
+  if (type === "register") {
+    form.addEventListener("submit", validateRegister);
+  } else if (type === "login") {
+    form.addEventListener("submit", validateLogin);
   }
+
+  return form;
 }
 
 function validateCreateListing() {}
