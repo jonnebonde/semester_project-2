@@ -9,6 +9,7 @@ export function validateCreateListing(e) {
 
   const imageArray = collectImageValues();
 
+  //fortsette med å få tags array inn i en variabel 
 
 
   console.log(imageArray);
