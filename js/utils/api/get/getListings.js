@@ -20,3 +20,4 @@ export async function getListings(limit = limitUrl, offset = offsetUrl, sort = s
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listings-container");
   }
 }
+
