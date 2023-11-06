@@ -8,7 +8,7 @@ export default function displayMessage(type, message, target) {
 
   messageContainer.appendChild(messageElement);
 
-  setTimeout(function () {
-    messageElement.remove();
+  setTimeout(() => {
+    messageContainer.removeChild(messageElement);
   }, 3000);
 }

@@ -1,7 +1,7 @@
 import apiCall from "./apiCall.js";
 import { baseUrl } from "../../../settings/apiUrl.js";
-import { renderListings } from "../../../components/ui/Listings/renderListings.js";
-import { renderListingsPagination } from "../../../components/ui/Listings/renderListingsPagination.js";
+import { renderListings } from "../../../components/ui/listings/renderListings.js";
+import { renderListingsPagination } from "../../../components/ui/listings/renderListingsPagination.js";
 import { getCurrentUrl, setNewUrl } from "../../urlStates.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 

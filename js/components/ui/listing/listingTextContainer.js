@@ -1,6 +1,6 @@
 import { renderTags } from "./renderTags.js";
 
-export function renderlistingInfoText(data, target) {
+export function renderListingInfoText(data, target) {
   const description = document.createElement("p");
   description.classList.add("listing-description", "mx-5");
   description.textContent = data.description;

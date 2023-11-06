@@ -8,8 +8,6 @@
     outline: none;
   }
 
-
-
   .tag {
     background-color: getColour(accent-color, 1) !important;
     color: getColour(white, 1) !important;
@@ -32,7 +30,6 @@
 }
 
 .images {
-
   .form-image {
     object-fit: cover;
 
@@ -51,4 +48,17 @@
   }
 }
 
+#add-tag-btn,
+#add-image-btn {
+  border-radius: 0 5px 5px 0 !important;
+}
 
+.create-listing-message-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  background-color: getColour(white, 1) !important;
+  z-index: 100;
+}

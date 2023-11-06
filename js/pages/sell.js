@@ -1,5 +1,5 @@
 import renderNavbar from "../components/ui/navBar/renderNav.js";
-import { renderCreateListingForm } from "../components/ui/forms/renderCreateListingForm.js";
+import { renderCreatelistingPage } from "../components/ui/listing/createListing/renderCreateListingPage.js";
 import { getUserInfoFromStorage, getSuperSecretToken } from "../utils/storage/userStorage.js";
 
 const user = getUserInfoFromStorage("user");
@@ -9,5 +9,5 @@ if (!user || !token) {
   location.href = "/index.html";
 } else {
   renderNavbar();
-  renderCreateListingForm();
+  renderCreatelistingPage();
 }

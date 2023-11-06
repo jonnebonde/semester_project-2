@@ -64,11 +64,13 @@ section .section-heading {
 .btn-primary:hover {
   background-color: rgb(255, 92, 0) !important;
   border-color: none !important;
+  text-decoration: underline;
 }
 
 .btn-secondary:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   border-color: none !important;
+  text-decoration: underline;
 }
 
 .error {
@@ -392,6 +394,21 @@ section .section-heading {
 }
 .images .form-image i:hover {
   color: rgba(255, 255, 255, 0.5) !important;
+}
+
+#add-tag-btn,
+#add-image-btn {
+  border-radius: 0 5px 5px 0 !important;
+}
+
+.create-listing-message-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  background-color: #FFFFFF !important;
+  z-index: 100;
 }
 
 footer {

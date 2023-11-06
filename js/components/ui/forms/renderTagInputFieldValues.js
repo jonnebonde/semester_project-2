@@ -1,3 +1,5 @@
+
+
 export function setupTagInput() {
   const input = document.querySelector("#listing-tag-input");
   const output = document.querySelector(".tags");
@@ -29,24 +31,25 @@ export function setupTagInput() {
     input.value = "";
   }
 
-  addTagBtn.addEventListener("click", (e) => {
+  if(addTagBtn) {
+    addTagBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
     if (input.value === "") {
       e.preventDefault();
     } else if (output.children.length >= 7) {
       outputTag(input.value);
-      collectTagValues();
+      collectTagValues(input, output);
 
       input.disabled = true;
       input.placeholder = "Max number of tags reached!";
     } else {
       outputTag(input.value);
-      collectTagValues();
+      collectTagValues(input, output);
     }
-
-    console.log(output);
   });
+
+}
 
   if (input) {
     input.addEventListener("input", () => {
@@ -60,25 +63,28 @@ export function setupTagInput() {
       e.target.parentElement.remove();
       input.disabled = false;
       input.placeholder = "Add a tag..";
-      collectTagValues();
+      collectTagValues(input, output);
     }
   });
 
   // Initialize an empty array to store tag values
 
-  function collectTagValues() {
-    const tagValues = [];
-    // Iterate through the children of the output element (tags)
-    for (const tag of output.children) {
-      // Extract the text content of each tag and push it to the tagValues array
-      const tagValue = tag.firstChild.textContent;
-      tagValues.push(tagValue.trim());
-    }
+  
+}
 
-    // Now, tagValues array contains the values of all the tags
-    const tagObject = {
-      tags: tagValues,
-    };
-    console.log(tagObject);
+export function collectTagValues() {
+  const tagValues = [];
+  const output = document.querySelector(".tags");
+  // Iterate through the children of the output element (tags)
+  for (const tag of output.children) {
+    // Extract the text content of each tag and push it to the tagValues array
+    const tagValue = tag.firstChild.textContent;
+    tagValues.push(tagValue.trim());
   }
+
+  // Now, tagValues array contains the values of all the tags
+  const tagObject = {
+    tags: tagValues,
+  };
+  return tagObject;
 }

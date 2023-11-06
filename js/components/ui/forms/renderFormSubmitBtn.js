@@ -2,9 +2,10 @@ export function renderFormSubmitBtn(type) {
   const submitButton = document.createElement("button");
   submitButton.id = `${type}-submit_btn`;
   submitButton.type = "submit";
-  submitButton.classList.add("btn", "btn-primary", "d-flex", "link-dark", "link-underline-opacity-0", "link-underline-opacity-100-hover");
+  submitButton.classList.add("btn", "btn-primary", "d-flex", "link-dark", "link-underline-opacity-0", "link-underline-opacity-100-hover", "w-100");
 
   const submitButtonText = document.createElement("span");
+  submitButtonText.classList.add("mx-auto");
   submitButtonText.id = `${type}-submit_btn-text`;
   submitButtonText.textContent = "Submit";
 

@@ -1,4 +1,4 @@
-import { renderlistingInfoText } from "./listingTextContainer.js";
+import { renderListingInfoText } from "./listingTextContainer.js";
 import { renderTimeAndBidContainer } from "./renderTimeAndBidContainer.js";
 import { renderBidForm } from "../forms/renderBidForm.js";
 import { renderCarousel } from "../carousel/renderCarousel.js";
@@ -17,7 +17,7 @@ export function renderListingPage(data) {
   const listingInfoContainer = document.querySelector(".listing-info-container");
   const textContainer = document.querySelector(".listing-text-container");
 
-  renderlistingInfoText(data, textContainer);
+  renderListingInfoText(data, textContainer);
 
   const timeAndBidContainer = document.createElement("div");
   timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5", "d-flex", "flex-column", "message");

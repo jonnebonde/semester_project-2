@@ -18,7 +18,8 @@ export function validateUserName(name, minLength, maxLength) {
 }
 
 export function validateEmail(email) {
-  const emailRegex = /\b[A-Za-z0-9._%+-]+@(stud\.)?noroff\.no\b/;
+  // Regex for stud.noroff.no email addresses - https://regexr.com/5n6q0 and chatgpt.com
+  const emailRegex = /\b[A-Za-z0-9._%+-]+@stud\.noroff\.no\b/;
 
   function checkEmail(email) {
     return emailRegex.test(email);
@@ -43,4 +44,15 @@ export function validateRepeatedPassword(status, password, repeatPassword) {
   } else if (status === true && password === repeatPassword) {
     return true;
   }
+}
+
+export function validateDateInput(dateValue) {
+  const currentDate = new Date();
+  const dateInputValue = new Date(dateValue);
+
+  if (dateInputValue > currentDate) {
+    return true;
+  }
+
+
 }

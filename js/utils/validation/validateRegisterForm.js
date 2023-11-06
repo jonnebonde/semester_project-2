@@ -25,7 +25,7 @@ export function validateRegister(e) {
     displayMessage("success", "Email is valid", "#emailHelp");
     changeInputStatus(emailInput, "success");
   } else {
-    displayMessage("error", "The email must be a noroff.no or stud.noroff.no email address", "#emailHelp");
+    displayMessage("error", "The email must be a stud.noroff.no email address", "#emailHelp");
     changeInputStatus(emailInput, "error");
   }
 

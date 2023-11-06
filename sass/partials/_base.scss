@@ -40,11 +40,13 @@ section {
 .btn-primary:hover {
   background-color: getColour(primary-color, 1) !important;
   border-color: none !important;
+  text-decoration: underline;
 }
 
 .btn-secondary:hover {
   background-color: getColour(white, 0.1) !important;
   border-color: none !important;
+  text-decoration: underline;
 }
 
 .error {

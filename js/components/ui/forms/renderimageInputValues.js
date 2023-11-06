@@ -33,41 +33,48 @@ export function setupImageInput() {
     input.value = "";
   }
 
-  addImageBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    spinner.show();
 
-    const imageUrl = input.value;
-
-    if (imageUrl === "") {
-      displayMessage("error", "Please enter an image URL", ".images");
-    } else {
-      checkImageUrl(imageUrl).then((result) => {
-        if (result) {
-          spinner.hide();
-          handleImageIfExist(imageUrl);
-        } else {
-          displayMessage("error", "Please enter a valid image URL", ".images");
-        }
-      });
-    }
-
-    function handleImageIfExist() {
+  if(addImageBtn) {
+    addImageBtn.addEventListener("click", (e) => {
       e.preventDefault();
-
-      if (output.children.length >= 7) {
-        outputImage(input.value);
-        collectImageValues(input.value);
-        input.disabled = true;
-        input.placeholder = "Max number of images reached!";
+      spinner.show();
+  
+      const imageUrl = input.value;
+  
+      if (imageUrl === "") {
+        spinner.hide();
+        displayMessage("error", "Please enter an image URL", ".images");
       } else {
-        outputImage(input.value);
-        collectImageValues(input.value);
+        checkImageUrl(imageUrl).then((result) => {
+          if (result) {
+            spinner.hide();
+            handleImageIfExist(imageUrl);
+          } else {
+          
+            displayMessage("error", "Please enter a valid image URL", ".images");
+           
+          }
+        });
       }
+  
+      function handleImageIfExist() {
+        e.preventDefault();
+  
+        if (output.children.length >= 7) {
+          outputImage(input.value);
+          collectImageValues(input.value);
+          input.disabled = true;
+          input.placeholder = "Max number of images reached!";
+        } else {
+          outputImage(input.value);
+          collectImageValues(input.value);
+        }
+  
+        console.log(output);
+      }
+    });
+  }
 
-      console.log(output);
-    }
-  });
 
   window.addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-btn")) {
