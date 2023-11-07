@@ -4,7 +4,8 @@ import displayMessage from "./displayMessage.js";
 
 export async function updateCredits() {
   try {
-    const userInfo = await getProfileInfo();
+    const userInfoUrl = "?_listings=true&_count";
+    const userInfo = await getProfileInfo(userInfoUrl);
     addUserInfoToStorage(userInfo);
     
     const creditsContainer = document.querySelector(".nav-credit");
