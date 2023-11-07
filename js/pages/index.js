@@ -5,8 +5,6 @@ import apiCall from "../utils/api/get/apiCall.js";
 import renderNavBar from "../components/ui/navBar/renderNav.js";
 import userLogout from "../components/userLogout.js";
 
-
-
 renderNavBar();
 userLogout();
 

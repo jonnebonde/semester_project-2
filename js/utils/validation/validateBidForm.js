@@ -1,6 +1,6 @@
 import { postBid } from "../api/post/postBid.js";
 
-export function validateBid(e) {
+export function validateBid(e, target) {
   e.preventDefault();
 
   console.log("validateBid");
@@ -17,6 +17,6 @@ export function validateBid(e) {
 
   if (bidInput.value && listingId) {
     console.log(typeof bidInfo.bid);
-    postBid(bidInfo);
+    postBid(bidInfo, target);
   }
 }

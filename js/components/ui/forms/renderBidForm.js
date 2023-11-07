@@ -25,7 +25,7 @@ export function renderBidForm(target, data) {
   target.appendChild(bidForm);
 
   target.appendChild(bidForm);
-  bidForm.addEventListener("submit", validateBid);
+  bidForm.addEventListener("submit", e => validateBid(e, target, data));
 
   switch (true) {
     case user.length === 0 && token.length === 0:

@@ -1,13 +1,6 @@
 import { renderTags } from "./renderTags.js";
 
-export function renderListingInfoText(data, target) {
-  const description = document.createElement("p");
-  description.classList.add("listing-description", "mx-5");
-  description.textContent = data.description;
-  const textLoader = document.querySelector(".listing-info-container .loader");
-  textLoader.classList.add("d-none");
-  
-
+export function renderListingTags(data) {
   const tagsContainer = document.createElement("div");
   tagsContainer.classList.add("listing-tags", "fw-bold", "mx-5");
   tagsContainer.appendChild(document.createTextNode("Tags: "));
@@ -23,6 +16,5 @@ export function renderListingInfoText(data, target) {
     }
   }
 
-  target.appendChild(description);
-  target.appendChild(tagsContainer);
+  return tagsContainer;
 }

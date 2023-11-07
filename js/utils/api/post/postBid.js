@@ -23,6 +23,8 @@ export async function postBid(bidInfo) {
 
   const biddingContainer = document.querySelector(".listing-time-bid-container");
 
+  console.log(bidInfo)
+
   const options = {
     method: "POST",
     body: JSON.stringify({ amount: bidAmount }),
@@ -45,12 +47,14 @@ export async function postBid(bidInfo) {
     console.log(json);
   } catch (error) {
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listing-time-bid-container");
-    renderBidForm(target, data);
+
     console.log(error);
   }
 }
 
 function confirmedBidHandler(data, target) {
+
+  console.log(data);
   displayMessage("success", "Bid was successfully placed", ".listing-time-bid-container");
   renderTimeAndBidContainer(data, target);
   renderBidForm(target, data);
