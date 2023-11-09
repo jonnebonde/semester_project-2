@@ -33,33 +33,30 @@ export function setupImageInput() {
     input.value = "";
   }
 
-
-  if(addImageBtn) {
+  if (addImageBtn) {
     addImageBtn.addEventListener("click", (e) => {
       e.preventDefault();
       spinner.show();
-  
+
       const imageUrl = input.value;
-  
+
       if (imageUrl === "") {
         spinner.hide();
         displayMessage("error", "Please enter an image URL", ".images");
       } else {
-        checkImageUrl(imageUrl).then((result) => {
+        checkImageUrl(imageUrl, spinner).then((result) => {
           if (result) {
             spinner.hide();
             handleImageIfExist(imageUrl);
           } else {
-          
             displayMessage("error", "Please enter a valid image URL", ".images");
-           
           }
         });
       }
-  
+
       function handleImageIfExist() {
         e.preventDefault();
-  
+
         if (output.children.length >= 7) {
           outputImage(input.value);
           collectImageValues(input.value);
@@ -69,12 +66,11 @@ export function setupImageInput() {
           outputImage(input.value);
           collectImageValues(input.value);
         }
-  
+
         console.log(output);
       }
     });
   }
-
 
   window.addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-btn")) {
@@ -86,12 +82,13 @@ export function setupImageInput() {
   });
 }
 
-async function checkImageUrl(imageUrl) {
+async function checkImageUrl(imageUrl, spinner) {
   try {
     const response = await fetch(imageUrl);
     if (response.ok) {
       return true;
     } else {
+      spinner.hide();
       return false;
     }
   } catch (error) {
