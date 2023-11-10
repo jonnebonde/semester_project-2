@@ -1,7 +1,4 @@
-
-
-export function renderListingSellerInfo(data, target) {
-  const targetContainer = target;
+export function renderListingSellerInfo(data) {
   const sellerInfoLoader = document.querySelector(".listing-seller-info-container .loader");
   sellerInfoLoader.classList.add("d-none");
 
@@ -52,7 +49,5 @@ export function renderListingSellerInfo(data, target) {
   sellerInfo.appendChild(sellerInfoAvatarContainer);
   sellerInfo.appendChild(sellerCredentialsContainer);
 
-
-
-  targetContainer.appendChild(sellerInfo);
+return sellerInfo;
 }

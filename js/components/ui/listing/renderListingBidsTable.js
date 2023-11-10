@@ -3,9 +3,6 @@ import { formatTimeAndData } from "../../../utils/tools.js";
 // used chatgpt to generate const names and setup of table.
 
 export function renderListingBidsTable(data) {
-
-
-
   const listingBidTableContainer = document.querySelector(".listing-bid-table-container");
   listingBidTableContainer.innerHTML = "";
 
@@ -48,7 +45,7 @@ export function renderListingBidsTable(data) {
     const listingBidTableBodyRowData3 = document.createElement("td");
     listingBidTableBodyRowData3.textContent = bid.amount;
 
-    const listingBidTableBodyRowData4 = document.createElement("td", );
+    const listingBidTableBodyRowData4 = document.createElement("td");
     listingBidTableBodyRowData4.textContent = formatTimeAndData(bid.created);
     listingBidTableBodyRowData4.style.fontSize = "0.8rem";
 
@@ -63,5 +60,4 @@ export function renderListingBidsTable(data) {
   listingBidTable.appendChild(listingBidTableBody);
 
   listingBidTableContainer.appendChild(listingBidTable);
-
-} 
+}

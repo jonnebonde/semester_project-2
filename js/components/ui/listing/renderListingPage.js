@@ -14,7 +14,6 @@ export function renderListingPage(data) {
   listingTitle.textContent = data.title;
   document.title = data.title + " | Auction House";
 
-
   const listingInfoContainer = document.querySelector(".listing-info-container");
   const textContainer = document.querySelector(".listing-text-container");
 
@@ -43,7 +42,9 @@ export function renderListingPage(data) {
     listingSellerInfoContainer.classList.remove("d-none");
     listingBidHistoryContainer.classList.remove("d-none");
 
-    renderListingSellerInfo(data, listingSellerInfoContainer);
+    const sellerInfo = renderListingSellerInfo(data);
+    listingSellerInfoContainer.appendChild(sellerInfo);
+
     renderListingBidsTable(data);
   }
 }
