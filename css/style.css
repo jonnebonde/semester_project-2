@@ -306,25 +306,38 @@ section .section-heading {
   margin: 0 auto;
 }
 
-.card {
+.card,
+.profile-listings-card,
+.profile-bids-card {
   background-color: rgba(255, 255, 255, 0.6) !important;
   border: 1px rgb(50, 76, 42) solid !important;
-  height: 140px;
-  width: 180px;
 }
-.card time {
+.card time,
+.profile-listings-card time,
+.profile-bids-card time {
   text-align: center;
   font-size: 14px;
+}
+.card:hover, .card:focus, .card:active,
+.profile-listings-card:hover,
+.profile-listings-card:focus,
+.profile-listings-card:active,
+.profile-bids-card:hover,
+.profile-bids-card:focus,
+.profile-bids-card:active {
+  box-shadow: 0 0.5rem 1rem rgba(54, 54, 54, 0.85);
+  background-color: #FFFFFF !important;
+}
+
+.card {
+  height: 140px;
+  width: 180px;
 }
 @media (min-width: 792px) {
   .card {
     height: 260px;
     width: 360px;
   }
-}
-.card:hover, .card:focus, .card:active {
-  box-shadow: 0 0.5rem 1rem rgba(54, 54, 54, 0.85);
-  background-color: #FFFFFF !important;
 }
 .card .card-img-top {
   height: 150px;
@@ -417,6 +430,38 @@ section .section-heading {
   width: 100%;
   background-color: #FFFFFF !important;
   z-index: 100;
+}
+
+#updateAvatarModal img,
+.profile-avatar-container img {
+  max-width: 200px;
+  max-height: 200px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 4px;
+}
+
+.profile-update-avatar-modal-btn-container button {
+  max-width: 400px;
+  width: 100%;
+}
+
+.profile-listings-container a,
+.profile-bids-container a {
+  display: block;
+  border-radius: 4px;
+  width: 190px;
+}
+.profile-listings-container a img,
+.profile-bids-container a img {
+  display: block;
+  width: 100%;
+  max-height: 110px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 3px 3px 0 0;
 }
 
 footer {

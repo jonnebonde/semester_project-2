@@ -38,6 +38,9 @@ export function timeDifference(timeUntilEnds) {
       case hours >= 1:
         timeString = `${hours} hours, ${minutes} minutes`;
         break;
+      case timeDifference <= 0:
+        timeString = "Ended";
+        break;
       default:
         timeString = `${minutes} minutes`;
         break;
@@ -60,3 +63,41 @@ export function formatTimeAndData(date) {
   const formattedTimeAndDate = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
   return formattedTimeAndDate;
 }
+
+// filter profile bids on listings with help from chatGPT
+export function filterProfileBiddings(profileBidsOnListings) {
+  const filteredProfileBidsOnListings = [];
+
+  profileBidsOnListings.forEach(function (listing) {
+    const existingListing = filteredProfileBidsOnListings.find(function (filteredListing) {
+      return filteredListing.listing.id === listing.listing.id;
+    });
+
+    if (existingListing) {
+      if (existingListing.bid < listing.bid) {
+        existingListing.bid = listing.bid;
+      }
+    } else {
+      filteredProfileBidsOnListings.push(listing);
+    }
+  });
+
+  const filteredProfileBidsOnListingsNewList = filteredProfileBidsOnListings.map(function (listing) {
+    const filteredListing = {
+      bids: [{amount: listing.amount}],
+      id: listing.listing.id,
+      title: listing.listing.title,
+      description: listing.listing.description,
+      media: listing.listing.media,
+      tags: listing.listing.tags,
+      created: listing.listing.created,
+      updated: listing.listing.updated,
+      endsAt: listing.listing.endsAt,
+    };
+
+    return filteredListing;
+  });
+  
+  return filteredProfileBidsOnListingsNewList;
+}
+

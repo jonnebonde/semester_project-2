@@ -1,6 +1,6 @@
 import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 
-export function renderFormTextInputs(fields, minBid) {
+export function renderFormTextInputs(fields, minBid, avatar) {
   const fieldContainers = [];
 
   console.log(fields);
@@ -15,11 +15,11 @@ export function renderFormTextInputs(fields, minBid) {
     label.classList.add("form-label");
     label.textContent = fieldData.label;
 
-    if(fieldData.type === "textarea") {
+    if (fieldData.type === "textarea") {
       const textarea = document.createElement("textarea");
       textarea.classList.add("form-control");
       textarea.id = fieldData.id;
-      textarea.rows = "3"; 
+      textarea.rows = "3";
 
       const helpText = document.createElement("div");
       helpText.id = `${fieldData.id}Help`;
@@ -47,6 +47,20 @@ export function renderFormTextInputs(fields, minBid) {
       input.max = user.credits;
       input.value = minBid + 1;
     }
+
+    if (fieldData.id === "avatar-form-input") {
+      input.value = avatar;
+      input.addEventListener("click", (e) => {
+        e.preventDefault();
+        input.value = "";
+      });
+      input.addEventListener("input", (e) => {
+        const avatarPreview = document.querySelector(".update-avatar-preview");
+        avatarPreview.src = e.target.value;
+    });
+
+    }
+
     fieldContainer.appendChild(label);
     fieldContainer.appendChild(input);
 

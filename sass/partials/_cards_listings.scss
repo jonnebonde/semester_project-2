@@ -3,28 +3,32 @@
   margin: 0 auto;
 }
 
-.card {
+.card,
+.profile-listings-card,
+.profile-bids-card {
   background-color: getColour(white, 0.6) !important;
   border: 1px getColour(accent-color, 1) solid !important;
-  height: 140px;
-  width: 180px;
 
   time {
     text-align: center;
     font-size: 14px;
   }
 
-  @media (min-width: $width-medium) {
-    height: 260px;
-    width: 360px;
-  }
-
-
   &:hover,
   &:focus,
   &:active {
     box-shadow: 0 0.5rem 1rem getColour(primary-background-color, 0.85);
     background-color: getColour(white, 1) !important;
+  }
+}
+
+.card {
+  height: 140px;
+  width: 180px;
+
+  @media (min-width: $width-medium) {
+    height: 260px;
+    width: 360px;
   }
 
   .card-img-top {
@@ -34,7 +38,5 @@
     @media (min-width: $width-medium) {
       height: 218px;
     }
-
-
   }
 }

@@ -5,6 +5,7 @@ import { renderFormSubmitBtn } from "./renderFormSubmitBtn.js";
 import { renderFormTextInputs } from "./renderFormTextInputs.js";
 import { submitBidForm } from "../../../settings/formKeys.js";
 import { setBidMessage } from "../../ui/state_handlers/displayBidMessages.js";
+import { timeDifference } from "../../../utils/tools.js";
 
 export function renderBidForm(target, data) {
   const user = getUserInfoFromStorage("user");
@@ -19,13 +20,15 @@ export function renderBidForm(target, data) {
 
   const submitButton = renderFormSubmitBtn("bid");
 
+  console.log(timeDifference(data.created));
+
   bidForm.appendChild(bidInput[0]);
   bidForm.appendChild(submitButton);
 
   target.appendChild(bidForm);
 
   target.appendChild(bidForm);
-  bidForm.addEventListener("submit", e => validateBid(e, target, data));
+  bidForm.addEventListener("submit", (e) => validateBid(e, target, data));
 
   switch (true) {
     case user.length === 0 && token.length === 0:
@@ -34,6 +37,10 @@ export function renderBidForm(target, data) {
 
     case user.name === data.seller.name:
       setBidMessage("You can't bid on your own listing", bidForm);
+      break;
+
+    case timeDifference(data.created) === "Ended":
+      setBidMessage("This listing has expired", bidForm);
       break;
 
     case credits < highestCurrentBid + 1:

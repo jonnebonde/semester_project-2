@@ -4,6 +4,8 @@ export function renderLoadingSpinner(targetElement) {
   buttonSpinner.setAttribute("role", "status");
   buttonSpinner.setAttribute("aria-hidden", true);
 
+  console.log(targetElement)
+
   function show() {
     targetElement.appendChild(buttonSpinner);
   }

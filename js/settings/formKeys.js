@@ -21,6 +21,10 @@ export const createlistingFormDateInput= [
   { label: "End date", type: "datetime-local", id: "end-date", helpText: "Enter the end date for your listing" },
 ];
 
+export const updateAvatarFormInput = [
+  { label: "Avatar", type: "text", id: "avatar-form-input", helpText: "Enter a image url" }
+];
+
 
 
 

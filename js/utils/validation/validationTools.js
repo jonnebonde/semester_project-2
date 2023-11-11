@@ -54,5 +54,18 @@ export function validateDateInput(dateValue) {
     return true;
   }
 
+}
 
+export async function validateImageUrl(imageUrl, spinner) {
+  try {
+    const response = await fetch(imageUrl);
+    if (response.ok) {
+      return true;
+    } else {
+      spinner.hide();
+      return false;
+    }
+  } catch (error) {
+    console.error("Error validating image URL:", error);
+  }
 }

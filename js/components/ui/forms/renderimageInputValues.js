@@ -1,5 +1,6 @@
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 import { renderLoadingSpinner } from "../state_handlers/loadingIndicator.js";
+import { validateImageUrl } from "../../../utils/validation/validationTools.js";
 
 export function setupImageInput() {
   const input = document.querySelector("#listing-image-input");
@@ -44,7 +45,7 @@ export function setupImageInput() {
         spinner.hide();
         displayMessage("error", "Please enter an image URL", ".images");
       } else {
-        checkImageUrl(imageUrl, spinner).then((result) => {
+        validateImageUrl(imageUrl, spinner).then((result) => {
           if (result) {
             spinner.hide();
             handleImageIfExist(imageUrl);
@@ -82,19 +83,6 @@ export function setupImageInput() {
   });
 }
 
-async function checkImageUrl(imageUrl, spinner) {
-  try {
-    const response = await fetch(imageUrl);
-    if (response.ok) {
-      return true;
-    } else {
-      spinner.hide();
-      return false;
-    }
-  } catch (error) {
-    console.error("Error validating image URL:", error);
-  }
-}
 
 export function collectImageValues() {
   const imageValues = [];

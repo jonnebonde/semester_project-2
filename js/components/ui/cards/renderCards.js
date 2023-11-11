@@ -6,14 +6,14 @@ export function renderCards(listing, container, type) {
   card.setAttribute("href", `listing.html?id=${listing.id}`);
 
   const cardImg = document.createElement("img");
-  cardImg.classList.add("card-img-top");
+  cardImg.classList.add(`${type}` + "-img-top");
   cardImg.setAttribute("src", listing.media[0]);
   cardImg.setAttribute("alt", listing.title);
   cardImg.setAttribute("onerror", "src='/assets/img/no-image-icon-23485.png'");
   card.appendChild(cardImg);
 
   const cardContent = document.createElement("div");
-  cardContent.classList.add("listing-card-content");
+  cardContent.classList.add(`${type}` + "-card-content");
 
   const cardTitle = document.createElement("h3");
   cardTitle.textContent = listing.title;
@@ -32,3 +32,6 @@ export function renderCards(listing, container, type) {
 
   container.appendChild(card);
 }
+
+
+// make links to the listings that are won by the user
