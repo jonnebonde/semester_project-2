@@ -1,4 +1,4 @@
-import { renderForm } from "./renderForm.js";
+import { renderForm } from "../forms/renderForm.js";
 import { loginForm, registerForm } from "../../../settings/formKeys.js";
 import { loginRegisterFormState } from "../state_handlers/loginRegisterPageState.js";
 

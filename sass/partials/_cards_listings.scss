@@ -1,4 +1,5 @@
-.listings-results-container {
+.listings-results-container,
+.last-chance-listings-container {
   width: 90%;
   margin: 0 auto;
 }
@@ -24,19 +25,19 @@
 
 .card {
   height: 140px;
-  width: 180px;
+  width: 150px;
 
   @media (min-width: $width-medium) {
     height: 260px;
-    width: 360px;
+    width: 300px;
   }
 
   .card-img-top {
-    height: 150px;
+    height: 140px;
     object-fit: cover;
 
     @media (min-width: $width-medium) {
-      height: 218px;
+      height: 180px;
     }
   }
 }

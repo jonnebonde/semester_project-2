@@ -312,7 +312,8 @@ section .section-heading {
   word-break: break-all;
 }
 
-.listings-results-container {
+.listings-results-container,
+.last-chance-listings-container {
   width: 90%;
   margin: 0 auto;
 }
@@ -342,22 +343,22 @@ section .section-heading {
 
 .card {
   height: 140px;
-  width: 180px;
+  width: 150px;
 }
 @media (min-width: 792px) {
   .card {
     height: 260px;
-    width: 360px;
+    width: 300px;
   }
 }
 .card .card-img-top {
-  height: 150px;
+  height: 140px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 @media (min-width: 792px) {
   .card .card-img-top {
-    height: 218px;
+    height: 180px;
   }
 }
 

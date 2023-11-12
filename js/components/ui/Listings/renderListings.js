@@ -1,7 +1,6 @@
 import { renderCards } from "../cards/renderCards.js";
 
 export function renderListings(data, target, type) {
-  console.log(data, target, type);
   const container = document.querySelector(target);
 
   container.innerHTML = "";

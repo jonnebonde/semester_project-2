@@ -7,6 +7,8 @@ export async function updateProfileAvatar(avatarUrl) {
   const token = getSuperSecretToken().token;
   const url = baseUrl + "/profiles/" + user + "/media";
 
+  const avatarImage = document.querySelector(".profile-avatar");
+
   const avatar = JSON.stringify({
     avatar: avatarUrl,
   });
@@ -27,6 +29,7 @@ export async function updateProfileAvatar(avatarUrl) {
     if (response.status === 200) {
       addUserInfoToStorage(json);
       displayMessage("success", "Avatar was successfully updated", "#avatar-form-inputHelp");
+      avatarImage.src = avatarUrl;
     }
   } catch (error) {
     console.log(error);

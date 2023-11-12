@@ -1,12 +1,12 @@
-import { renderListingText } from "./renderListingText.js";
-import { renderTimeAndBidContainer } from "./renderTimeAndBidContainer.js";
+import { renderListingText } from "../listing/renderListingText.js";
+import { renderTimeAndBidContainer } from "../listing/renderTimeAndBidContainer.js";
 import { renderBidForm } from "../forms/renderBidForm.js";
 import { renderCarousel } from "../carousel/renderCarousel.js";
-import { renderListingSellerInfo } from "./renderListingSellerInfo.js";
-import { renderListingBidsTable } from "./renderListingBidsTable.js";
+import { renderListingSellerInfo } from "../listing/renderListingSellerInfo.js";
+import { renderListingBidsTable } from "../listing/renderListingBidsTable.js";
 import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 import { getSuperSecretToken } from "../../../utils/storage/userStorage.js";
-import { renderListingTags } from "./renderListingTags.js";
+import { renderListingTags } from "../listing/renderListingTags.js";
 
 export function renderListingPage(data) {
   renderCarousel(data, ".carousel-inner");

@@ -1,7 +1,7 @@
 import { getProfileInfo } from "../utils/api/get/getProfileInfo.js";
 import renderNavBar from "../components/ui/navBar/renderNav.js";
 import userLogout from "../components/userLogout.js";
-import { renderProfilePage } from "../components/ui/profile/renderProfilePage.js";
+import { renderProfilePage } from "../components/ui/layout/renderProfilePage.js";
 import displayMessageNoTimer from "../components/ui/state_handlers/displayMessageNoTimer.js";
 
 

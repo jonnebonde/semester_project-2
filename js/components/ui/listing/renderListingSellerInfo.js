@@ -1,6 +1,4 @@
 export function renderListingSellerInfo(data) {
-  const sellerInfoLoader = document.querySelector(".listing-seller-info-container .loader");
-  sellerInfoLoader.classList.add("d-none");
 
   const sellerInfo = document.createElement("div");
   sellerInfo.classList.add(

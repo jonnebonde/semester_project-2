@@ -4,6 +4,7 @@ import displayMessage from "../../components/ui/state_handlers/displayMessage.js
 import changeInputStatus from "../../components/ui/state_handlers/changeInputStatus.js";
 import { updateProfileAvatar } from "../api/put/updateProfileAvatar.js";
 
+
 export function validateAvatarForm(e) {
   e.preventDefault();
 

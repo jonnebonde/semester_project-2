@@ -39,19 +39,11 @@ export function renderCreatelistingPage() {
 
   addTagBtn.addEventListener("click", (e) => {
     const inputTags = collectTagValues();
-
-    console.log(inputTags);
   });
 
-const titleInput = document.querySelector("#title");
+  const titleInput = document.querySelector("#title");
 
-titleInput.addEventListener("input", (e) => {
-  const title = e.target.value;
-  console.log(title);
-});
-
-
-
-
-
+  titleInput.addEventListener("input", (e) => {
+    const title = e.target.value;
+  });
 }

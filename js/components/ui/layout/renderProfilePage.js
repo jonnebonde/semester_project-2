@@ -1,6 +1,6 @@
-import { renderProfileInfo } from "./renderProfileInfo.js";
+import { renderProfileInfo } from "../profile/renderProfileInfo.js";
 import { renderUpdateAvatarModal } from "../modal/renderUpdateAvatarModal.js";
-import { renderProfileListings } from "./renderProfileListings.js";
+import { renderProfileListings } from "../profile/renderProfileListings.js";
 import { filterProfileBiddings, findProfileListingsWon } from "../../../utils/tools.js";
 import { renderProfileSectionHeading } from "../shared/renderSectionHeading.js";
 import displayMessageNoTimer from "../state_handlers/displayMessageNoTimer.js";
@@ -42,7 +42,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   } else if (profileListings.length === 0) {
     displayMessageNoTimer("normal", "No listings yet", profileListingsMainContainer);
   } else {
-    const profileListingsContainer = renderProfileListings(profileListings, "profile-listings");
+    const profileListingsContainer = renderProfileListings(profileListings, "profile-listings-");
 
     profileListingsMainContainer.appendChild(profileListingsContainer);
   }
@@ -62,7 +62,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
     displayMessageNoTimer("normal", "No bids yet", profileBidsMainContainer);
   } else {
     const filteredProfileBidsOnListings = filterProfileBiddings(profileBidsOnListings);
-    const profileBidsContainer = renderProfileListings(filteredProfileBidsOnListings, "profile-bids", "My bids");
+    const profileBidsContainer = renderProfileListings(filteredProfileBidsOnListings, "profile-bids-");
 
     profileBidsMainContainer.appendChild(profileBidsContainer);
   }
@@ -83,7 +83,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   } else {
     const profileListingsBiddings = filterProfileBiddings(profileBidsOnListings);
     const profileListingsWonArray = findProfileListingsWon(profileListingsBiddings, profileInfo);
-    const profileListingsWonContainer = renderProfileListings(profileListingsWonArray, "profile-listings-won", "My wins");
+    const profileListingsWonContainer = renderProfileListings(profileListingsWonArray, "profile-listings-won-");
 
     profileListingsWonMainContainer.appendChild(profileListingsWonContainer);
   }
