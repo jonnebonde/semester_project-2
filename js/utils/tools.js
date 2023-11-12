@@ -23,8 +23,6 @@ export function findHighestBid(bids) {
 export function timeDifference(timeUntilEnds) {
   let timeDifference = new Date(timeUntilEnds) - new Date();
 
-  console.log(timeDifference)
-
   function convertTimeToDays(timeDifference) {
     let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -101,7 +99,6 @@ export function filterProfileBiddings(profileBidsOnListings) {
 
   return filteredProfileBidsOnListingsNewList;
 }
-
 
 export function findProfileListingsWon(profileListingsBiddings, profileInfo) {
   return profileListingsBiddings.filter(function (listing) {

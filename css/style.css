@@ -345,10 +345,22 @@ section .section-heading {
   height: 140px;
   width: 150px;
 }
+.card .card-card-content {
+  padding: 0 5px;
+}
+.card .card-card-content p {
+  font-size: 16px;
+}
+.card .card-card-content h4, .card .card-card-content .h4 {
+  font-size: 21px;
+}
 @media (min-width: 792px) {
   .card {
     height: 260px;
     width: 300px;
+  }
+  .card p {
+    font-size: 18px;
   }
 }
 .card .card-img-top {

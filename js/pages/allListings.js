@@ -9,3 +9,8 @@ sortListingsOrder();
 userLogout();
 
 
+
+// bygge ny all listings side med search tags med feilmelding hvis ingen resultat
+// bygge ny all listings side med filter og sortering kun med hjelp av apiet med feilmelding hvis ingen resultat
+// bygge ny all listings side med pagination med feilmelding hvis ingen resultat
+// bygge nye factory functions for alle elementene som skal rendres på siden

@@ -9,17 +9,23 @@ export function renderCards(listing, container, type) {
   cardImg.classList.add(`${type}` + "-img-top");
   cardImg.setAttribute("src", listing.media[0]);
   cardImg.setAttribute("alt", listing.title);
-  cardImg.setAttribute("onerror", "src='/assets/img/no-image-icon-23485.png'");
+  cardImg.setAttribute("onerror", "src='/assets/img/no-image-icon-23485.jpg'");
   card.appendChild(cardImg);
 
   const cardContent = document.createElement("div");
   cardContent.classList.add(`${type}` + "-card-content");
 
-  const cardTitle = document.createElement("h3");
+  const cardTitle = document.createElement("h4");
   cardTitle.textContent = listing.title;
+
+  if(listing.title.length >= 20) {
+    cardTitle.style.fontSize = "17px"
+  }
 
   const cardBid = document.createElement("p");
   cardBid.textContent = `Current bid: ${findHighestBid(listing.bids)} kr`;
+
+
 
   const cardTime = document.createElement("time");
   cardTime.textContent = "Ends in: " + timeDifference(listing.endsAt);
@@ -32,5 +38,3 @@ export function renderCards(listing, container, type) {
 
   container.appendChild(card);
 }
-
-
