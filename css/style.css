@@ -77,12 +77,23 @@ section .section-heading {
   text-align: center;
   color: rgb(232, 43, 72);
   background-color: #FFFFFF;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .success {
   text-align: center;
   color: rgb(29, 131, 72);
   background-color: #FFFFFF;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.normal {
+  text-align: center;
+  background-color: #FFFFFF;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .success-border {

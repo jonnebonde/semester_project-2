@@ -34,4 +34,3 @@ export function renderCards(listing, container, type) {
 }
 
 
-// make links to the listings that are won by the user

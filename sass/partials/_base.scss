@@ -53,12 +53,24 @@ section {
   text-align: center;
   color: getColour(error-message-color);
   background-color: getColour(white, 1);
+  width: 80%;
+  margin: 0 auto;
 }
 
 .success {
   text-align: center;
   color: getColour(success-message-color);
   background-color: getColour(white, 1);
+  width: 80%;
+  margin: 0 auto;
+}
+
+.normal {
+  text-align: center;
+  color: getColour(normal-message-color);
+  background-color: getColour(white, 1);
+  width: 80%;
+  margin: 0 auto;
 }
 
 .success-border {

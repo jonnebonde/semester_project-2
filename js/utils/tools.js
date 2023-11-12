@@ -23,14 +23,15 @@ export function findHighestBid(bids) {
 export function timeDifference(timeUntilEnds) {
   let timeDifference = new Date(timeUntilEnds) - new Date();
 
+  console.log(timeDifference)
+
   function convertTimeToDays(timeDifference) {
     let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     let timeString = "";
 
-
-    // If the time difference is less than 1 minute, return "less than 1 minute" author: @mariusbjoroy/copilot 
+    // If the time difference is less than 1 minute, return "less than 1 minute" author: @mariusbjoroy/copilot
     switch (true) {
       case days >= 1:
         timeString = `${days} days, ${hours} hours`;
@@ -38,7 +39,7 @@ export function timeDifference(timeUntilEnds) {
       case hours >= 1:
         timeString = `${hours} hours, ${minutes} minutes`;
         break;
-      case timeDifference <= 0:
+      case timeDifference >= 0:
         timeString = "Ended";
         break;
       default:
@@ -84,7 +85,7 @@ export function filterProfileBiddings(profileBidsOnListings) {
 
   const filteredProfileBidsOnListingsNewList = filteredProfileBidsOnListings.map(function (listing) {
     const filteredListing = {
-      bids: [{amount: listing.amount}],
+      bids: [{ amount: listing.amount }],
       id: listing.listing.id,
       title: listing.listing.title,
       description: listing.listing.description,
@@ -97,7 +98,13 @@ export function filterProfileBiddings(profileBidsOnListings) {
 
     return filteredListing;
   });
-  
+
   return filteredProfileBidsOnListingsNewList;
 }
 
+
+export function findProfileListingsWon(profileListingsBiddings, profileInfo) {
+  return profileListingsBiddings.filter(function (listing) {
+    return profileInfo.wins.includes(listing.id);
+  });
+}

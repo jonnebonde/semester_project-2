@@ -12,3 +12,5 @@ export default function displayMessage(type, message, target) {
     messageContainer.removeChild(messageElement);
   }, 3000);
 }
+
+

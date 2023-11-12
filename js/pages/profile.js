@@ -2,6 +2,7 @@ import { getProfileInfo } from "../utils/api/get/getProfileInfo.js";
 import renderNavBar from "../components/ui/navBar/renderNav.js";
 import userLogout from "../components/userLogout.js";
 import { renderProfilePage } from "../components/ui/profile/renderProfilePage.js";
+import displayMessageNoTimer from "../components/ui/state_handlers/displayMessageNoTimer.js";
 
 
 renderNavBar();
@@ -15,6 +16,7 @@ async function getMultipleProfileInfo() {
 
     renderProfilePage(profileBidsOnListings, profileListings, profileInfo);
   } catch (error) {
+    displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", "main");
     console.log(error);
   }
 }
