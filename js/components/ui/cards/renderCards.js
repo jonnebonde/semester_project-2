@@ -18,14 +18,12 @@ export function renderCards(listing, container, type) {
   const cardTitle = document.createElement("h4");
   cardTitle.textContent = listing.title;
 
-  if(listing.title.length >= 20) {
-    cardTitle.style.fontSize = "17px"
+  if (listing.title.length >= 20) {
+    cardTitle.style.fontSize = "17px";
   }
 
   const cardBid = document.createElement("p");
   cardBid.textContent = `Current bid: ${findHighestBid(listing.bids)} kr`;
-
-
 
   const cardTime = document.createElement("time");
   cardTime.textContent = "Ends in: " + timeDifference(listing.endsAt);

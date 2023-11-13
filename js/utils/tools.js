@@ -37,7 +37,7 @@ export function timeDifference(timeUntilEnds) {
       case hours >= 1:
         timeString = `${hours} hours, ${minutes} minutes`;
         break;
-      case timeDifference >= 0:
+      case timeDifference <= 0:
         timeString = "Ended";
         break;
       default:
@@ -79,6 +79,8 @@ export function filterProfileBiddings(profileBidsOnListings) {
     } else {
       filteredProfileBidsOnListings.push(listing);
     }
+
+    return filteredProfileBidsOnListings;
   });
 
   const filteredProfileBidsOnListingsNewList = filteredProfileBidsOnListings.map(function (listing) {

@@ -17,7 +17,7 @@ export function renderCarousel(data = [], targetElement) {
   console.log(carouselImages);
 
   if (carouselImages.length === 0 || carouselImages === undefined) {
-    carouselImages = ["/assets/img/no-image-icon-23485.png"];
+    carouselImages = ["/assets/img/no-image-icon-23485.jpg"];
   }
 
   const carouselItemsElementsArray = [];

@@ -58,7 +58,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
 
   if (profileBidsOnListings.errors) {
     displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", profileBidsMainContainer);
-  } else if (profileBidsOnListings.length === 0) {
+  } else if (profileInfo.length === 0) {
     displayMessageNoTimer("normal", "No bids yet", profileBidsMainContainer);
   } else {
     const filteredProfileBidsOnListings = filterProfileBiddings(profileBidsOnListings);
@@ -78,12 +78,16 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
 
   if (profileBidsOnListings.errors) {
     displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", profileListingsWonMainContainer);
-  } else if (profileBidsOnListings.length === 0 || profileListings.length === 0) {
+  } else if (profileInfo.wins.length === 0) {
     displayMessageNoTimer("normal", "No wins yet", profileListingsWonMainContainer);
   } else {
     const profileListingsBiddings = filterProfileBiddings(profileBidsOnListings);
     const profileListingsWonArray = findProfileListingsWon(profileListingsBiddings, profileInfo);
     const profileListingsWonContainer = renderProfileListings(profileListingsWonArray, "profile-listings-won-");
+
+    if (profileListingsWonArray.length === 0) {
+      displayMessageNoTimer("normal", "No wins yet", profileListingsWonContainer);
+    }
 
     profileListingsWonMainContainer.appendChild(profileListingsWonContainer);
   }
@@ -93,5 +97,3 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   profileWrappingContainer.appendChild(profileGridRowContainer);
   profileMainContainer.appendChild(profileWrappingContainer);
 }
-
-// put section heading on containers always with the error message underneath
