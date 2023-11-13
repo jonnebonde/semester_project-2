@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderListingsPage(upDateApiListingsConfig);
 });
 
-
 // sorting and filtering options
 
 // sort by title asc and desc

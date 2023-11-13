@@ -20,8 +20,6 @@ export function renderBidForm(target, data) {
 
   const submitButton = renderFormSubmitBtn("bid");
 
-  console.log(timeDifference(data.created));
-
   bidForm.appendChild(bidInput[0]);
   bidForm.appendChild(submitButton);
 
@@ -31,16 +29,16 @@ export function renderBidForm(target, data) {
   bidForm.addEventListener("submit", (e) => validateBid(e, target, data));
 
   switch (true) {
+    case timeDifference(data.endsAt) === "Ended":
+      setBidMessage("This listing has expired", bidForm);
+      break;
+
     case user.length === 0 && token.length === 0:
       setBidMessage("Please register or login to place a bid", bidForm);
       break;
 
     case user.name === data.seller.name:
       setBidMessage("You can't bid on your own listing", bidForm);
-      break;
-
-    case timeDifference(data.created) === "Ended":
-      setBidMessage("This listing has expired", bidForm);
       break;
 
     case credits < highestCurrentBid + 1:
