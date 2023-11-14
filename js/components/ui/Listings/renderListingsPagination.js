@@ -1,68 +1,42 @@
-import { getListings } from "../../../utils/api/get/getListings.js";
-import { getCurrentUrl, setNewUrl } from "../../../utils/urlStates.js";
 
-const nextPageBtn = document.querySelector("#all_listings_next_page-btn");
-const prevPageBtn = document.querySelector("#all_listings_previous_page-btn");
+export function renderListingsPaginationButtons(target, updateApiListingsConfig, apiListingsConfig, data) {
+  // build renderpagination buttons
+  const container = document.querySelector(target);
+  container.innerHTML = "";
 
-let isAdded = false;
+  const paginationContainer = document.createElement("div");
+  paginationContainer.classList.add("pagination-container", "d-flex", "justify-content-center", "gap-3", "mt-3");
 
-// this works fine, but i dont know how to clean this code up to make it more dynamic and reusable
-
-export function renderListingsPagination(allListings) {
-  if (!isAdded) {
-    nextPageBtn.addEventListener("click", function () {
-      handleNextPageClick(allListings);
+  const prevBtn = document.createElement("button");
+  prevBtn.classList.add("btn", "btn-primary");
+  prevBtn.setAttribute("type", "button");
+  prevBtn.textContent = "Previous";
+  prevBtn.disabled = apiListingsConfig.offset === 0;
+  prevBtn.addEventListener("click", function () {
+    updateApiListingsConfig({
+      offset: apiListingsConfig.offset - apiListingsConfig.limit,
     });
+  });
 
-    prevPageBtn.addEventListener("click", function () {
-      handlePrevPageClick(allListings);
-    });
+  const nextBtn = document.createElement("button");
+  nextBtn.classList.add("btn", "btn-primary");
+  nextBtn.setAttribute("type", "button");
+  nextBtn.textContent = "Next";
+  nextBtn.disabled = data.length < apiListingsConfig.limit;
+  nextBtn.addEventListener("click", function () {
+    if (data.length === 0) {
+      updateApiListingsConfig({
+        offset: apiListingsConfig.offset - apiListingsConfig.limit,
+      });
+      nextBtn.disabled = true;
+    } else {
+      updateApiListingsConfig({
+        offset: apiListingsConfig.offset + apiListingsConfig.limit,
+      });
+    }
+  });
 
-    isAdded = true;
-  }
-
-  checkListingsResultLength(allListings);
-}
-
-function handleNextPageClick(e) {
-  let { limitUrl, offsetUrl, sortUrl, sortOrderUrl } = getCurrentUrl();
-
-  let offset = parseInt(offsetUrl);
-  let limit = parseInt(limitUrl);
-
-  if(limit > 100) {
-    limit = 100;
-  }
-
-  offset += limit;
-  setNewUrl(limit, offset, sortUrl, sortOrderUrl);
-  checkListingsResultLength(e);
-  getListings(limit, offset, sortUrl, sortOrderUrl);
-}
-
-function handlePrevPageClick(e) {
-  let { limitUrl, offsetUrl, sortUrl, sortOrderUrl } = getCurrentUrl();
-
-  let offset = parseInt(offsetUrl);
-  let limit = parseInt(limitUrl);
-
-  offset -= limit;
-
-  if (offset < 0) {
-    offset = 0;
-  }
-
-  setNewUrl(limit, offset, sortUrl, sortOrderUrl);
-  checkListingsResultLength(e);
-  getListings(limit, offset, sortUrl, sortOrderUrl);
-}
-
-function checkListingsResultLength(allListings) {
-  let { limitUrl, offsetUrl } = getCurrentUrl();
-
-  let offset = parseInt(offsetUrl);
-  let limit = parseInt(limitUrl);
-
-  nextPageBtn.disabled = allListings.length < limit;
-  prevPageBtn.disabled = offset === 0;
+  paginationContainer.appendChild(prevBtn);
+  paginationContainer.appendChild(nextBtn);
+  container.appendChild(paginationContainer);
 }

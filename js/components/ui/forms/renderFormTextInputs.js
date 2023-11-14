@@ -57,8 +57,7 @@ export function renderFormTextInputs(fields, minBid, avatar) {
       input.addEventListener("input", (e) => {
         const avatarPreview = document.querySelector(".update-avatar-preview");
         avatarPreview.src = e.target.value;
-    });
-
+      });
     }
 
     fieldContainer.appendChild(label);

@@ -29,8 +29,6 @@ export function timeDifference(timeUntilEnds) {
     let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     let timeString = "";
 
-    console.log(timeDifference, days, hours, minutes)
-
     // If the time difference is less than 1 minute, return "less than 1 minute" author: @mariusbjoroy/copilot
     switch (true) {
       case days >= 1:
@@ -46,8 +44,6 @@ export function timeDifference(timeUntilEnds) {
         timeString = `${minutes} minutes`;
         break;
     }
-
-    console.log(timeString);
 
     return timeString;
   }

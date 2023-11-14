@@ -5,6 +5,9 @@ import displayMessageNoTimer from "../state_handlers/displayMessageNoTimer.js";
 export function renderIndexPage(newestAuctionData, listingsData) {
   const mainContainer = document.querySelector("main");
 
+  const loader = document.createElement("div");
+  loader.classList.add("loader");
+
   // last chance listings container
 
   const lastChanceListingsContainer = document.createElement("section");
@@ -18,6 +21,8 @@ export function renderIndexPage(newestAuctionData, listingsData) {
   const lastChanceListingsResultsContainer = document.createElement("div");
   lastChanceListingsResultsContainer.classList.add("last_chance-listings-results-container");
 
+  lastChanceListingsResultsContainer.appendChild(loader);
+
   if (listingsData.errors) {
     displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", lastChanceListingsContainer);
   } else if (listingsData.length === 0) {
@@ -25,6 +30,7 @@ export function renderIndexPage(newestAuctionData, listingsData) {
   } else {
     const lastChanceListings = renderProfileListings(listingsData, "");
 
+    lastChanceListingsResultsContainer.innerHTML = "";
     lastChanceListingsResultsContainer.appendChild(lastChanceListings);
     lastChanceListingsContainer.appendChild(lastChanceListingsResultsContainer);
   }
@@ -42,16 +48,17 @@ export function renderIndexPage(newestAuctionData, listingsData) {
   const newestListingsResultContainer = document.createElement("div");
   newestListingsResultContainer.classList.add("newest-listings-results-container");
 
-  if(newestAuctionData.errors) {
+  newestListingsResultContainer.appendChild(loader);
+
+  if (newestAuctionData.errors) {
     displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", newestListingsContainer);
-  } else if(newestAuctionData.length === 0) {
-    displayMessageNoTimer("normal", "Received no listings, please refresh page", newestListingsContainer)
+  } else if (newestAuctionData.length === 0) {
+    displayMessageNoTimer("normal", "Received no listings, please refresh page", newestListingsContainer);
   } else {
     const newestListings = renderProfileListings(newestAuctionData, "");
 
+    newestListingsResultContainer.innerHTML = "";
     newestListingsResultContainer.appendChild(newestListings);
     newestListingsContainer.appendChild(newestListingsResultContainer);
   }
-
-
 }

@@ -44,8 +44,6 @@ export default function renderNavBar() {
   bottomNavContainer.appendChild(bottomNavUl);
 
   if (token && username) {
-    console.log("token");
-
     topNavContainer.removeChild(topNavUl);
 
     const loggedInBtnGroup = renderNavBarLoggedInMenu();
