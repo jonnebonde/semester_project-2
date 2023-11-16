@@ -3,8 +3,6 @@ import { postBid } from "../api/post/postBid.js";
 export function validateBid(e, target) {
   e.preventDefault();
 
-  console.log("validateBid");
-
   const listingId = new URLSearchParams(window.location.search).get("id");
   const bidInput = document.querySelector("#bid");
 
@@ -13,10 +11,7 @@ export function validateBid(e, target) {
     listingId: listingId,
   };
 
-  console.log(bidInput.value);
-
   if (bidInput.value && listingId) {
-    console.log(typeof bidInfo.bid);
     postBid(bidInfo, target);
   }
 }

@@ -42,9 +42,13 @@ export function renderImageInputContainer() {
   const imagesContainer = document.createElement("div");
   imagesContainer.classList.add("images", "d-flex", "flex-wrap", "align-items-center", "gap-2");
 
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("image-message-container");
+
   // Append label, inputButtonDiv, descriptionHelp, and tagsContainer to the main container
   imageInputContainer.appendChild(label);
   imageInputContainer.appendChild(inputButtonDiv);
+  imageInputContainer.appendChild(messageContainer);
   imageInputContainer.appendChild(descriptionHelp);
   imageInputContainer.appendChild(imagesContainer);
 

@@ -32,6 +32,12 @@ export function renderListingPage(data) {
 
   listingInfoContainer.appendChild(timeAndBidContainer);
 
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("listing-message-container");
+
+  listingInfoContainer.appendChild(messageContainer);
+
+
   const token = getSuperSecretToken();
   const user = getUserInfoFromStorage("user");
 

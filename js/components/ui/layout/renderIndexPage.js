@@ -1,12 +1,9 @@
 import { renderProfileListings } from "../profile/renderProfileListings.js";
 import { renderProfileSectionHeading } from "../shared/renderSectionHeading.js";
-import displayMessageNoTimer from "../state_handlers/displayMessageNoTimer.js";
+import displayMessageNoTimer from "../state_handlers/displayMessage.js";
 
-export function renderIndexPage(newestAuctionData, listingsData) {
+export function renderIndexPage(listingsData, newestAuctionData) {
   const mainContainer = document.querySelector("main");
-
-  const loader = document.createElement("div");
-  loader.classList.add("loader");
 
   // last chance listings container
 
@@ -21,6 +18,9 @@ export function renderIndexPage(newestAuctionData, listingsData) {
   const lastChanceListingsResultsContainer = document.createElement("div");
   lastChanceListingsResultsContainer.classList.add("last_chance-listings-results-container");
 
+  const loader = document.createElement("div");
+  loader.classList.add("loader");
+
   lastChanceListingsResultsContainer.appendChild(loader);
 
   if (listingsData.errors) {
@@ -30,7 +30,7 @@ export function renderIndexPage(newestAuctionData, listingsData) {
   } else {
     const lastChanceListings = renderProfileListings(listingsData, "");
 
-    lastChanceListingsResultsContainer.innerHTML = "";
+    lastChanceListingsResultsContainer.removeChild(loader);
     lastChanceListingsResultsContainer.appendChild(lastChanceListings);
     lastChanceListingsContainer.appendChild(lastChanceListingsResultsContainer);
   }
@@ -48,7 +48,10 @@ export function renderIndexPage(newestAuctionData, listingsData) {
   const newestListingsResultContainer = document.createElement("div");
   newestListingsResultContainer.classList.add("newest-listings-results-container");
 
-  newestListingsResultContainer.appendChild(loader);
+  const loader2 = document.createElement("div");
+  loader2.classList.add("loader");
+
+  newestListingsResultContainer.appendChild(loader2);
 
   if (newestAuctionData.errors) {
     displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", newestListingsContainer);
@@ -57,7 +60,7 @@ export function renderIndexPage(newestAuctionData, listingsData) {
   } else {
     const newestListings = renderProfileListings(newestAuctionData, "");
 
-    newestListingsResultContainer.innerHTML = "";
+    newestListingsResultContainer.removeChild(loader2);
     newestListingsResultContainer.appendChild(newestListings);
     newestListingsContainer.appendChild(newestListingsResultContainer);
   }

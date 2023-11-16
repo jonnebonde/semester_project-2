@@ -1,6 +1,4 @@
-
 export function renderListingsPaginationButtons(target, updateApiListingsConfig, apiListingsConfig, data) {
-  // build renderpagination buttons
   const container = document.querySelector(target);
   container.innerHTML = "";
 

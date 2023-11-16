@@ -21,7 +21,6 @@ export function renderListingsSortingOptions(target, updateApiListingsConfig, ap
     searchByTagsInput.value = "";
   });
 
-
   const sortAtoZBtn = document.createElement("button");
   sortAtoZBtn.classList.add("btn", "btn-primary");
   sortAtoZBtn.setAttribute("type", "button");

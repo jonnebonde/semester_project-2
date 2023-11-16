@@ -3,7 +3,7 @@ import { renderUpdateAvatarModal } from "../modal/renderUpdateAvatarModal.js";
 import { renderProfileListings } from "../profile/renderProfileListings.js";
 import { filterProfileBiddings, findProfileListingsWon } from "../../../utils/tools.js";
 import { renderProfileSectionHeading } from "../shared/renderSectionHeading.js";
-import displayMessageNoTimer from "../state_handlers/displayMessageNoTimer.js";
+import displayMessage from "../state_handlers/displayMessage.js";
 
 export function renderProfilePage(profileBidsOnListings, profileListings, profileInfo) {
   const profileMainContainer = document.querySelector("main");
@@ -24,7 +24,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
 
   // profile info container
   if (profileInfo.errors) {
-    displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", profileInfoMainContainer);
+    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", profileInfoMainContainer);
   } else {
     const profileInfoContainer = renderProfileInfo(profileInfo);
     profileInfoMainContainer.appendChild(profileInfoContainer);
@@ -38,9 +38,9 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   profileListingsMainContainer.appendChild(profileListingsHeading);
 
   if (profileListings.errors) {
-    displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", profileListingsMainContainer);
+    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", profileListingsMainContainer);
   } else if (profileListings.length === 0) {
-    displayMessageNoTimer("normal", "No listings yet", profileListingsMainContainer);
+    displayMessage("normal", "No listings yet", profileListingsMainContainer);
   } else {
     const profileListingsContainer = renderProfileListings(profileListings, "profile-listings-");
 
@@ -57,9 +57,9 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   profileBidsMainContainer.appendChild(profileBidsHeading);
 
   if (profileBidsOnListings.errors) {
-    displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", profileBidsMainContainer);
+    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", profileBidsMainContainer);
   } else if (profileInfo.length === 0) {
-    displayMessageNoTimer("normal", "No bids yet", profileBidsMainContainer);
+    displayMessage("normal", "No bids yet", profileBidsMainContainer);
   } else {
     const filteredProfileBidsOnListings = filterProfileBiddings(profileBidsOnListings);
     const profileBidsContainer = renderProfileListings(filteredProfileBidsOnListings, "profile-bids-");
@@ -71,22 +71,29 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
 
   // profile listings won container
   const profileListingsWonMainContainer = document.createElement("div");
-  profileListingsWonMainContainer.classList.add("col-12");
+  profileListingsWonMainContainer.classList.add("col-12", "profile-listings-won-main-container");
 
   const profileListingsWonHeading = renderProfileSectionHeading("h2", "My wins");
+
+  const profileListingsMessageContainer = document.createElement("div");
+  profileListingsMessageContainer.classList.add("profile-listings-won-message-container");
+
+
   profileListingsWonMainContainer.appendChild(profileListingsWonHeading);
+  profileListingsWonMainContainer.appendChild(profileListingsMessageContainer);
+
 
   if (profileBidsOnListings.errors) {
-    displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", profileListingsWonMainContainer);
+    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".profile-listings-won-message-container");
   } else if (profileInfo.wins.length === 0) {
-    displayMessageNoTimer("normal", "No wins yet", profileListingsWonMainContainer);
+    displayMessage("normal", "No wins yet", profileListingsMessageContainer);
   } else {
     const profileListingsBiddings = filterProfileBiddings(profileBidsOnListings);
     const profileListingsWonArray = findProfileListingsWon(profileListingsBiddings, profileInfo);
     const profileListingsWonContainer = renderProfileListings(profileListingsWonArray, "profile-listings-won-");
 
     if (profileListingsWonArray.length === 0) {
-      displayMessageNoTimer("normal", "No wins yet", profileListingsWonContainer);
+      profileListingsMessageContainer.textContent = "No wins yet"; 
     }
 
     profileListingsWonMainContainer.appendChild(profileListingsWonContainer);

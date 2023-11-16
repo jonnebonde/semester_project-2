@@ -5,9 +5,7 @@ import userLogout from "../components/userLogout.js";
 import { renderListings } from "../components/ui/Listings/renderListings.js";
 import { renderListingsPaginationButtons } from "../components/ui/listings/renderListingsPagination.js";
 import { renderListingsSortingOptions } from "../components/ui/listings/renderListingsSortingOptions.js";
-import displayMessageNoTime from "../components/ui/state_handlers/displayMessageNoTimer.js";
 import displayMessage from "../components/ui/state_handlers/displayMessage.js";
-import displayMessageNoTimer from "../components/ui/state_handlers/displayMessageNoTimer.js";
 
 renderNavBar();
 userLogout();
@@ -23,19 +21,16 @@ let apiListingsConfig = {
 };
 
 async function updateApiListingsConfig(newConfig) {
-  console.log(newConfig);
-
   apiListingsConfig = { ...apiListingsConfig, ...newConfig };
 
   try {
     const allListings = await getListings(apiListingsConfig);
 
-      renderListingsSortingOptions(".filter-and-sort-main-container", updateApiListingsConfig, apiListingsConfig);
-      renderListings(allListings, ".all-listings-cards-container", "card");
-      renderListingsPaginationButtons(".all-listings-pagination-container", updateApiListingsConfig, apiListingsConfig, allListings);
-    
+    renderListingsSortingOptions(".filter-and-sort-main-container", updateApiListingsConfig, apiListingsConfig);
+    renderListings(allListings, ".all-listings-cards-container", "card");
+    renderListingsPaginationButtons(".all-listings-pagination-container", updateApiListingsConfig, apiListingsConfig, allListings);
   } catch (error) {
-    displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", ".message-container");
+    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".message-container");
   }
 }
 

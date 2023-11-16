@@ -1,4 +1,4 @@
-import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
+import displayMessage from "../../../components/ui/state_handlers/displayMessageTimer.js";
 import { baseUrl } from "../../../settings/apiUrl.js";
 import { getSuperSecretToken } from "../../storage/userStorage.js";
 import { renderCreateListingForm } from "../../../components/ui/forms/renderCreateListingForm.js";

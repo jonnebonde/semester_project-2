@@ -1,5 +1,6 @@
 import renderNavbar from "../components/ui/navBar/renderNav.js";
 import { renderCreatelistingPage } from "../components/ui/layout/renderCreateListingPage.js";
+import userLogout from "../components/userLogout.js";
 import { getUserInfoFromStorage, getSuperSecretToken } from "../utils/storage/userStorage.js";
 
 const user = getUserInfoFromStorage("user");
@@ -10,4 +11,5 @@ if (!user || !token) {
 } else {
   renderNavbar();
   renderCreatelistingPage();
+  userLogout();
 }

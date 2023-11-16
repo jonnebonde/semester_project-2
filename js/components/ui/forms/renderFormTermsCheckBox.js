@@ -15,8 +15,12 @@ export function renderFormTermsCheckBox() {
     agreeLabel.setAttribute("data-bs-target", "#exampleModal");
     agreeLabel.textContent = "Agree to terms and conditions";
 
+    const messageContainer = document.createElement("div");
+    messageContainer.classList.add("terms-message-container");
+
     agreeContainer.appendChild(agreeInput);
     agreeContainer.appendChild(agreeLabel);
+    agreeContainer.appendChild(messageContainer);
 
     return agreeContainer;
 }

@@ -8,7 +8,6 @@ import { registerNewListing } from "../api/post/registerNewListing.js";
 export function validateCreateListing(e) {
   e.preventDefault();
 
-  console.log("asdrfg");
   const titleInput = document.querySelector("#title");
   const descriptionInput = document.querySelector("#description");
   const dateInput = document.querySelector("#end-date");
@@ -20,48 +19,46 @@ export function validateCreateListing(e) {
   const description = validateLength(descriptionInput.value, 4, 200);
   const date = validateDateInput(dateInput.value);
 
-  console.log(tagArray, imageArray);
-
   if (title) {
-    displayMessage("success", "Title is valid", "#titleHelp");
+    displayMessage("success", "Title is valid", ".title-message-container");
     changeInputStatus(titleInput, "success");
   } else {
-    displayMessage("error", "Title must be between 3 and 30 characters long", "#titleHelp");
+    displayMessage("error", "Title must be between 3 and 30 characters long", ".title-message-container");
     changeInputStatus(titleInput, "error");
   }
 
   if (description) {
-    displayMessage("success", "Description is valid", "#descriptionHelp");
+    displayMessage("success", "Description is valid", ".description-message-container");
     changeInputStatus(descriptionInput, "success");
   } else {
-    displayMessage("error", "Description must be between 5 and 200 characters long", "#descriptionHelp");
+    displayMessage("error", "Description must be between 5 and 200 characters long", ".description-message-container");
     changeInputStatus(descriptionInput, "error");
   }
 
   if (date) {
-    displayMessage("success", "Date is valid", "#end-dateHelp");
+    displayMessage("success", "Date is valid", ".end-date-message-container");
     changeInputStatus(dateInput, "success");
   } else {
-    displayMessage("error", "Date must be in the future", "#end-dateHelp");
+    displayMessage("error", "Date must be in the future", ".end-date-message-container");
     changeInputStatus(dateInput, "error");
   }
 
   if (tagArray.tags.length === 0) {
-    displayMessage("error", "Please add at least one tag", ".tags");
+    displayMessage("error", "Please add at least one tag", ".tags-message-container");
     changeInputStatus(document.querySelector("#listing-tag-input"), "error");
   } else {
-    displayMessage("success", "Tags are valid", ".tags");
+    displayMessage("success", "Tags are valid", ".tags-message-container");
     changeInputStatus(document.querySelector("#listing-tag-input"), "success");
   }
 
   if (imageArray.media.length === 0) {
-    displayMessage("error", "Please add at least one image", ".images");
+    displayMessage("error", "Please add at least one image", ".image-message-container");
     changeInputStatus(document.querySelector("#listing-image-input"), "error");
   } else {
-    displayMessage("success", "Images are valid", ".images");
+    displayMessage("success", "Images are valid", ".image-message-container");
     changeInputStatus(document.querySelector("#listing-image-input"), "success");
   }
-  console.log(imageArray, tagArray, titleInput.value, descriptionInput.value, dateInput.value);
+
 
   const newListingValues = {
     title: titleInput.value,
@@ -70,8 +67,6 @@ export function validateCreateListing(e) {
     tags: tagArray,
     images: imageArray,
   };
-
-  console.log(newListingValues);
 
   if (title && description && date && tagArray.tags.length > 0 && imageArray.media.length > 0) {
     registerNewListing(newListingValues);

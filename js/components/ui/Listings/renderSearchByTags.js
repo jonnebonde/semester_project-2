@@ -1,5 +1,4 @@
 export function renderSearchByTags(target, updateApiListingsConfig) {
-
   const container = document.querySelector(target);
 
   const searchByTagsContainer = document.createElement("div");
@@ -27,5 +26,3 @@ export function renderSearchByTags(target, updateApiListingsConfig) {
   searchByTagsContainer.appendChild(searchByTagsBtn);
   container.appendChild(searchByTagsContainer);
 }
-
-

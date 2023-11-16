@@ -2,19 +2,14 @@ import { renderCarouselBtns } from "./renderCarouselControllers.js";
 
 export function renderCarousel(data = [], targetElement) {
   const carouselIndicatorsContainer = document.querySelector(".carousel-indicators");
-  const carouselLoader = document.querySelector(".loader");
   const carouselImageContainer = document.querySelector(targetElement);
 
   carouselImageContainer.textContent = "";
   carouselIndicatorsContainer.textContent = "";
 
-  console.log(data);
-
   carouselImageContainer.classList.remove("d-grid", "justify-content-center", "align-content-center");
 
   let carouselImages = data.media;
-
-  console.log(carouselImages);
 
   if (carouselImages.length === 0 || carouselImages === undefined) {
     carouselImages = ["/assets/img/no-image-icon-23485.jpg"];
@@ -24,7 +19,6 @@ export function renderCarousel(data = [], targetElement) {
   const carouselIndicatorsElementsArray = [];
 
   for (let i = 0; i < carouselImages.length; i++) {
-    /*  carouselLoader.classList.add("d-none"); */
     carouselImageContainer.classList.remove("justify-content-center", "align-items-center");
 
     const item = carouselImages[i];
@@ -52,7 +46,7 @@ export function renderCarousel(data = [], targetElement) {
     carouselItem.classList.add("d-block");
     carouselItem.setAttribute("src", item);
     carouselItem.setAttribute("alt", item.title);
-    carouselItem.setAttribute("onerror", "src='/assets/img/no-image-icon-23485.png'");
+    carouselItem.setAttribute("onerror", "src='/assets/img/no-image-icon-23485.jpg'");
 
     carouselItemContainer.appendChild(carouselItem);
 

@@ -3,20 +3,16 @@
  * @returns {HTMLDivElement} The tag input container element.
  */
 export function renderTagInput() {
-
   const tagInputContainer = document.createElement("div");
   tagInputContainer.classList.add("mb-3", "tag-input");
-
 
   const label = document.createElement("label");
   label.setAttribute("for", "listing-tag-input");
   label.classList.add("form-label");
   label.textContent = "Tags";
 
-
   const inputButtonDiv = document.createElement("div");
   inputButtonDiv.classList.add("w-100", "d-flex");
-
 
   const input = document.createElement("input");
   input.setAttribute("type", "text");
@@ -25,7 +21,6 @@ export function renderTagInput() {
   input.setAttribute("autocomplete", "off");
   input.setAttribute("maxlength", "15");
   input.classList.add("w-75");
-
 
   const addButton = document.createElement("button");
   addButton.setAttribute("type", "button");
@@ -48,12 +43,18 @@ export function renderTagInput() {
   const tagsContainer = document.createElement("div");
   tagsContainer.classList.add("tags", "d-flex", "flex-wrap", "align-items-center");
 
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("tags-message-container");
+
   // Append label, inputButtonDiv, descriptionHelp, and tagsContainer to the main container
 
   tagInputContainer.appendChild(label);
   tagInputContainer.appendChild(inputButtonDiv);
+  tagInputContainer.appendChild(messageContainer);
   tagInputContainer.appendChild(descriptionHelp);
+  
   tagInputContainer.appendChild(tagsContainer);
+
 
   return tagInputContainer;
 }

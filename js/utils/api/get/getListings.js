@@ -1,7 +1,6 @@
 import apiCall from "./apiCall.js";
 import { baseUrl } from "../../../settings/apiUrl.js";
-import displayMessageNoTimer from "../../../components/ui/state_handlers/displayMessageNoTimer.js";
-
+import displayMessageNoTimer from "../../../components/ui/state_handlers/displayMessage.js";
 
 export async function getListings(urlParamsConfig) {
   const params = new URLSearchParams({ ...urlParamsConfig }).toString();

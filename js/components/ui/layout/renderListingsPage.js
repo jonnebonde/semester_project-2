@@ -1,10 +1,4 @@
-import { renderListingsPaginationButtons } from "../listings/renderListingsPagination.js";
-import { renderListingsSortingOptions } from "../listings/renderListingsSortingOptions.js";
-import { renderSearchByTags } from "../listings/renderSearchByTags.js";
-
 export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
-  const data = updateApiListingsConfig(apiListingsConfig);
-
   const mainContainer = document.querySelector("main");
   mainContainer.classList.add("container");
 
@@ -40,7 +34,5 @@ export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
 
   mainContainer.appendChild(mainGridContainer);
 
-  renderListingsPaginationButtons(".all-listings-pagination-container", updateApiListingsConfig, apiListingsConfig, data);
-  renderListingsSortingOptions(".filter-and-sort-main-container", updateApiListingsConfig, apiListingsConfig);
-  renderSearchByTags(".search-main-container", updateApiListingsConfig, apiListingsConfig);
+  updateApiListingsConfig(apiListingsConfig);
 }

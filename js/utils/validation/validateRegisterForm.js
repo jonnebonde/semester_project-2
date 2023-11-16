@@ -22,33 +22,33 @@ export function validateRegister(e) {
   const checkTerms = document.querySelector("#checkbox").checked;
 
   if (email) {
-    displayMessage("success", "Email is valid", "#emailHelp");
+    displayMessage("success", "Email is valid", ".email-message-container");
     changeInputStatus(emailInput, "success");
   } else {
-    displayMessage("error", "The email must be a stud.noroff.no email address", "#emailHelp");
+    displayMessage("error", "The email must be a stud.noroff.no email address", ".email-message-container");
     changeInputStatus(emailInput, "error");
   }
 
   if (newPassword) {
-    displayMessage("success", "Password is valid", "#passwordHelp");
+    displayMessage("success", "Password is valid", ".password-message-container");
     changeInputStatus(newPasswordInput, "success");
   } else {
-    displayMessage("error", "Password must be at least 8 characters long", "#passwordHelp");
+    displayMessage("error", "Password must be at least 8 characters long", ".password-message-container");
     changeInputStatus(newPasswordInput, "error");
   }
 
   if (repeatPassword) {
-    displayMessage("success", "Passwords match", "#repeat-passwordHelp");
+    displayMessage("success", "Passwords match", ".repeat-password-message-container");
     changeInputStatus(repeatPasswordInput, "success");
   } else {
-    displayMessage("error", "Passwords do not match", "#repeat-passwordHelp");
+    displayMessage("error", "Passwords do not match", ".repeat-password-message-container");
     changeInputStatus(repeatPasswordInput, "error");
   }
 
   if (checkTerms) {
-    displayMessage("success", "Terms are accepted", "#register-form-agree-label");
+    displayMessage("success", "Terms are accepted", ".terms-message-container");
   } else {
-    displayMessage("error", "Please accept the terms", "#register-form-agree-label");
+    displayMessage("error", "Please accept the terms", ".terms-message-container");
   }
 
   const newUser = {

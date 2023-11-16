@@ -18,18 +18,18 @@ export function validateLogin(e) {
   const password = validateLength(passwordInput.value, 7);
 
   if (email) {
-    displayMessage("success", "Email is valid", "#emailHelp");
+    displayMessage("success", "Email is valid", ".email-message-container");
     changeInputStatus(emailInput, "success");
   } else {
-    displayMessage("error", "The email must be a noroff.no or stud.noroff.no email address", "#emailHelp");
+    displayMessage("error", "The email must be a noroff.no or stud.noroff.no email address", ".email-message-container");
     changeInputStatus(emailInput, "error");
   }
 
   if (password) {
-    displayMessage("success", "Password is valid", "#passwordHelp");
+    displayMessage("success", "Password is valid", ".password-message-container");
     changeInputStatus(passwordInput, "success");
   } else {
-    displayMessage("error", "Password must be at least 8 characters long", "#passwordHelp");
+    displayMessage("error", "Password must be at least 8 characters long", ".password-message-container");
     changeInputStatus(passwordInput, "error");
   }
 

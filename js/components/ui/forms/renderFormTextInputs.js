@@ -3,9 +3,10 @@ import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 export function renderFormTextInputs(fields, minBid, avatar) {
   const fieldContainers = [];
 
-  console.log(fields);
-
   fields.forEach((fieldData) => {
+    const messageContainer = document.createElement("div");
+    messageContainer.classList.add(`${fieldData.id}-message-container`);
+
     const fieldContainer = document.createElement("div");
     fieldContainer.id = `${fieldData.id}-container`;
     fieldContainer.classList.add("mb-3");
@@ -29,8 +30,11 @@ export function renderFormTextInputs(fields, minBid, avatar) {
 
       fieldContainer.appendChild(label);
       fieldContainer.appendChild(textarea);
+      fieldContainer.appendChild(messageContainer);
       fieldContainer.appendChild(helpText);
+
       fieldContainers.push(fieldContainer);
+
       return;
     }
 
@@ -62,6 +66,7 @@ export function renderFormTextInputs(fields, minBid, avatar) {
 
     fieldContainer.appendChild(label);
     fieldContainer.appendChild(input);
+    fieldContainer.appendChild(messageContainer);
 
     if (fieldData.helpText) {
       const helpText = document.createElement("div");

@@ -1,4 +1,4 @@
-import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
+import displayMessage from "../state_handlers/displayMessageTimer.js";
 import { renderLoadingSpinner } from "../state_handlers/loadingIndicator.js";
 import { validateImageUrl } from "../../../utils/validation/validationTools.js";
 
@@ -67,8 +67,6 @@ export function setupImageInput() {
           outputImage(input.value);
           collectImageValues(input.value);
         }
-
-        console.log(output);
       }
     });
   }
@@ -83,19 +81,21 @@ export function setupImageInput() {
   });
 }
 
-
 export function collectImageValues() {
   const imageValues = [];
   const output = document.querySelector(".images");
 
   for (const image of output.children) {
-    const imageValue = image.children[0].src;
-    imageValues.push(imageValue.trim());
+    if (!output.children[0].src || !output) {
+      return;
+    } else {
+      const imageValue = image.children[0].src;
+      imageValues.push(imageValue.trim());
+    }
   }
 
   const imageObject = {
     media: imageValues,
   };
-  console.log(imageObject);
   return imageObject;
 }

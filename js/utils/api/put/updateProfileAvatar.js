@@ -1,6 +1,7 @@
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 import { baseUrl } from "../../../settings/apiUrl.js";
 import { getSuperSecretToken, getUserInfoFromStorage, addUserInfoToStorage } from "../../storage/userStorage.js";
+import renderNavBar from "../../../components/ui/navBar/renderNav.js";
 
 export async function updateProfileAvatar(avatarUrl) {
   const user = getUserInfoFromStorage().name;
@@ -28,11 +29,11 @@ export async function updateProfileAvatar(avatarUrl) {
 
     if (response.status === 200) {
       addUserInfoToStorage(json);
-      displayMessage("success", "Avatar was successfully updated", "#avatar-form-inputHelp");
+     renderNavBar();
+      displayMessage("success", "Avatar was successfully updated", ".avatar-form-input-message-container");
       avatarImage.src = avatarUrl;
     }
   } catch (error) {
-    console.log(error);
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", "#avatar-form-inputHelp");
+    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".avatar-form-input-message-container");
   }
 }
