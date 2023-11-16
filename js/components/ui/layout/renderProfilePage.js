@@ -3,7 +3,6 @@ import { renderUpdateAvatarModal } from "../modal/renderUpdateAvatarModal.js";
 import { renderProfileListings } from "../profile/renderProfileListings.js";
 import { filterProfileBiddings, findProfileListingsWon } from "../../../utils/tools.js";
 import { renderProfileSectionHeading } from "../shared/renderSectionHeading.js";
-import displayMessage from "../state_handlers/displayMessage.js";
 
 export function renderProfilePage(profileBidsOnListings, profileListings, profileInfo) {
   const profileMainContainer = document.querySelector("main");
@@ -22,14 +21,20 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   const profileInfoContainer = document.createElement("div");
   profileInfoContainer.classList.add("profile-info-container");
 
+  const profileMessageContainer = document.createElement("div");
+  profileMessageContainer.classList.add("profile-message-container", "text-center");
+
+  profileInfoContainer.appendChild(profileMessageContainer);
+
   // profile info container
   if (profileInfo.errors) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", profileInfoMainContainer);
+    profileMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
   } else {
     const profileInfoContainer = renderProfileInfo(profileInfo);
     profileInfoMainContainer.appendChild(profileInfoContainer);
   }
   profileGridRowContainer.appendChild(profileInfoMainContainer);
+
   // profile listings container
   const profileListingsMainContainer = document.createElement("div");
   profileListingsMainContainer.classList.add("col-12", "col-lg-6", "profile-listings-main-container");
@@ -37,10 +42,15 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   const profileListingsHeading = renderProfileSectionHeading("h2", "My listings");
   profileListingsMainContainer.appendChild(profileListingsHeading);
 
+  const profileListingMessageContainer = document.createElement("div");
+  profileListingMessageContainer.classList.add("profile-listings-message-container", "text-center");
+
+  profileListingsMainContainer.appendChild(profileListingMessageContainer);
+
   if (profileListings.errors) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", profileListingsMainContainer);
+    profileListingMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
   } else if (profileListings.length === 0) {
-    displayMessage("normal", "No listings yet", profileListingsMainContainer);
+    profileListingMessageContainer.textContent = "No listings yet";
   } else {
     const profileListingsContainer = renderProfileListings(profileListings, "profile-listings-");
 
@@ -54,12 +64,17 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   profileBidsMainContainer.classList.add("col-12", "col-lg-6");
 
   const profileBidsHeading = renderProfileSectionHeading("h2", "My bids");
+
+  const profileBidsMessageContainer = document.createElement("div");
+  profileBidsMessageContainer.classList.add("profile-bids-message-container", "text-center");
+
   profileBidsMainContainer.appendChild(profileBidsHeading);
+  profileBidsMainContainer.appendChild(profileBidsMessageContainer);
 
   if (profileBidsOnListings.errors) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", profileBidsMainContainer);
+    profileBidsMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
   } else if (profileInfo.length === 0) {
-    displayMessage("normal", "No bids yet", profileBidsMainContainer);
+    profileBidsMessageContainer.textContent = "No bids yet";
   } else {
     const filteredProfileBidsOnListings = filterProfileBiddings(profileBidsOnListings);
     const profileBidsContainer = renderProfileListings(filteredProfileBidsOnListings, "profile-bids-");
@@ -70,30 +85,29 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   profileGridRowContainer.appendChild(profileBidsMainContainer);
 
   // profile listings won container
+
   const profileListingsWonMainContainer = document.createElement("div");
   profileListingsWonMainContainer.classList.add("col-12", "profile-listings-won-main-container");
 
   const profileListingsWonHeading = renderProfileSectionHeading("h2", "My wins");
 
-  const profileListingsMessageContainer = document.createElement("div");
-  profileListingsMessageContainer.classList.add("profile-listings-won-message-container");
-
+  const profileListingsWonMessageContainer = document.createElement("div");
+  profileListingsWonMessageContainer.classList.add("profile-listings-won-message-container", "text-center");
 
   profileListingsWonMainContainer.appendChild(profileListingsWonHeading);
-  profileListingsWonMainContainer.appendChild(profileListingsMessageContainer);
-
+  profileListingsWonMainContainer.appendChild(profileListingsWonMessageContainer);
 
   if (profileBidsOnListings.errors) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".profile-listings-won-message-container");
+    profileListingsWonMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
   } else if (profileInfo.wins.length === 0) {
-    displayMessage("normal", "No wins yet", profileListingsMessageContainer);
+    profileListingsWonMessageContainer.textContent = "No wins yet";
   } else {
     const profileListingsBiddings = filterProfileBiddings(profileBidsOnListings);
     const profileListingsWonArray = findProfileListingsWon(profileListingsBiddings, profileInfo);
     const profileListingsWonContainer = renderProfileListings(profileListingsWonArray, "profile-listings-won-");
 
     if (profileListingsWonArray.length === 0) {
-      profileListingsMessageContainer.textContent = "No wins yet"; 
+      profileListingsMessageContainer.textContent = "No wins yet";
     }
 
     profileListingsWonMainContainer.appendChild(profileListingsWonContainer);
