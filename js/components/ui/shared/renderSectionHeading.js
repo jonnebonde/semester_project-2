@@ -1,11 +1,11 @@
-export function renderProfileSectionHeading(size, text) {
-  const profileSectionHeadingContainer = document.createElement("div");
-  profileSectionHeadingContainer.classList.add("section-heading");
+export function renderSectionHeading(size, text) {
+  const SectionHeadingContainer = document.createElement("div");
+  SectionHeadingContainer.classList.add("section-heading");
 
-  const profileSectionHeading = document.createElement(size);
-  profileSectionHeading.textContent = text;
+  const SectionHeading = document.createElement(size);
+  SectionHeading.textContent = text;
 
-  profileSectionHeadingContainer.appendChild(profileSectionHeading);
+  SectionHeadingContainer.appendChild(SectionHeading);
 
-  return profileSectionHeadingContainer;
+  return SectionHeadingContainer;
 }

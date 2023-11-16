@@ -1,5 +1,5 @@
 import { renderProfileListings } from "../profile/renderProfileListings.js";
-import { renderProfileSectionHeading } from "../shared/renderSectionHeading.js";
+import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 import displayMessageNoTimer from "../state_handlers/displayMessage.js";
 
 export function renderIndexPage(listingsData, newestAuctionData) {
@@ -10,7 +10,7 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   const lastChanceListingsContainer = document.createElement("section");
   lastChanceListingsContainer.classList.add("homepage-last_chance_listings-container");
 
-  const lastChanceListingsHeading = renderProfileSectionHeading("h2", "Last chance Auctions");
+  const lastChanceListingsHeading = renderSectionHeading("h2", "Last chance Auctions");
   lastChanceListingsContainer.appendChild(lastChanceListingsHeading);
 
   mainContainer.appendChild(lastChanceListingsContainer);
@@ -40,7 +40,7 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   const newestListingsContainer = document.createElement("section");
   newestListingsContainer.classList.add("homepage-newest_listings-container");
 
-  const newestListingsHeading = renderProfileSectionHeading("h2", "Newest Auctions");
+  const newestListingsHeading = renderSectionHeading("h2", "Newest Auctions");
   newestListingsContainer.appendChild(newestListingsHeading);
 
   mainContainer.appendChild(newestListingsContainer);

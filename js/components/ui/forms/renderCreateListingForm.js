@@ -2,14 +2,11 @@ import { renderFormTextInputs } from "./renderFormTextInputs.js";
 import { createListingFormTextInputs, createlistingFormDateInput } from "../../../settings/formKeys.js";
 import { renderTagInput } from "./renderTagInputContainer.js";
 import { renderImageInputContainer } from "./renderImageInputContainer.js";
-import { validateCreateListing } from "../../../utils/validation/validateCreateListingForm.js";
 import { renderFormSubmitBtn } from "../forms/renderFormSubmitBtn.js";
+import { deleteListing } from "../../../utils/api/delete/deleteListing.js";
+import { validateCreateListing } from "../../../utils/validation/validateCreateListingForm.js";
 
-/**
- * Renders a form for creating a new listing.
- * @returns {void}
- */
-export function renderCreateListingForm() {
+export function renderCreateListingForm(data) {
   const createListingForm = document.createElement("form");
   createListingForm.id = "sell-create-listing-form";
 
@@ -32,7 +29,27 @@ export function renderCreateListingForm() {
 
   createListingForm.appendChild(submitBtn);
 
-  createListingForm.addEventListener("submit", validateCreateListing);
+  createListingForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    validateCreateListing(data);
+  });
+
+  if (data) {
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("btn", "btn-danger", "mt-5");
+    deleteBtn.id = "delete-listing-btn";
+
+    const span = document.createElement("span");
+    span.classList.add("mx-auto");
+
+    span.textContent = "Delete Listing";
+    deleteBtn.appendChild(span);
+    createListingForm.appendChild(deleteBtn);
+    deleteBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      deleteListing(data.id);
+    });
+  }
 
   return createListingForm;
 }

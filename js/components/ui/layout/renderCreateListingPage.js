@@ -1,8 +1,9 @@
 import { renderCreateListingForm } from "../forms/renderCreateListingForm.js";
 import { setupTagInput } from "../forms/renderTagInputFieldValues.js";
 import { setupImageInput } from "../forms/renderimageInputValues.js";
+import { fillInValuesToEditListingForm } from "../../../utils/formvalues/populateInputFieldsEditForm.js";
 
-export function renderCreatelistingPage() {
+export async function renderCreatelistingPage(data) {
   const formMainContainer = document.querySelector("#sell-create-listing-form-container");
   formMainContainer.classList.add("row", "row-cols-lg-2", "row-cols-1", "m-auto");
   formMainContainer.textContent = "";
@@ -20,11 +21,20 @@ export function renderCreatelistingPage() {
 
   formMainContainer.appendChild(formContainer);
   formMainContainer.appendChild(previewContainer);
-  formMainContainer.appendChild(messageContainer);
 
-  const createListingForm = renderCreateListingForm();
-  formContainer.appendChild(createListingForm);
+  if (data) {
+    const createListingForm = renderCreateListingForm(data);
+    formContainer.appendChild(createListingForm);
+    formContainer.appendChild(messageContainer);
+    fillInValuesToEditListingForm(data);
+  } else {
+    const createListingForm = renderCreateListingForm();
+    formContainer.appendChild(createListingForm);
+    formContainer.appendChild(messageContainer);
+  }
 
   setupTagInput();
   setupImageInput();
 }
+
+

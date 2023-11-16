@@ -49,12 +49,33 @@ section {
   text-decoration: underline;
 }
 
+.btn-danger {
+  background-color: getColour(error-message-color, 0.85) !important;
+  border-color: none !important;
+  text-decoration: none;
+  color: getColour(white) !important;
+  padding: 7px 20px !important;
+
+  &:hover {
+    background-color: getColour(error-message-color, 1) !important;
+  }
+}
+
+.btn-accent {
+  background-color: getColour(accent-color, 1) !important;
+  border-color: none !important;
+  text-decoration: none;
+  color: getColour(white) !important;
+  padding: 7px 20px !important;
+}
+
 .error {
   text-align: center;
   color: getColour(error-message-color);
   background-color: getColour(white, 1);
   width: 80%;
   margin: 0 auto;
+  margin-top: 0.5rem;
 }
 
 .success {
@@ -63,6 +84,7 @@ section {
   background-color: getColour(white, 1);
   width: 80%;
   margin: 0 auto;
+  margin-top: 0.5rem;
 }
 
 .normal {
@@ -86,20 +108,20 @@ section {
   color: getColour(black);
   padding: 8px 16px !important;
   border-radius: 4px;
-}
 
-.primary-link:hover {
-  background-color: getColour(primary-color, 1) !important;
+  &:hover {
+    background-color: getColour(primary-color, 1) !important;
+  }
 }
 
 .secondary-link {
   color: getColour(white) !important;
   padding: 8px 16px !important;
   border-radius: 4px;
-}
 
-.secondary-link:hover {
-  background-color: getColour(white, 0.1) !important;
+  &:hover {
+    background-color: getColour(white, 0.1) !important;
+  }
 }
 
 .width-97 {

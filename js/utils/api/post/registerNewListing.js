@@ -7,8 +7,6 @@ export async function registerNewListing(newListingValues) {
   const url = baseUrl + "/listings";
   const token = getSuperSecretToken().token;
 
-  console.log(newListingValues);
-
   const listingDetails = JSON.stringify({
     title: newListingValues.title,
     description: newListingValues.description,
@@ -16,8 +14,6 @@ export async function registerNewListing(newListingValues) {
     media: newListingValues.images.media,
     endsAt: newListingValues.endDate,
   });
-
-  console.log(listingDetails);
 
   const options = {
     method: "POST",
@@ -32,23 +28,20 @@ export async function registerNewListing(newListingValues) {
     const response = await fetch(url, options);
     const json = await response.json();
 
-    if(response.status !== 200 && response.status !== 201) {
-      console.log(json);
-      displayMessage("error", json.errors[0].message, ".create-listing-message-container")
-      }
+    if (response.status !== 200 && response.status !== 201) {
+      displayMessage("error", json.errors[0].message, ".create-listing-message-container");
+    }
 
     if (response.status === 200 || response.status === 201) {
       displayMessage("success", "Listing was successfully created", ".create-listing-message-container");
       setTimeout(() => {
-        renderCreateListingForm();
+        location.reload();
       }, 2000);
-      
+
       return;
     }
-
-
-    console.log(response, json);
-  } catch(error) {
+  } catch (error) {
+    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".create-listing-message-container");
     console.log(error);
   }
 }

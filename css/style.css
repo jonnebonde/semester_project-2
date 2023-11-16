@@ -73,12 +73,32 @@ section .section-heading {
   text-decoration: underline;
 }
 
+.btn-danger {
+  background-color: rgba(232, 43, 72, 0.85) !important;
+  border-color: none !important;
+  text-decoration: none;
+  color: #FFFFFF !important;
+  padding: 7px 20px !important;
+}
+.btn-danger:hover {
+  background-color: rgb(232, 43, 72) !important;
+}
+
+.btn-accent {
+  background-color: rgb(50, 76, 42) !important;
+  border-color: none !important;
+  text-decoration: none;
+  color: #FFFFFF !important;
+  padding: 7px 20px !important;
+}
+
 .error {
   text-align: center;
   color: rgb(232, 43, 72);
   background-color: #FFFFFF;
   width: 80%;
   margin: 0 auto;
+  margin-top: 0.5rem;
 }
 
 .success {
@@ -87,6 +107,7 @@ section .section-heading {
   background-color: #FFFFFF;
   width: 80%;
   margin: 0 auto;
+  margin-top: 0.5rem;
 }
 
 .normal {
@@ -110,7 +131,6 @@ section .section-heading {
   padding: 8px 16px !important;
   border-radius: 4px;
 }
-
 .primary-link:hover {
   background-color: rgb(255, 92, 0) !important;
 }
@@ -120,7 +140,6 @@ section .section-heading {
   padding: 8px 16px !important;
   border-radius: 4px;
 }
-
 .secondary-link:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }

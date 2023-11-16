@@ -1,9 +1,13 @@
-
-
 export function setupTagInput() {
   const input = document.querySelector("#listing-tag-input");
   const output = document.querySelector(".tags");
   const addTagBtn = document.querySelector("#add-tag-btn");
+  const numberOfTags = output.childElementCount;
+
+  if (numberOfTags >= 7) {
+    input.disabled = true;
+    input.placeholder = "Max number of tags reached!";
+  }
 
   function createTagElement(tagFormat) {
     // Create div container for the tag
@@ -31,25 +35,23 @@ export function setupTagInput() {
     input.value = "";
   }
 
-  if(addTagBtn) {
+  if (addTagBtn) {
     addTagBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (input.value === "") {
       e.preventDefault();
-    } else if (output.children.length >= 7) {
-      outputTag(input.value);
-      collectTagValues(input, output);
 
-      input.disabled = true;
-      input.placeholder = "Max number of tags reached!";
-    } else {
-      outputTag(input.value);
-      collectTagValues(input, output);
-    }
-  });
-
-}
+      if (input.value === "") {
+        e.preventDefault();
+      } else if (output.children.length >= 7) {
+        outputTag(input.value);
+        collectTagValues(input, output);
+        input.disabled = true;
+        input.placeholder = "Max number of tags reached!";
+      } else {
+        outputTag(input.value);
+        collectTagValues(input, output);
+      }
+    });
+  }
 
   if (input) {
     input.addEventListener("input", () => {
@@ -68,8 +70,6 @@ export function setupTagInput() {
   });
 
   // Initialize an empty array to store tag values
-
-  
 }
 
 export function collectTagValues() {

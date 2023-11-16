@@ -21,10 +21,7 @@ export async function postBid(bidInfo) {
   const listingId = bidInfo.listingId;
   const bidAmount = bidInfo.bid;
   const url = baseUrl + "/listings/" + listingId + "/bids?_bids=true&_seller=true";
-
   const biddingContainer = document.querySelector(".listing-time-bid-container");
-
- 
 
   const options = {
     method: "POST",
@@ -45,8 +42,6 @@ export async function postBid(bidInfo) {
     }
   } catch (error) {
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listing-message-container");
-
-    console.log(error);
   }
 }
 
@@ -55,5 +50,5 @@ function confirmedBidHandler(data, target) {
   renderTimeAndBidContainer(data, target);
   renderBidForm(target, data);
   updateCredits();
-  renderListingBidsTable(data);
+  renderListingBidsTable(data, ".listing-bid-table-container");
 }

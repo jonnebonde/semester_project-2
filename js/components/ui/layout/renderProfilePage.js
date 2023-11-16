@@ -2,7 +2,7 @@ import { renderProfileInfo } from "../profile/renderProfileInfo.js";
 import { renderUpdateAvatarModal } from "../modal/renderUpdateAvatarModal.js";
 import { renderProfileListings } from "../profile/renderProfileListings.js";
 import { filterProfileBiddings, findProfileListingsWon } from "../../../utils/tools.js";
-import { renderProfileSectionHeading } from "../shared/renderSectionHeading.js";
+import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 
 export function renderProfilePage(profileBidsOnListings, profileListings, profileInfo) {
   const profileMainContainer = document.querySelector("main");
@@ -39,7 +39,8 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   const profileListingsMainContainer = document.createElement("div");
   profileListingsMainContainer.classList.add("col-12", "col-lg-6", "profile-listings-main-container");
 
-  const profileListingsHeading = renderProfileSectionHeading("h2", "My listings");
+  
+  const profileListingsHeading = renderSectionHeading("h2", "My listings");
   profileListingsMainContainer.appendChild(profileListingsHeading);
 
   const profileListingMessageContainer = document.createElement("div");
@@ -63,7 +64,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   const profileBidsMainContainer = document.createElement("div");
   profileBidsMainContainer.classList.add("col-12", "col-lg-6");
 
-  const profileBidsHeading = renderProfileSectionHeading("h2", "My bids");
+  const profileBidsHeading = renderSectionHeading("h2", "My bids");
 
   const profileBidsMessageContainer = document.createElement("div");
   profileBidsMessageContainer.classList.add("profile-bids-message-container", "text-center");
@@ -89,7 +90,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   const profileListingsWonMainContainer = document.createElement("div");
   profileListingsWonMainContainer.classList.add("col-12", "profile-listings-won-main-container");
 
-  const profileListingsWonHeading = renderProfileSectionHeading("h2", "My wins");
+  const profileListingsWonHeading = renderSectionHeading("h2", "My wins");
 
   const profileListingsWonMessageContainer = document.createElement("div");
   profileListingsWonMessageContainer.classList.add("profile-listings-won-message-container", "text-center");

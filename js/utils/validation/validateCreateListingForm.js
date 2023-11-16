@@ -4,10 +4,9 @@ import { validateLength, validateDateInput } from "./validationTools.js";
 import displayMessage from "../../components/ui/state_handlers/displayMessage.js";
 import changeInputStatus from "../../components/ui/state_handlers/changeInputStatus.js";
 import { registerNewListing } from "../api/post/registerNewListing.js";
+import { updateListing } from "../api/put/updateListing.js";
 
-export function validateCreateListing(e) {
-  e.preventDefault();
-
+export function validateCreateListing(data) {
   const titleInput = document.querySelector("#title");
   const descriptionInput = document.querySelector("#description");
   const dateInput = document.querySelector("#end-date");
@@ -59,7 +58,6 @@ export function validateCreateListing(e) {
     changeInputStatus(document.querySelector("#listing-image-input"), "success");
   }
 
-
   const newListingValues = {
     title: titleInput.value,
     description: descriptionInput.value,
@@ -68,7 +66,12 @@ export function validateCreateListing(e) {
     images: imageArray,
   };
 
-  if (title && description && date && tagArray.tags.length > 0 && imageArray.media.length > 0) {
+  if (title && description && date && tagArray.tags.length > 0 && imageArray.media.length > 0 && data) {
+    newListingValues.id = data.id;
+    updateListing(newListingValues);
+  }
+
+  if (title && description && date && tagArray.tags.length > 0 && imageArray.media.length > 0 && !data) {
     registerNewListing(newListingValues);
   }
 }

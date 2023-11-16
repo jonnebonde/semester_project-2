@@ -7,50 +7,131 @@ import { renderListingBidsTable } from "../listing/renderListingBidsTable.js";
 import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 import { getSuperSecretToken } from "../../../utils/storage/userStorage.js";
 import { renderListingTags } from "../listing/renderListingTags.js";
+import { renderSectionHeading } from "../shared/renderSectionHeading.js";
+
+
 
 export function renderListingPage(data) {
-  renderCarousel(data, ".carousel-inner");
-  const listingTitle = document.querySelector("#listing-title-container h1");
-  listingTitle.textContent = data.title;
-  document.title = data.title + " | Auction House";
-
-  const listingInfoContainer = document.querySelector(".listing-info-container");
-  const textContainer = document.querySelector(".listing-text-container");
-
-  const description = renderListingText(data, "p");
-  textContainer.appendChild(description);
-
-  const tagsContainer = renderListingTags(data);
-  textContainer.appendChild(tagsContainer);
-
-  const timeAndBidContainer = document.createElement("div");
-  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5", "d-flex", "flex-column", "message");
-
-  renderTimeAndBidContainer(data, timeAndBidContainer);
-
-  renderBidForm(timeAndBidContainer, data);
-
-  listingInfoContainer.appendChild(timeAndBidContainer);
-
-  const messageContainer = document.createElement("div");
-  messageContainer.classList.add("listing-message-container");
-
-  listingInfoContainer.appendChild(messageContainer);
-
+  const mainContainer = document.querySelector("main");
+  const section1 = document.createElement("section");
+  const listingTitle = renderSectionHeading("h1", data.title);
 
   const token = getSuperSecretToken();
   const user = getUserInfoFromStorage("user");
 
-  if (token.length !== 0 && user.length !== 0) {
-    const listingSellerInfoContainer = document.querySelector(".listing-seller-info-container");
-    const listingBidHistoryContainer = document.querySelector(".listing-bid-history-container");
+  section1.appendChild(listingTitle);
 
-    listingSellerInfoContainer.classList.remove("d-none");
-    listingBidHistoryContainer.classList.remove("d-none");
+  document.title = data.title + " | Auction House";
+
+  mainContainer.appendChild(section1);
+
+  const section2 = document.createElement("section");
+  section2.classList.add("container");
+
+  const rowDiv = document.createElement("div");
+  rowDiv.classList.add("row", "row-cols-lg-2", "row-cols-md-1", "row-cols-1", "row-gap-5");
+
+  section2.appendChild(rowDiv);
+  mainContainer.appendChild(section2);
+
+  const carouselContainer = document.createElement("div");
+  carouselContainer.classList.add("col", "carousel-container", "carousel", "slide");
+  carouselContainer.id = "carousel-listing";
+
+  const carouselInnerContainer = document.createElement("div");
+  carouselInnerContainer.classList.add("carousel-inner", "d-grid", "justify-content-center", "align-content-center");
+
+  const carouselIndicatorsContainer = document.createElement("div");
+  carouselIndicatorsContainer.classList.add("carousel-indicators");
+
+  carouselContainer.appendChild(carouselInnerContainer);
+  carouselContainer.appendChild(carouselIndicatorsContainer);
+
+  carouselContainer.appendChild(carouselInnerContainer);
+  carouselContainer.appendChild(carouselIndicatorsContainer);
+
+  rowDiv.appendChild(carouselContainer);
+
+  renderCarousel(data, "#carousel-listing .carousel-inner");
+
+  const listingInfoContainer = document.createElement("div");
+  listingInfoContainer.classList.add("col", "listing-info-container", "d-flex", "flex-column", "justify-content-between");
+
+  const listingTextContainer = document.createElement("div");
+  listingTextContainer.classList.add("listing-text-container");
+
+  const listingDescriptionHeading = renderSectionHeading("h2", "Description");
+
+  listingTextContainer.appendChild(listingDescriptionHeading);
+
+  const description = renderListingText(data, "p");
+  listingTextContainer.appendChild(description);
+
+  const tagsContainer = renderListingTags(data);
+  listingTextContainer.appendChild(tagsContainer);
+
+  const timeAndBidContainer = document.createElement("div");
+  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5", "d-flex", "flex-column", "message", "align-items-space-between");
+
+  renderTimeAndBidContainer(data, timeAndBidContainer);
+
+  if (data.seller.name === user.name) {
+    const updateBtnContainer = document.createElement("div");
+    updateBtnContainer.classList.add("update-btn-container");
+
+    const updateBtn = document.createElement("button");
+    updateBtn.classList.add("btn", "btn-accent", "update-btn");
+    updateBtn.textContent = "Update";
+
+    updateBtn.addEventListener("click", function () {
+      window.location.href = `sell.html?id=${data.id}`;
+    });
+
+    updateBtnContainer.appendChild(updateBtn);
+
+    timeAndBidContainer.appendChild(updateBtnContainer);
+  } else {
+    renderBidForm(timeAndBidContainer, data);
+  }
+
+  listingInfoContainer.appendChild(listingTextContainer);
+  listingInfoContainer.appendChild(timeAndBidContainer);
+
+  rowDiv.appendChild(listingInfoContainer);
+
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("listing-message-container");
+  listingInfoContainer.appendChild(messageContainer);
+
+  if (token.length !== 0 && user.length !== 0) {
+    const listingSellerInfoContainer = document.createElement("div");
+    listingSellerInfoContainer.classList.add("listing-seller-info-container", "col");
+
+    const listingSellerSectionHeading = renderSectionHeading("h2", "Seller info");
+    listingSellerInfoContainer.appendChild(listingSellerSectionHeading);
+
+    const listingBidHistoryContainer = document.createElement("div");
+    listingBidHistoryContainer.classList.add("listing-bid-history-container", "col");
+
+    const listingBidHistorySectionHeading = renderSectionHeading("h2", "Bid history");
+    listingBidHistoryContainer.appendChild(listingBidHistorySectionHeading);
+
+    const listingBidHistoryTableContainer = document.createElement("div");
+    listingBidHistoryTableContainer.classList.add("listing-bid-table-container");
+
+    listingBidHistoryContainer.appendChild(listingBidHistoryTableContainer);
+
+    rowDiv.appendChild(listingSellerInfoContainer);
+    rowDiv.appendChild(listingBidHistoryContainer);
 
     const sellerInfo = renderListingSellerInfo(data);
     listingSellerInfoContainer.appendChild(sellerInfo);
 
-    renderListingBidsTable(data);
+    console.log(listingBidHistoryContainer);
+
+    renderListingBidsTable(data, ".listing-bid-table-container");
   }
 }
+
+// Call this function with the data object
+// renderCompleteListingPage(yourDataObject);

@@ -7,6 +7,12 @@ export function setupImageInput() {
   const output = document.querySelector(".images");
   const addImageBtn = document.querySelector("#add-image-btn");
   const spinner = renderLoadingSpinner(addImageBtn);
+  const numberOfImages = output.childElementCount;
+
+  if (numberOfImages >= 7) {
+    input.disabled = true;
+    input.placeholder = "Max number of images reached!";
+  }
 
   function createImageElement(imageFormat) {
     const imageContainer = document.createElement("div");
@@ -60,12 +66,12 @@ export function setupImageInput() {
 
         if (output.children.length >= 7) {
           outputImage(input.value);
-          collectImageValues(input.value);
+          collectImageValues();
           input.disabled = true;
           input.placeholder = "Max number of images reached!";
         } else {
           outputImage(input.value);
-          collectImageValues(input.value);
+          collectImageValues();
         }
       }
     });
@@ -76,7 +82,7 @@ export function setupImageInput() {
       e.target.parentElement.remove();
       input.disabled = false;
       input.placeholder = "Add a tag..";
-      collectImageValues(input.value);
+      collectImageValues();
     }
   });
 }
@@ -84,14 +90,12 @@ export function setupImageInput() {
 export function collectImageValues() {
   const imageValues = [];
   const output = document.querySelector(".images");
+  const imageElements = output.children;
 
-  for (const image of output.children) {
-    if (!output.children[0].src || !output) {
-      return;
-    } else {
-      const imageValue = image.children[0].src;
-      imageValues.push(imageValue.trim());
-    }
+  for (const image of imageElements) {
+    console.log(image.children[0].src);
+    const imageValue = image.children[0].src;
+    imageValues.push(imageValue.trim());
   }
 
   const imageObject = {
