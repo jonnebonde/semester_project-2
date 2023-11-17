@@ -1,8 +1,16 @@
+/**
+ * Renders the profile page with profile information, listings, bids, and wins.
+ * @param {Array} profileBidsOnListings - An array of bids on listings made by the user.
+ * @param {Array} profileListings - An array of listings created by the user.
+ * @param {Object} profileInfo - An object containing the user's profile information.
+ * @returns {void}
+ */
 import { renderProfileInfo } from "../profile/renderProfileInfo.js";
 import { renderUpdateAvatarModal } from "../modal/renderUpdateAvatarModal.js";
 import { renderProfileListings } from "../profile/renderProfileListings.js";
 import { filterProfileBiddings, findProfileListingsWon } from "../../../utils/tools.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
+
 
 export function renderProfilePage(profileBidsOnListings, profileListings, profileInfo) {
   const profileMainContainer = document.querySelector("main");
@@ -26,7 +34,6 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
 
   profileInfoContainer.appendChild(profileMessageContainer);
 
-  // profile info container
   if (profileInfo.errors) {
     profileMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
   } else {
@@ -35,10 +42,8 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   }
   profileGridRowContainer.appendChild(profileInfoMainContainer);
 
-  // profile listings container
   const profileListingsMainContainer = document.createElement("div");
   profileListingsMainContainer.classList.add("col-12", "col-lg-6", "profile-listings-main-container");
-
 
   const profileListingsHeading = renderSectionHeading("h2", "My listings");
   profileListingsMainContainer.appendChild(profileListingsHeading);
@@ -60,7 +65,6 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
 
   profileGridRowContainer.appendChild(profileListingsMainContainer);
 
-  // profile bids container
   const profileBidsMainContainer = document.createElement("div");
   profileBidsMainContainer.classList.add("col-12", "col-lg-6");
 
@@ -84,8 +88,6 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   }
 
   profileGridRowContainer.appendChild(profileBidsMainContainer);
-
-  // profile listings won container
 
   const profileListingsWonMainContainer = document.createElement("div");
   profileListingsWonMainContainer.classList.add("col-12", "profile-listings-won-main-container");

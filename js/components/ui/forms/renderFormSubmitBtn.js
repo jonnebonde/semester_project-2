@@ -1,3 +1,8 @@
+/**
+ * Creates and returns a submit button element for a form.
+ * @param {string} type - The type of form.
+ * @returns {HTMLButtonElement} The submit button element.
+ */
 export function renderFormSubmitBtn(type) {
   const submitButton = document.createElement("button");
   submitButton.id = `${type}-submit_btn`;

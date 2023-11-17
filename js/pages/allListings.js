@@ -1,3 +1,9 @@
+/**
+ * Renders the all listings page with pagination, sorting options, and filter options.
+ * @param {Function} updateApiListingsConfig - Function to update the API listings configuration.
+ * @param {Object} apiListingsConfig - Object containing the API listings configuration.
+ * @returns {void}
+ */
 import { renderListingsPage } from "../components/ui/layout/renderListingsPage.js";
 import { getListings } from "../utils/api/get/getListings.js";
 import renderNavBar from "../components/ui/navBar/renderNav.js";

@@ -1,3 +1,8 @@
+/**
+ * Retrieves profile information from the API.
+ * @param {string} profileUrl - The URL of the profile to retrieve.
+ * @returns {Promise<Object>} - A promise that resolves to the profile information in JSON format.
+ */
 import { baseUrl } from "../../../settings/apiUrl.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 import { getSuperSecretToken, getUserInfoFromStorage } from "../../storage/userStorage.js";
@@ -18,11 +23,8 @@ export async function getProfileInfo(profileUrl) {
   try {
     const response = await fetch(url, options);
     const json = await response.json();
-
-    console.log(json);
     return json;
   } catch (error) {
-    console.log(error);
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listings-container");
   }
 }

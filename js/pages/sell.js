@@ -1,3 +1,13 @@
+/**
+ * This module is responsible for rendering the sell page.
+ * @module sellPage
+ * @requires ../components/ui/navBar/renderNav.js
+ * @requires ../components/ui/layout/renderCreateListingPage.js
+ * @requires ../components/userLogout.js
+ * @requires ../utils/storage/userStorage.js
+ * @requires ../components/ui/state_handlers/displayMessage.js
+ * @requires ../utils/api/get/getListing.js
+ */
 import renderNavbar from "../components/ui/navBar/renderNav.js";
 import { renderCreatelistingPage } from "../components/ui/layout/renderCreateListingPage.js";
 import userLogout from "../components/userLogout.js";
@@ -22,14 +32,12 @@ async function initializePage() {
 
   if (!listingId) {
     renderCreatelistingPage();
-  } else {  
+  } else {
     try {
       const data = await getListing(listingId);
-      console.log(data);
       renderCreatelistingPage(data);
     } catch (error) {
-     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".create-listing-message-container");
-     console.log(error);
+      displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".create-listing-message-container");
     }
   }
 }

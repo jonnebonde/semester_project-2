@@ -1,3 +1,8 @@
+/**
+ * Logs out the user and deletes their information from storage.
+ * @function
+ * @returns {void}
+ */
 import { deleteUserInfoFromStorage } from "../utils/storage/userStorage.js";
 
 export default function userLogout() {

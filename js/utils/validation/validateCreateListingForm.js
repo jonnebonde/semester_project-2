@@ -1,3 +1,9 @@
+/**
+ * Validates the create listing form by checking the length of the title and description, the validity of the date input, and the presence of at least one tag and image. 
+ * If all inputs are valid, it registers a new listing or updates an existing one.
+ * @param {Object} data - An object containing the data of an existing listing to be updated. If there is no existing listing, this parameter should be null.
+ * @returns {void}
+ */
 import { collectImageValues } from "../../components/ui/forms/renderimageInputValues.js";
 import { collectTagValues } from "../../components/ui/forms/renderTagInputFieldValues.js";
 import { validateLength, validateDateInput } from "./validationTools.js";

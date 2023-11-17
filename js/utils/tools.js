@@ -1,4 +1,40 @@
 /**
+ * This module contains utility functions for the project.
+ * @module utils/tools
+ */
+
+/**
+ * Finds the highest bid amount from an array of bids.
+ *
+ * @param {Array} bids - An array of bid objects.
+ * @returns {number} The highest bid amount.
+ */
+ 
+/**
+ * Calculates the time difference between the current time and a given end time.
+ * @param {string} timeUntilEnds - The end time in string format.
+ * @returns {string} - A string indicating the time difference in days and hours.
+ */
+
+/**
+ * Formats a date object to a string in the format "dd/mm/yyyy hh:mm:ss".
+ * @param {Date} date - The date object to format.
+ * @returns {string} - The formatted date string.
+ */
+
+/**
+ * Filters an array of profile bids on listings to only include the highest bid for each listing.
+ * @param {Array} profileBidsOnListings - An array of profile bids on listings.
+ * @returns {Array} - An array of filtered profile bids on listings.
+ */
+
+/**
+ * Filters an array of profile listings biddings to only include the listings that the profile has won.
+ * @param {Array} profileListingsBiddings - An array of profile listings biddings.
+ * @param {Object} profileInfo - An object containing information about the profile.
+ * @returns {Array} - An array of profile listings that the profile has won.
+ */
+/**
  * Finds the highest bid amount from an array of bids.
  *
  * @param {Array} bids - An array of bid objects.

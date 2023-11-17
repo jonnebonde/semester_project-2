@@ -1,3 +1,7 @@
+/**
+ * Sets the state of the login/register form and updates the UI accordingly.
+ * @param {boolean} state - The state of the form. True for register form, false for login form.
+ */
 export function loginRegisterFormState(state) {
   const isRegisterForm = state;
 

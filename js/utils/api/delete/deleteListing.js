@@ -1,3 +1,10 @@
+/**
+ * Deletes a listing from the server.
+ * @async
+ * @function deleteListing
+ * @param {number} id - The ID of the listing to be deleted.
+ * @returns {Promise<void>} - A Promise that resolves when the listing is successfully deleted.
+ */
 import { baseUrl } from "../../../settings/apiUrl.js";
 import { getSuperSecretToken } from "../../storage/userStorage.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
@@ -17,8 +24,7 @@ export async function deleteListing(id) {
 
     try {
       const response = await fetch(url, options);
-      console.log(response);
-      if(response) {
+      if (response) {
         displayMessage("success", "Listing was successfully deleted", ".create-listing-message-container");
       }
     } catch (error) {
@@ -26,6 +32,3 @@ export async function deleteListing(id) {
     }
   }
 }
-
-
-// fix message on delete listing

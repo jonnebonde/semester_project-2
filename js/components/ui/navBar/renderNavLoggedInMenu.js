@@ -1,5 +1,8 @@
+/**
+ * Renders the logged-in user's menu in the navigation bar.
+ * @returns {HTMLDivElement} The HTML element containing the logged-in user's menu.
+ */
 import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
-
 
 export function renderNavBarLoggedInMenu() {
   const loggedInUserName = getUserInfoFromStorage().name;
@@ -9,7 +12,6 @@ export function renderNavBarLoggedInMenu() {
   const loggedInBtnGroup = document.createElement("div");
   loggedInBtnGroup.classList.add("btn-group");
   loggedInBtnGroup.id = "logged-in-btn-group";
-
 
   const loggedInBtn = document.createElement("button");
   loggedInBtn.classList.add("btn", "btn-secondary", "dropdown-toggle");
@@ -31,7 +33,6 @@ export function renderNavBarLoggedInMenu() {
   const loggedInBtnDropdownMenu = document.createElement("ul");
   loggedInBtnDropdownMenu.classList.add("dropdown-menu");
   loggedInBtnDropdownMenu.setAttribute("data-bs-theme", "dark");
-
 
   const loggedInBtnDropdownMenuItem1 = document.createElement("li");
 

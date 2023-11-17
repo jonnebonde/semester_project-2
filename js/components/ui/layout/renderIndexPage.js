@@ -1,11 +1,15 @@
+/**
+ * Renders the index page with the last chance and newest auctions.
+ * @param {Array} listingsData - An array of objects containing data for the last chance auctions.
+ * @param {Array} newestAuctionData - An array of objects containing data for the newest auctions.
+ * @returns {void}
+ */
 import { renderProfileListings } from "../profile/renderProfileListings.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 import displayMessageNoTimer from "../state_handlers/displayMessage.js";
 
 export function renderIndexPage(listingsData, newestAuctionData) {
   const mainContainer = document.querySelector("main");
-
-  // last chance listings container
 
   const lastChanceListingsContainer = document.createElement("section");
   lastChanceListingsContainer.classList.add("homepage-last_chance_listings-container");
@@ -34,8 +38,6 @@ export function renderIndexPage(listingsData, newestAuctionData) {
     lastChanceListingsResultsContainer.appendChild(lastChanceListings);
     lastChanceListingsContainer.appendChild(lastChanceListingsResultsContainer);
   }
-
-  // newest listings container
 
   const newestListingsContainer = document.createElement("section");
   newestListingsContainer.classList.add("homepage-newest_listings-container");

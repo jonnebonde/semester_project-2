@@ -1,3 +1,8 @@
+/**
+ * Renders a bid form and appends it to the target element. Validates the form submission based on user information and listing details.
+ * @param {HTMLElement} target - The element to which the bid form will be appended.
+ * @param {Object} data - The listing data object containing information about the listing and its bids.
+ */
 import { getUserInfoFromStorage, getSuperSecretToken } from "../../../utils/storage/userStorage.js";
 import { validateBid } from "../../../utils/validation/validateBidForm.js";
 import { findHighestBid } from "../../../utils/tools.js";
@@ -37,11 +42,7 @@ export function renderBidForm(target, data) {
       setBidMessage("Please register or login to place a bid", bidForm);
       break;
 
-    case user.name === data.seller.name:
-      setBidMessage("You can't bid on your own listing", bidForm);
-      break;
-
-    case credits < highestCurrentBid + 1:
+    case credits < highestCurrentBid + 1 && user.name !== data.seller.name:
       setBidMessage("You don't have enough credits to place a bid", bidForm);
       break;
   }

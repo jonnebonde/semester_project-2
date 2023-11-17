@@ -1,3 +1,8 @@
+/**
+ * Validates the avatar form input and updates the user's profile avatar.
+ * @param {Event} e - The submit event.
+ * @returns {void}
+ */
 import { validateImageUrl } from "./validationTools.js";
 import { renderLoadingSpinner } from "../../components/ui/state_handlers/loadingIndicator.js";
 import displayMessage from "../../components/ui/state_handlers/displayMessage.js";

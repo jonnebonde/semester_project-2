@@ -1,3 +1,11 @@
+/**
+ * Renders the listings page with search, filter, sort, pagination, and listings cards.
+ * @param {Function} updateApiListingsConfig - A function to update the API listings configuration.
+ * @param {Object} apiListingsConfig - The API listings configuration object.
+ */
+
+import { renderSearchByTags } from "../listings/renderSearchByTags.js";
+
 export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
   const mainContainer = document.querySelector("main");
   mainContainer.classList.add("container");
@@ -21,7 +29,6 @@ export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
   loader.classList.add("loader");
 
   allListingsCardsContainer.appendChild(loader);
-
   allListingMainContainer.appendChild(allListingsCardsContainer);
 
   const allListingsPaginationContainer = document.createElement("section");
@@ -33,6 +40,8 @@ export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
   mainGridContainer.appendChild(allListingsPaginationContainer);
 
   mainContainer.appendChild(mainGridContainer);
+
+  renderSearchByTags(".search-main-container", updateApiListingsConfig);
 
   updateApiListingsConfig(apiListingsConfig);
 }

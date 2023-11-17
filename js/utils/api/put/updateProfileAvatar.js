@@ -1,3 +1,10 @@
+/**
+ * Updates the user's profile avatar with the provided URL.
+ * @async
+ * @function
+ * @param {string} avatarUrl - The URL of the new avatar image.
+ * @returns {Promise<void>}
+ */
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
 import { baseUrl } from "../../../settings/apiUrl.js";
 import { getSuperSecretToken, getUserInfoFromStorage, addUserInfoToStorage } from "../../storage/userStorage.js";

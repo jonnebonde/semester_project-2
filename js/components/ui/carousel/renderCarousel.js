@@ -1,3 +1,9 @@
+/**
+ * Renders a carousel with the given data and appends it to the target element.
+ * @param {Array} data - An array of objects containing media information.
+ * @param {string} targetElement - The selector for the target element where the carousel will be appended.
+ * @returns {void}
+ */
 import { renderCarouselBtns } from "./renderCarouselControllers.js";
 
 export function renderCarousel(data = [], targetElement) {

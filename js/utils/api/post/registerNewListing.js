@@ -1,7 +1,20 @@
+/**
+ * Registers a new listing by sending a POST request to the API.
+ * @async
+ * @function registerNewListing
+ * @param {Object} newListingValues - An object containing the values for the new listing.
+ * @param {string} newListingValues.title - The title of the new listing.
+ * @param {string} newListingValues.description - The description of the new listing.
+ * @param {Object[]} newListingValues.tags - An array of tag objects for the new listing.
+ * @param {string} newListingValues.tags[].tags - The tag name.
+ * @param {Object[]} newListingValues.images - An array of image objects for the new listing.
+ * @param {string} newListingValues.images[].media - The image URL.
+ * @param {string} newListingValues.endDate - The end date of the new listing.
+ * @returns {void}
+ */
 import displayMessage from "../../../components/ui/state_handlers/displayMessageTimer.js";
 import { baseUrl } from "../../../settings/apiUrl.js";
 import { getSuperSecretToken } from "../../storage/userStorage.js";
-import { renderCreateListingForm } from "../../../components/ui/forms/renderCreateListingForm.js";
 
 export async function registerNewListing(newListingValues) {
   const url = baseUrl + "/listings";
@@ -42,6 +55,5 @@ export async function registerNewListing(newListingValues) {
     }
   } catch (error) {
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".create-listing-message-container");
-    console.log(error);
   }
 }

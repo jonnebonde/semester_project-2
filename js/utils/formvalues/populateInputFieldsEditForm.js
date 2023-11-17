@@ -1,6 +1,15 @@
+/**
+ * Fills in the input fields of the edit listing form with the given data.
+ *
+ * @param {Object} data - The data to populate the form with.
+ * @param {string} data.title - The title of the listing.
+ * @param {string} data.description - The description of the listing.
+ * @param {Array<string>} data.tags - The tags associated with the listing.
+ * @param {Array<string>} data.media - The media associated with the listing.
+ * @param {string} data.endsAt - The date the listing ends.
+ */
 export function fillInValuesToEditListingForm(data) {
   const form = document.querySelector("#sell-create-listing-form");
-  console.log(form);
   const title = form.querySelector("#title");
   const description = form.querySelector("#description");
   const tags = form.querySelector(".tags");

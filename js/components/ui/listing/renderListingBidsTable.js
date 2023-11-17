@@ -1,6 +1,11 @@
+/**
+ * Renders a table of bids for a listing.
+ * @param {Object} data - The data object containing the bids to be rendered.
+ * @param {string} target - The CSS selector for the container element where the table will be rendered.
+ * @returns {void}
+ * Was built with the help of Copilot.
+ */
 import { formatTimeAndData } from "../../../utils/tools.js";
-
-// used chatgpt to generate const names and setup of table.
 
 export function renderListingBidsTable(data, target) {
   const listingBidTableContainer = document.querySelector(target);
@@ -35,7 +40,7 @@ export function renderListingBidsTable(data, target) {
 
   const listingBidTableBody = document.createElement("tbody");
 
-  data.bids.sort((a, b) => b.amount - a.amount); // sort bids in descending order based on amount
+  data.bids.sort((a, b) => b.amount - a.amount);
 
   data.bids.forEach((bid) => {
     const listingBidTableBodyRow = document.createElement("tr");
@@ -61,6 +66,4 @@ export function renderListingBidsTable(data, target) {
   listingBidTable.appendChild(listingBidTableBody);
 
   listingBidTableContainer.appendChild(listingBidTable);
-
-
 }

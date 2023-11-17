@@ -33,7 +33,6 @@ export async function regiserNewUser(details, loader) {
     const json = await response.json();
 
     if (response.status !== 200 && response.status !== 201) {
-      console.log(json);
       displayMessage("error", json.errors[0].message, ".message-container");
       loader.hide();
       return;
@@ -44,11 +43,10 @@ export async function regiserNewUser(details, loader) {
       password: userCredentials.password,
     };
 
-    console.log(json, loginInfo);
     displayMessage("success", "User created", ".message-container");
 
     loginToService(loginInfo, loader);
   } catch (error) {
-    console.log(error);
+    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".message-container");
   }
 }

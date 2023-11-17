@@ -12,8 +12,6 @@ export function addUserInfoToStorage(user) {
 }
 
 export function saveSuperSecretToken(key) {
-
-  console.log(key);
   const superSecretToken = {
     token: key,
   };

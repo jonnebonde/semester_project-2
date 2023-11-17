@@ -1,3 +1,8 @@
+/**
+ * Validates the registration form and registers a new user if all fields are valid.
+ * @param {Event} e - The submit event triggered by the user.
+ * @returns {void}
+ */
 import displayMessage from "../../components/ui/state_handlers/displayMessage.js";
 import { renderLoadingSpinner } from "../../components/ui/state_handlers/loadingIndicator.js";
 import changeInputStatus from "../../components/ui/state_handlers/changeInputStatus.js";

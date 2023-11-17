@@ -1,3 +1,9 @@
+/**
+ * Renders the sorting options for the listings.
+ * @param {string} target - The selector for the container where the sorting options will be rendered.
+ * @param {Function} updateApiListingsConfig - The function to update the API listings configuration.
+ * @param {Object} apiListingsConfig - The current API listings configuration.
+ */
 export function renderListingsSortingOptions(target, updateApiListingsConfig, apiListingsConfig) {
   const container = document.querySelector(target);
   container.innerHTML = "";

@@ -1,3 +1,7 @@
+/**
+ * This module exports several functions for validating user input.
+ * @module validationTools
+ */
 import displayMessage from "../../components/ui/state_handlers/displayMessage.js";
 
 export function validateUserName(name, minLength, maxLength) {
@@ -53,7 +57,6 @@ export function validateDateInput(dateValue) {
   if (dateInputValue > currentDate) {
     return true;
   }
-
 }
 
 export async function validateImageUrl(imageUrl, spinner) {

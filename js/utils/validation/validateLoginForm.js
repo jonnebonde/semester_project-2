@@ -1,3 +1,9 @@
+/**
+ * Validates the login form by checking the email and password inputs.
+ * If the email and password are valid, it logs the user in by sending a POST request to the server.
+ * @param {Event} e - The submit event triggered by the user.
+ * @returns {void}
+ */
 import { validateEmail, validateLength } from "./validationTools.js";
 import { renderLoadingSpinner } from "../../components/ui/state_handlers/loadingIndicator.js";
 import displayMessage from "../../components/ui/state_handlers/displayMessage.js";

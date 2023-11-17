@@ -1,3 +1,8 @@
+/**
+ * Renders the listing page with all the necessary information including the title, images, description, tags, time and bid container, seller info, and bid history.
+ * @param {Object} data - The data object containing all the information about the listing.
+ * @returns {void}
+ */
 import { renderListingText } from "../listing/renderListingText.js";
 import { renderTimeAndBidContainer } from "../listing/renderTimeAndBidContainer.js";
 import { renderBidForm } from "../forms/renderBidForm.js";
@@ -8,8 +13,6 @@ import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 import { getSuperSecretToken } from "../../../utils/storage/userStorage.js";
 import { renderListingTags } from "../listing/renderListingTags.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
-
-
 
 export function renderListingPage(data) {
   const mainContainer = document.querySelector("main");
@@ -132,6 +135,3 @@ export function renderListingPage(data) {
     renderListingBidsTable(data, ".listing-bid-table-container");
   }
 }
-
-// Call this function with the data object
-// renderCompleteListingPage(yourDataObject);

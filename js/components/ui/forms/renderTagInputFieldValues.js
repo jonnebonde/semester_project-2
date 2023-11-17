@@ -1,3 +1,15 @@
+/**
+ * Sets up a tag input field with a maximum of 7 tags. Allows the user to add and remove tags.
+ * @function setupTagInput
+ * @returns {void}
+ */
+
+/**
+ * Collects all the tag values and returns them in an object.
+ * @function collectTagValues
+ * @returns {{tags: string[]}} An object containing an array of tag values.
+ * built with the help of chatGPT on the regex and learning about childElementCount
+ */
 export function setupTagInput() {
   const input = document.querySelector("#listing-tag-input");
   const output = document.querySelector(".tags");
@@ -10,19 +22,15 @@ export function setupTagInput() {
   }
 
   function createTagElement(tagFormat) {
-    // Create div container for the tag
     const tagContainer = document.createElement("div");
     tagContainer.classList.add("tag", "border-1");
 
-    // Create span for the tag text
     const tagText = document.createElement("span");
     tagText.textContent = tagFormat;
 
-    // Create remove button icon
     const removeBtn = document.createElement("i");
     removeBtn.classList.add("fas", "fa-times", "remove-btn");
 
-    // Append tagText and removeBtn to the tagContainer
     tagContainer.appendChild(tagText);
     tagContainer.appendChild(removeBtn);
 
@@ -68,21 +76,17 @@ export function setupTagInput() {
       collectTagValues(input, output);
     }
   });
-
-  // Initialize an empty array to store tag values
 }
 
 export function collectTagValues() {
   const tagValues = [];
   const output = document.querySelector(".tags");
-  // Iterate through the children of the output element (tags)
+
   for (const tag of output.children) {
-    // Extract the text content of each tag and push it to the tagValues array
     const tagValue = tag.firstChild.textContent;
     tagValues.push(tagValue.trim());
   }
 
-  // Now, tagValues array contains the values of all the tags
   const tagObject = {
     tags: tagValues,
   };

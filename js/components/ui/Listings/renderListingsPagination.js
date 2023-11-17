@@ -1,3 +1,11 @@
+/**
+ * Renders pagination buttons for a listings container.
+ *
+ * @param {string} target - The CSS selector for the listings container.
+ * @param {Function} updateApiListingsConfig - A function to update the API listings configuration.
+ * @param {Object} apiListingsConfig - The current API listings configuration.
+ * @param {Array} data - The data to be displayed in the listings container.
+ */
 export function renderListingsPaginationButtons(target, updateApiListingsConfig, apiListingsConfig, data) {
   const container = document.querySelector(target);
   container.innerHTML = "";

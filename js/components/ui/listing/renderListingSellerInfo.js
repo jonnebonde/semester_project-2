@@ -1,5 +1,12 @@
+/**
+ * Renders the seller information for a listing.
+ * @param {Object} data - The data object containing seller information.
+ * @param {string} data.seller.avatar - The URL of the seller's avatar image.
+ * @param {string} data.seller.name - The name of the seller.
+ * @param {string} data.seller.email - The email of the seller.
+ * @returns {HTMLDivElement} - The div element containing the rendered seller information.
+ */
 export function renderListingSellerInfo(data) {
-
   const sellerInfo = document.createElement("div");
   sellerInfo.classList.add(
     "listing-seller-info",
@@ -47,5 +54,5 @@ export function renderListingSellerInfo(data) {
   sellerInfo.appendChild(sellerInfoAvatarContainer);
   sellerInfo.appendChild(sellerCredentialsContainer);
 
-return sellerInfo;
+  return sellerInfo;
 }

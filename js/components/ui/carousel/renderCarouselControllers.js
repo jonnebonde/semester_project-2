@@ -1,3 +1,10 @@
+/**
+ * Creates a button element for a carousel with specified class name, target, and slide direction.
+ * @param {string} className - The class name to be added to the button element.
+ * @param {string} target - The target carousel element for the button.
+ * @param {string} slide - The slide direction for the button ("prev" or "next").
+ * @returns {HTMLButtonElement} - The created button element.
+ */
 export function renderCarouselBtns(className, target, slide) {
   const carouselBtn = document.createElement("button");
   carouselBtn.classList.add(className);

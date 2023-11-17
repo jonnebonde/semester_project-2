@@ -1,3 +1,8 @@
+/**
+ * Renders a form for creating a new listing.
+ * @param {Object} data - The data for the listing to be created.
+ * @returns {HTMLFormElement} - The HTML form element for creating a new listing.
+ */
 import { renderFormTextInputs } from "./renderFormTextInputs.js";
 import { createListingFormTextInputs, createlistingFormDateInput } from "../../../settings/formKeys.js";
 import { renderTagInput } from "./renderTagInputContainer.js";

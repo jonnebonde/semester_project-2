@@ -1,3 +1,8 @@
+/**
+ * Renders an update avatar modal with a form to update the user's avatar.
+ * @param {string} avatar - The URL of the user's current avatar.
+ * @returns {HTMLDivElement} - The update avatar modal element.
+ */
 import { updateAvatarFormInput } from "../../../settings/formKeys.js";
 import { renderForm } from "../forms/renderForm.js";
 

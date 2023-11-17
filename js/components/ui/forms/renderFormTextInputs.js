@@ -1,3 +1,10 @@
+/**
+ * Renders form text inputs based on the provided fields, minimum bid, and avatar.
+ * @param {Array} fields - An array of objects containing data for each form field.
+ * @param {number} minBid - The minimum bid amount.
+ * @param {string} avatar - The URL of the user's avatar.
+ * @returns {Array} An array of HTML elements representing the form text inputs.
+ */
 import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
 
 export function renderFormTextInputs(fields, minBid, avatar) {

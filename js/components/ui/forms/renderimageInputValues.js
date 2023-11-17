@@ -1,4 +1,18 @@
-import displayMessage from "../state_handlers/displayMessageTimer.js";
+/**
+ * Sets up the image input functionality for a form.
+ * @returns {Object} An object containing an array of image URLs.
+ */
+
+// ...
+
+/**
+ * Collects the image URLs from the form.
+ * @returns {Object} An object containing an array of image URLs.
+ */
+
+// ...
+
+import displayMessage from "../state_handlers/displayMessage.js";
 import { renderLoadingSpinner } from "../state_handlers/loadingIndicator.js";
 import { validateImageUrl } from "../../../utils/validation/validationTools.js";
 

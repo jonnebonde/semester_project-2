@@ -1,3 +1,10 @@
+/**
+ * Renders the profile page with the user's bid on listings, listings, and profile information.
+ * @async
+ * @function getMultipleProfileInfo
+ * @throws {Error} If an error occurs while fetching the profile information.
+ * @returns {Promise<void>}
+ */
 import { getProfileInfo } from "../utils/api/get/getProfileInfo.js";
 import renderNavBar from "../components/ui/navBar/renderNav.js";
 import userLogout from "../components/userLogout.js";
@@ -15,7 +22,6 @@ async function getMultipleProfileInfo() {
 
     renderProfilePage(profileBidsOnListings, profileListings, profileInfo);
   } catch (error) {
-    console.log(error);
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", "main");
   }
 }

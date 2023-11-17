@@ -28,33 +28,26 @@ export function renderTagInput() {
   addButton.textContent = "Add tag";
   addButton.classList.add("btn", "btn-primary", "w-25");
 
-  // Append input and button to the div
-
   inputButtonDiv.appendChild(input);
   inputButtonDiv.appendChild(addButton);
 
-  // Create the descriptionHelp div
   const descriptionHelp = document.createElement("div");
   descriptionHelp.setAttribute("id", "descriptionHelp");
   descriptionHelp.classList.add("form-text");
   descriptionHelp.textContent = "Add up to 8 relevant keywords or tags.";
 
-  // Create the tags container div
   const tagsContainer = document.createElement("div");
   tagsContainer.classList.add("tags", "d-flex", "flex-wrap", "align-items-center");
 
   const messageContainer = document.createElement("div");
   messageContainer.classList.add("tags-message-container");
 
-  // Append label, inputButtonDiv, descriptionHelp, and tagsContainer to the main container
-
   tagInputContainer.appendChild(label);
   tagInputContainer.appendChild(inputButtonDiv);
   tagInputContainer.appendChild(messageContainer);
   tagInputContainer.appendChild(descriptionHelp);
-  
-  tagInputContainer.appendChild(tagsContainer);
 
+  tagInputContainer.appendChild(tagsContainer);
 
   return tagInputContainer;
 }

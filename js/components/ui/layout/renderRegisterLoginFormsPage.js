@@ -1,3 +1,8 @@
+/**
+ * Renders either a login or a register form based on the query parameter "register" in the current URL.
+ * @function
+ * @returns {void}
+ */
 import { renderForm } from "../forms/renderForm.js";
 import { loginForm, registerForm } from "../../../settings/formKeys.js";
 import { loginRegisterFormState } from "../state_handlers/loginRegisterPageState.js";

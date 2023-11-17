@@ -1,4 +1,8 @@
 
+/**
+ * Renders a checkbox for agreeing to terms and conditions.
+ * @returns {HTMLDivElement} The container element for the checkbox, label, and message.
+ */
 export function renderFormTermsCheckBox() {
   const agreeContainer = document.createElement("div");
     agreeContainer.classList.add("mb-3", "form-check");

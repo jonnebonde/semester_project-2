@@ -1,3 +1,8 @@
+/**
+ * Renders a search input for filtering listings by tags.
+ * @param {string} target - The CSS selector for the container element where the search input will be appended.
+ * @param {Function} updateApiListingsConfig - A function that updates the API configuration for fetching listings.
+ */
 export function renderSearchByTags(target, updateApiListingsConfig) {
   const container = document.querySelector(target);
 

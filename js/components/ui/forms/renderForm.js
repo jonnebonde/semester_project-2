@@ -1,3 +1,11 @@
+/**
+ * Renders a form with given fields and type, and attaches it to the target element.
+ * @param {HTMLElement} target - The target element to attach the form to.
+ * @param {Array} fields - An array of objects representing the form fields.
+ * @param {string} type - The type of form to render.
+ * @param {Object} data - An object containing data to pre-fill the form fields.
+ * @returns {HTMLFormElement} - The rendered form element.
+ */
 import { renderFormTextInputs } from "./renderFormTextInputs.js";
 import { renderFormSubmitBtn } from "./renderFormSubmitBtn.js";
 import { renderFormTermsCheckBox } from "./renderFormTermsCheckBox.js";

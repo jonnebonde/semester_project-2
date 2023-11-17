@@ -1,3 +1,9 @@
+/**
+ * Renders the index page with the newest auction data and listings data.
+ * @function
+ * @async
+ * @returns {Promise<void>}
+ */
 import { baseUrl } from "../settings/apiUrl.js";
 import displayMessage from "../components/ui/state_handlers/displayMessage.js";
 import apiCall from "../utils/api/get/apiCall.js";

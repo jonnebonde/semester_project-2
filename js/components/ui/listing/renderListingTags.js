@@ -1,3 +1,8 @@
+/**
+ * Renders the tags for a listing.
+ * @param {Object} data - The data object containing the tags.
+ * @returns {HTMLDivElement} - The div element containing the rendered tags.
+ */
 import { renderTags } from "./renderTags.js";
 
 export function renderListingTags(data) {

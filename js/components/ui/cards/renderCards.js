@@ -1,5 +1,12 @@
 import { findHighestBid, timeDifference } from "../../../utils/tools.js";
 
+/**
+ * Renders a card for a given listing and appends it to a container element.
+ *
+ * @param {Object} listing - The listing object to render a card for.
+ * @param {HTMLElement} container - The container element to append the card to.
+ * @param {string} type - The type of card to render (e.g. "small", "large").
+ */
 export function renderCards(listing, container, type) {
   const card = document.createElement("a");
   card.classList.add(type, "listing-card", "link-dark", "link-underline-opacity-0");
