@@ -68,16 +68,16 @@ export function timeDifference(timeUntilEnds) {
     // If the time difference is less than 1 minute, return "less than 1 minute" author: @mariusbjoroy/copilot
     switch (true) {
       case days >= 1:
-        timeString = `${days} days, ${hours} hours`;
+        timeString = `${days} d, ${hours} h`;
         break;
       case hours >= 1:
-        timeString = `${hours} hours, ${minutes} minutes`;
+        timeString = `${hours} h, ${minutes} min`;
         break;
       case timeDifference < 60000:
         timeString = "Ended";
         break;
       default:
-        timeString = `${minutes} minutes`;
+        timeString = `${minutes} min`;
         break;
     }
 

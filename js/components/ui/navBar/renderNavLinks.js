@@ -6,12 +6,13 @@
  * @param {string} [type=""] - An optional type to add to the link's class list.
  * @returns {HTMLLIElement} The created list item element containing the link.
  */
-export function renderNavlinks(text, url, isActive, type = "") {
+export function renderNavlinks(text, url, isActive, type = "", mode) {
   const li = document.createElement("li");
   li.classList.add("nav-item");
 
   const link = document.createElement("a");
-  link.classList.add("navlink", "link-light", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover");
+  link.classList.add("navlink", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover");
+  link.classList.add(`link-${mode}`);
 
   if (type) {
     link.classList.add(type);

@@ -22,8 +22,8 @@ export default function renderNavBar() {
   const topNavUl = document.createElement("ul");
   topNavUl.classList.add("navbar-nav", "flex-row");
 
-  const registerLink = renderNavlinks("Register", "login-and-register.html?register=true", register === "true", "primary-link");
-  const loginLink = renderNavlinks("Login", "login-and-register.html?register=false", register === "false", "secondary-link");
+  const registerLink = renderNavlinks("Register", "login-and-register.html?register=true", register === "true", "primary-link", "dark");
+  const loginLink = renderNavlinks("Login", "login-and-register.html?register=false", register === "false", "secondary-link", "light");
 
   topNavUl.appendChild(registerLink);
   topNavUl.appendChild(loginLink);
@@ -35,8 +35,8 @@ export default function renderNavBar() {
   const bottomNavUl = document.createElement("ul");
   bottomNavUl.classList.add("navbar-nav", "flex-row", "justify-content-between", "gap-5");
 
-  const homeLink = renderNavlinks("Home", "index.html", pathname === "index.html");
-  const buyLink = renderNavlinks("Buy", "all-listings.html", pathname === "all-listings.html");
+  const homeLink = renderNavlinks("Home", "index.html", pathname === "index.html",  "", "light");
+  const buyLink = renderNavlinks("Buy", "all-listings.html", pathname === "all-listings.html",  "", "light");
 
   bottomNavUl.appendChild(homeLink);
   bottomNavUl.appendChild(buyLink);
@@ -50,7 +50,7 @@ export default function renderNavBar() {
 
     topNavContainer.appendChild(loggedInBtnGroup);
 
-    const sellLink = renderNavlinks("Sell", "sell.html", pathname === "sell.html");
+    const sellLink = renderNavlinks("Sell", "sell.html", pathname === "sell.html",  "", "light");
 
     bottomNavUl.removeChild(buyLink);
 

@@ -19,7 +19,7 @@ userLogout();
     const listingsData = await apiCall(baseUrl + "/listings?limit=8&sort=endsAt&sortOrder=asc&_bids=true&_active=true");
     const newestAuctionData = await apiCall(baseUrl + "/listings?limit=8&sort=created&_bids=true&_active=true");
 
-    renderIndexPage(newestAuctionData, listingsData);
+    renderIndexPage(listingsData, newestAuctionData);
   } catch (error) {
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".index-message-container");
   }

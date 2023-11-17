@@ -74,7 +74,7 @@ export function renderListingPage(data) {
   listingTextContainer.appendChild(tagsContainer);
 
   const timeAndBidContainer = document.createElement("div");
-  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5");
+  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5", "d-flex", "flex-column", "justify-content-between");
 
   renderTimeAndBidContainer(data, timeAndBidContainer);
 

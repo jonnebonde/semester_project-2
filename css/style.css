@@ -401,8 +401,8 @@ section .section-heading {
 }
 @media (min-width: 792px) {
   .card {
-    height: 260px;
-    width: 300px;
+    height: 220px;
+    width: 260px;
   }
   .card p {
     font-size: 18px;

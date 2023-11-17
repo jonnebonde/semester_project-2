@@ -39,7 +39,36 @@ export function renderBidForm(target, data) {
       break;
 
     case user.length === 0 && token.length === 0:
-      setBidMessage("Please register or login to place a bid", bidForm);
+      const div = document.createElement("div");
+      div.classList.add("d-flex", "gap-1");
+
+      const text = document.createElement("p");
+      text.textContent = "Please";
+
+      const loginLink = document.createElement("a");
+      loginLink.href = "/login-and-register.html?register=false";
+      loginLink.textContent = "Login";
+
+      const text2 = document.createElement("p");
+      text2.textContent = "or";
+
+      const registerLink = document.createElement("a");
+      registerLink.href = "/login-and-register.html?register=true";
+      registerLink.textContent = "Register";
+
+      const text3 = document.createElement("p");
+      text3.textContent = "to place a bid";
+
+      div.appendChild(text);
+      div.appendChild(loginLink);
+      div.appendChild(text2);
+      div.appendChild(registerLink);
+      div.appendChild(text3);
+
+      target.removeChild(bidForm);
+
+      target.appendChild(div);
+
       break;
 
     case credits < highestCurrentBid + 1 && user.name !== data.seller.name:

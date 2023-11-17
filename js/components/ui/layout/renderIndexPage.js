@@ -27,6 +27,8 @@ export function renderIndexPage(listingsData, newestAuctionData) {
 
   lastChanceListingsResultsContainer.appendChild(loader);
 
+  console.log(listingsData);
+
   if (listingsData.errors) {
     displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", lastChanceListingsContainer);
   } else if (listingsData.length === 0) {

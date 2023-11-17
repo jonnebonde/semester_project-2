@@ -28,13 +28,12 @@ export function renderNavBarLoggedInMenu() {
   loggedInBtnProfileImage.setAttribute("width", "40");
   loggedInBtnProfileImage.setAttribute("height", "40");
 
+  const loggedInBtnbadgeCredits = document.createElement("span");
+  loggedInBtnbadgeCredits.classList.add("nav-credit", "position-absolute", "rounded-pill", "bg-secondary", "badge");
+  loggedInBtnbadgeCredits.setAttribute("href", "#");
+  loggedInBtnbadgeCredits.textContent = `${loggedInUserCredits} kr`;
 
-  const loggedInBtnDropdownMenuItemCredits = document.createElement("span");
-  loggedInBtnDropdownMenuItemCredits.classList.add("nav-credit", "position-absolute", "rounded-pill", "bg-secondary", "badge");
-  loggedInBtnDropdownMenuItemCredits.setAttribute("href", "#");
-  loggedInBtnDropdownMenuItemCredits.textContent = `${loggedInUserCredits} kr`;
-
-loggedInBtn.appendChild(loggedInBtnDropdownMenuItemCredits);
+  loggedInBtn.appendChild(loggedInBtnbadgeCredits);
   loggedInBtn.appendChild(loggedInBtnProfileImage);
 
   const loggedInBtnDropdownMenu = document.createElement("ul");
@@ -43,33 +42,24 @@ loggedInBtn.appendChild(loggedInBtnDropdownMenuItemCredits);
 
   const loggedInBtnDropdownMenuItem1 = document.createElement("li");
 
-/*   const loggedInBtnDropdownMenuItemCredits = document.createElement("p");
-  loggedInBtnDropdownMenuItemCredits.classList.add("text-center", "nav-credit", "p-2", "m-0");
-  loggedInBtnDropdownMenuItemCredits.setAttribute("href", "#");
-  loggedInBtnDropdownMenuItemCredits.textContent = `${loggedInUserCredits} kr`; */
-
-  const loggedInBtnDropdownMenuItem2 = document.createElement("li");
-
   const loggedInBtnDropdownMenuItemProfile = document.createElement("a");
   loggedInBtnDropdownMenuItemProfile.classList.add("dropdown-item", "text-center", "border-top", "p-2");
   loggedInBtnDropdownMenuItemProfile.setAttribute("href", "profile.html");
   loggedInBtnDropdownMenuItemProfile.textContent = "Profile";
 
-  const loggedInBtnDropdownMenuItem3 = document.createElement("li");
+  const loggedInBtnDropdownMenuItem2 = document.createElement("li");
 
   const loggedInBtnDropdownMenuItemLogout = document.createElement("a");
   loggedInBtnDropdownMenuItemLogout.setAttribute("id", "logout-btn");
   loggedInBtnDropdownMenuItemLogout.classList.add("dropdown-item", "text-center", "p-2");
   loggedInBtnDropdownMenuItemLogout.setAttribute("href", "#");
   loggedInBtnDropdownMenuItemLogout.textContent = "Logout";
-/* 
-  loggedInBtnDropdownMenuItem1.appendChild(loggedInBtnDropdownMenuItemCredits); */
-  loggedInBtnDropdownMenuItem2.appendChild(loggedInBtnDropdownMenuItemProfile);
-  loggedInBtnDropdownMenuItem3.appendChild(loggedInBtnDropdownMenuItemLogout);
 
-/*   loggedInBtnDropdownMenu.appendChild(loggedInBtnDropdownMenuItem1); */
+  loggedInBtnDropdownMenuItem1.appendChild(loggedInBtnDropdownMenuItemProfile);
+  loggedInBtnDropdownMenuItem2.appendChild(loggedInBtnDropdownMenuItemLogout);
+
+  loggedInBtnDropdownMenu.appendChild(loggedInBtnDropdownMenuItem1);
   loggedInBtnDropdownMenu.appendChild(loggedInBtnDropdownMenuItem2);
-  loggedInBtnDropdownMenu.appendChild(loggedInBtnDropdownMenuItem3);
 
   loggedInBtnGroup.appendChild(loggedInBtn);
   loggedInBtnGroup.appendChild(loggedInBtnDropdownMenu);

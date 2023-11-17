@@ -9,7 +9,7 @@ import { renderForm } from "../forms/renderForm.js";
 export function renderUpdateAvatarModal(avatar) {
   const updateAvatarModal = document.createElement("div");
   updateAvatarModal.classList.add("modal", "fade");
-  updateAvatarModal.setAttribute("id", "updateAvatarModal");
+  updateAvatarModal.id = "updateAvatarModal";
   updateAvatarModal.setAttribute("tabindex", "-1");
   updateAvatarModal.setAttribute("aria-labelledby", "updateAvatarModalLabel");
   updateAvatarModal.setAttribute("aria-hidden", "true");
