@@ -1,8 +1,7 @@
-
 .login_register_container {
   button {
     padding: 7px 40px;
-    
+
     &:hover,
     &:focus,
     &:active {
@@ -12,18 +11,16 @@
 }
 
 .login_register_form-container {
-    max-width: 500px !important;
-    width: 90% !important;
-    margin: 0 auto;
+  max-width: 500px !important;
+  width: 90% !important;
+  margin: 0 auto;
 
   #register-form-agree-label {
-    
     &:hover,
     &:focus,
     &:active {
       text-decoration: underline !important;
       cursor: pointer;
     }
-    
   }
 }

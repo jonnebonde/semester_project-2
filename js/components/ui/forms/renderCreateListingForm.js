@@ -39,6 +39,11 @@ export function renderCreateListingForm(data) {
     validateCreateListing(data);
   });
 
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("create-listing-message-container");
+
+  createListingForm.appendChild(messageContainer);
+
   if (data) {
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("btn", "btn-danger", "mt-5");

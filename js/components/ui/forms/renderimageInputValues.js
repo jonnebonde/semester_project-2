@@ -15,6 +15,7 @@
 import displayMessage from "../state_handlers/displayMessage.js";
 import { renderLoadingSpinner } from "../state_handlers/loadingIndicator.js";
 import { validateImageUrl } from "../../../utils/validation/validationTools.js";
+import displayMessageTimer from "../state_handlers/displayMessageTimer.js";
 
 export function setupImageInput() {
   const input = document.querySelector("#listing-image-input");
@@ -63,14 +64,14 @@ export function setupImageInput() {
 
       if (imageUrl === "") {
         spinner.hide();
-        displayMessage("error", "Please enter an image URL", ".images");
+        displayMessageTimer("error", "Please enter an image URL", ".image-message-container");
       } else {
         validateImageUrl(imageUrl, spinner).then((result) => {
           if (result) {
             spinner.hide();
             handleImageIfExist(imageUrl);
           } else {
-            displayMessage("error", "Please enter a valid image URL", ".images");
+            displayMessageTimer("error", "Please enter a valid image URL", ".image-message-container");
           }
         });
       }

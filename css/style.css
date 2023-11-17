@@ -61,6 +61,11 @@ section .section-heading {
   background-color: rgba(50, 76, 42, 0.1);
 }
 
+@media (max-width: 768px) {
+  .btn {
+    font-size: 16px !important;
+  }
+}
 .btn-primary:hover {
   background-color: rgb(255, 92, 0) !important;
   border-color: none !important;
@@ -146,6 +151,16 @@ section .section-heading {
 
 .width-97 {
   width: 97% !important;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-truncate:hover {
+  overflow: visible;
+  white-space: normal;
 }
 
 .loader {
@@ -466,10 +481,6 @@ section .section-heading {
 }
 
 .create-listing-message-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   background-color: #FFFFFF !important;
   z-index: 100;

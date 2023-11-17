@@ -37,6 +37,12 @@ section {
   background-color: getColour(secondary-background-color);
 }
 
+@media (max-width: 768px) {
+  .btn {
+    font-size: 16px !important;
+  }
+}
+
 .btn-primary:hover {
   background-color: getColour(primary-color, 1) !important;
   border-color: none !important;
@@ -126,4 +132,15 @@ section {
 
 .width-97 {
   width: 97% !important;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &:hover {
+    overflow: visible;
+    white-space: normal;
+  }
 }

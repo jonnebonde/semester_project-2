@@ -7,15 +7,19 @@
  * @requires ../utils/storage/userStorage.js
  */
 import renderNavBar from "../components/ui/navBar/renderNav.js";
-import { renderLoginSignupFormsPage } from "../components/ui/layout/renderRegisterLoginFormsPage.js";
-import { getUserInfoFromStorage } from "../utils/storage/userStorage.js";
+import { renderLoginRegisterFormsPage } from "../components/ui/layout/renderRegisterLoginFormsPage.js";
+import { getUserInfoFromStorage, getSuperSecretToken } from "../utils/storage/userStorage.js";
 
 const user = getUserInfoFromStorage();
-const token = user.token;
+const token = getSuperSecretToken();
 
-if (user && token) {
-  location.href = "/index.html";
-} else {
+
+if (user.length === 0 && token.length === 0) {
   renderNavBar();
-  renderLoginSignupFormsPage();
+  renderLoginRegisterFormsPage(); 
+} else {
+  location.href = "/index.html";
 }
+
+  
+

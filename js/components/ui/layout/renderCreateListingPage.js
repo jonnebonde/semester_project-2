@@ -21,35 +21,25 @@ export async function renderCreatelistingPage(data) {
   mainContainer.appendChild(mainContainerHeadingContainer);
 
   const formMainContainer = document.createElement("section");
-  formMainContainer.classList.add("container", "row", "row-cols-lg-2", "row-cols-1", "m-auto");
+  formMainContainer.classList.add("container", "row", "m-auto");
   formMainContainer.id = "sell-create-listing-form-container";
   formMainContainer.textContent = "";
 
   mainContainer.appendChild(formMainContainer);
 
   const formContainer = document.createElement("div");
-  formContainer.classList.add("col");
+  formContainer.classList.add("col-12", "col-lg-6","col-md-8","m-auto");
   formContainer.id = "sell-create-form";
 
-  const previewContainer = document.createElement("div");
-  previewContainer.classList.add("col");
-  previewContainer.id = "sell-create-preview";
-
-  const messageContainer = document.createElement("div");
-  messageContainer.classList.add("create-listing-message-container");
-
   formMainContainer.appendChild(formContainer);
-  formMainContainer.appendChild(previewContainer);
 
   if (data) {
     const createListingForm = renderCreateListingForm(data);
     formContainer.appendChild(createListingForm);
-    formContainer.appendChild(messageContainer);
     fillInValuesToEditListingForm(data);
   } else {
     const createListingForm = renderCreateListingForm();
     formContainer.appendChild(createListingForm);
-    formContainer.appendChild(messageContainer);
   }
 
   setupTagInput();

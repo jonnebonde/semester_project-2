@@ -42,8 +42,8 @@ export async function updateListing(data) {
   try {
     const response = await fetch(url, options);
     if (response.status === 200) {
-      displayMessageTimer("success", "Listing was successfully updated", ".create-listing-message-container");
-      location.reload();
+      displayMessage("success", "Listing was successfully updated", ".create-listing-message-container");
+     /*  location.reload(); */
       return;
     }
   } catch (error) {

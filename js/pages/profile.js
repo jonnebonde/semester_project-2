@@ -10,9 +10,21 @@ import renderNavBar from "../components/ui/navBar/renderNav.js";
 import userLogout from "../components/userLogout.js";
 import { renderProfilePage } from "../components/ui/layout/renderProfilePage.js";
 import displayMessage from "../components/ui/state_handlers/displayMessage.js";
+import { getSuperSecretToken, getUserInfoFromStorage } from "../utils/storage/userStorage.js";
 
 renderNavBar();
 userLogout();
+
+const user = getUserInfoFromStorage();
+const token = getSuperSecretToken();
+
+
+
+if (user && token) {
+  location.href = "/index.html";
+} else {
+  getMultipleProfileInfo();
+}
 
 async function getMultipleProfileInfo() {
   try {
@@ -25,5 +37,3 @@ async function getMultipleProfileInfo() {
     displayMessage("error", "Ooppps!! something went wrong, please try updating the page", "main");
   }
 }
-
-getMultipleProfileInfo();
