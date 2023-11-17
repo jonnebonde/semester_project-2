@@ -39,7 +39,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   const profileListingsMainContainer = document.createElement("div");
   profileListingsMainContainer.classList.add("col-12", "col-lg-6", "profile-listings-main-container");
 
-  
+
   const profileListingsHeading = renderSectionHeading("h2", "My listings");
   profileListingsMainContainer.appendChild(profileListingsHeading);
 
@@ -105,7 +105,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   } else {
     const profileListingsBiddings = filterProfileBiddings(profileBidsOnListings);
     const profileListingsWonArray = findProfileListingsWon(profileListingsBiddings, profileInfo);
-    const profileListingsWonContainer = renderProfileListings(profileListingsWonArray, "profile-listings-won-");
+    const profileListingsWonContainer = renderProfileListings(profileListingsWonArray, "profile-listings-");
 
     if (profileListingsWonArray.length === 0) {
       profileListingsMessageContainer.textContent = "No wins yet";
