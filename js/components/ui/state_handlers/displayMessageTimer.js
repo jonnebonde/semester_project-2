@@ -7,11 +7,19 @@
  */
 export default function displayMessageTimer(type, message, target) {
   const messageContainer = document.querySelector(target);
+
+  // Check if message element already exists in the container - fixed this with help from copilot.
+  const existingMessageElement = messageContainer.querySelector(".message");
+  if (existingMessageElement) {
+    existingMessageElement.classList.add(type);
+    existingMessageElement.textContent = message;
+    return;
+  }
+
   const messageElement = document.createElement("div");
 
   messageElement.classList.add("message", type);
   messageElement.textContent = message;
-  
 
   messageContainer.appendChild(messageElement);
 

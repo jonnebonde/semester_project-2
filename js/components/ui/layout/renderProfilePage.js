@@ -11,7 +11,6 @@ import { renderProfileListings } from "../profile/renderProfileListings.js";
 import { filterProfileBiddings, findProfileListingsWon } from "../../../utils/tools.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 
-
 export function renderProfilePage(profileBidsOnListings, profileListings, profileInfo) {
   const profileMainContainer = document.querySelector("main");
   const profileWrappingContainer = document.createElement("section");
@@ -78,7 +77,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
 
   if (profileBidsOnListings.errors) {
     profileBidsMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
-  } else if (profileInfo.length === 0) {
+  } else if (profileBidsOnListings.length === 0) {
     profileBidsMessageContainer.textContent = "No bids yet";
   } else {
     const filteredProfileBidsOnListings = filterProfileBiddings(profileBidsOnListings);

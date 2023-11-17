@@ -22,12 +22,19 @@ export function renderNavBarLoggedInMenu() {
   loggedInBtn.setAttribute("aria-expanded", "false");
 
   const loggedInBtnProfileImage = document.createElement("img");
-  loggedInBtnProfileImage.classList.add("rounded", "m-1");
+  loggedInBtnProfileImage.classList.add("rounded", "m-1", "position-relative");
   loggedInBtnProfileImage.setAttribute("src", loggedInUserAvatar);
   loggedInBtnProfileImage.setAttribute("alt", loggedInUserName);
   loggedInBtnProfileImage.setAttribute("width", "40");
   loggedInBtnProfileImage.setAttribute("height", "40");
 
+
+  const loggedInBtnDropdownMenuItemCredits = document.createElement("span");
+  loggedInBtnDropdownMenuItemCredits.classList.add("nav-credit", "position-absolute", "rounded-pill", "bg-secondary", "badge");
+  loggedInBtnDropdownMenuItemCredits.setAttribute("href", "#");
+  loggedInBtnDropdownMenuItemCredits.textContent = `${loggedInUserCredits} kr`;
+
+loggedInBtn.appendChild(loggedInBtnDropdownMenuItemCredits);
   loggedInBtn.appendChild(loggedInBtnProfileImage);
 
   const loggedInBtnDropdownMenu = document.createElement("ul");
@@ -36,10 +43,10 @@ export function renderNavBarLoggedInMenu() {
 
   const loggedInBtnDropdownMenuItem1 = document.createElement("li");
 
-  const loggedInBtnDropdownMenuItemCredits = document.createElement("p");
+/*   const loggedInBtnDropdownMenuItemCredits = document.createElement("p");
   loggedInBtnDropdownMenuItemCredits.classList.add("text-center", "nav-credit", "p-2", "m-0");
   loggedInBtnDropdownMenuItemCredits.setAttribute("href", "#");
-  loggedInBtnDropdownMenuItemCredits.textContent = `${loggedInUserCredits} kr`;
+  loggedInBtnDropdownMenuItemCredits.textContent = `${loggedInUserCredits} kr`; */
 
   const loggedInBtnDropdownMenuItem2 = document.createElement("li");
 
@@ -55,12 +62,12 @@ export function renderNavBarLoggedInMenu() {
   loggedInBtnDropdownMenuItemLogout.classList.add("dropdown-item", "text-center", "p-2");
   loggedInBtnDropdownMenuItemLogout.setAttribute("href", "#");
   loggedInBtnDropdownMenuItemLogout.textContent = "Logout";
-
-  loggedInBtnDropdownMenuItem1.appendChild(loggedInBtnDropdownMenuItemCredits);
+/* 
+  loggedInBtnDropdownMenuItem1.appendChild(loggedInBtnDropdownMenuItemCredits); */
   loggedInBtnDropdownMenuItem2.appendChild(loggedInBtnDropdownMenuItemProfile);
   loggedInBtnDropdownMenuItem3.appendChild(loggedInBtnDropdownMenuItemLogout);
 
-  loggedInBtnDropdownMenu.appendChild(loggedInBtnDropdownMenuItem1);
+/*   loggedInBtnDropdownMenu.appendChild(loggedInBtnDropdownMenuItem1); */
   loggedInBtnDropdownMenu.appendChild(loggedInBtnDropdownMenuItem2);
   loggedInBtnDropdownMenu.appendChild(loggedInBtnDropdownMenuItem3);
 

@@ -239,6 +239,11 @@ section .section-heading {
   right: 0;
   left: auto;
 }
+.navbar #logged-in-btn-group .nav-credit {
+  z-index: 5;
+  left: 60%;
+  top: -10%;
+}
 
 .homepage_hero_section {
   background-color: green;
@@ -312,6 +317,12 @@ section .section-heading {
 .listing-info-container #bid-form span {
   width: 100%;
   text-align: center;
+}
+.listing-info-container .listing-message-container {
+  height: 30px !important;
+}
+.listing-info-container .listing-time-bid-container {
+  margin-top: auto;
 }
 
 .listing-seller-info-container img {

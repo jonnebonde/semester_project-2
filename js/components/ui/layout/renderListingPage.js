@@ -74,16 +74,16 @@ export function renderListingPage(data) {
   listingTextContainer.appendChild(tagsContainer);
 
   const timeAndBidContainer = document.createElement("div");
-  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5", "d-flex", "flex-column", "message", "align-items-space-between");
+  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5");
 
   renderTimeAndBidContainer(data, timeAndBidContainer);
 
   if (data.seller.name === user.name) {
     const updateBtnContainer = document.createElement("div");
-    updateBtnContainer.classList.add("update-btn-container");
+    updateBtnContainer.classList.add("update-btn-container", "d-flex", "justify-content-center", "align-items-center");
 
     const updateBtn = document.createElement("button");
-    updateBtn.classList.add("btn", "btn-accent", "update-btn");
+    updateBtn.classList.add("btn", "btn-accent", "update-btn", "w-75");
     updateBtn.textContent = "Update";
 
     updateBtn.addEventListener("click", function () {

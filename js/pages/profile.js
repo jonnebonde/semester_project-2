@@ -18,12 +18,8 @@ userLogout();
 const user = getUserInfoFromStorage();
 const token = getSuperSecretToken();
 
-
-
 if (user.length === 0 && token.length === 0) {
   location.href = "/index.html";
-
- 
 } else {
   getMultipleProfileInfo();
 }
