@@ -20,8 +20,10 @@ const token = getSuperSecretToken();
 
 
 
-if (user && token) {
+if (user.length === 0 && token.length === 0) {
   location.href = "/index.html";
+
+ 
 } else {
   getMultipleProfileInfo();
 }
