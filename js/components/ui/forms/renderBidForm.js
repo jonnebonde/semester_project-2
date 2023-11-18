@@ -32,36 +32,35 @@ export function renderBidForm(target, data) {
   target.appendChild(bidForm);
   bidForm.addEventListener("submit", (e) => validateBid(e, target, data));
 
+  const loginRegisterLinkContainer = document.createElement("div");
+  loginRegisterLinkContainer.classList.add("loginRegisterLinkContainer", "d-flex", "gap-1", "flex-wrap");
+
+  const textPlease = document.createElement("p");
+  textPlease.textContent = "Please";
+
+  const loginLink = document.createElement("a");
+  loginLink.href = "/login-and-register.html?register=false";
+  loginLink.textContent = "Login";
+
+  const textOr = document.createElement("p");
+  textOr.textContent = "or";
+
+  const registerLink = document.createElement("a");
+  registerLink.href = "/login-and-register.html?register=true";
+  registerLink.textContent = "Register";
+
   switch (true) {
     case timeDifference(data.endsAt) === "Ended":
       setBidMessage("This listing has expired", bidForm);
       break;
 
     case user.length === 0 && token.length === 0:
-      const loginRegisterLinkContainer = document.createElement("div");
-      loginRegisterLinkContainer.classList.add("loginRegisterLinkContainer", "d-flex", "gap-1", "flex-wrap");
-
-      const textPlease = document.createElement("p");
-      textPlease.textContent = "Please";
-
-      const loginLink = document.createElement("a");
-      loginLink.href = "/login-and-register.html?register=false";
-      loginLink.textContent = "Login";
-
-      const textOr = document.createElement("p");
-      textOr.textContent = "or";
-
-      const registerLink = document.createElement("a");
-      registerLink.href = "/login-and-register.html?register=true";
-      registerLink.textContent = "Register";
-
       loginRegisterLinkContainer.appendChild(textPlease);
       loginRegisterLinkContainer.appendChild(loginLink);
       loginRegisterLinkContainer.appendChild(textOr);
       loginRegisterLinkContainer.appendChild(registerLink);
 
       target.removeChild(bidForm);
-
       target.appendChild(loginRegisterLinkContainer);
 
       break;

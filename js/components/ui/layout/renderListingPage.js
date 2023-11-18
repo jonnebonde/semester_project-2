@@ -54,7 +54,7 @@ export function renderListingPage(data) {
 
   rowDiv.appendChild(carouselContainer);
 
-  renderCarousel(data, "#carousel-listing .carousel-inner");
+  renderCarousel( "#carousel-listing .carousel-inner", data);
 
   const listingInfoContainer = document.createElement("div");
   listingInfoContainer.classList.add("col", "listing-info-container", "d-flex", "flex-column", "justify-content-between");

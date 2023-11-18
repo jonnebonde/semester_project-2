@@ -6,7 +6,7 @@
  */
 import { renderCarouselBtns } from "./renderCarouselControllers.js";
 
-export function renderCarousel(data = [], targetElement) {
+export function renderCarousel( targetElement, data = []) {
   const carouselIndicatorsContainer = document.querySelector(".carousel-indicators");
   const carouselImageContainer = document.querySelector(targetElement);
 
