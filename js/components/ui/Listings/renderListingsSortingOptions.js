@@ -13,6 +13,8 @@ export function renderListingsSortingOptions(target, updateApiListingsConfig, ap
 
   const searchByTagsInput = document.querySelector(".search-by-tags-container input");
 
+  const loadingContainer = document.querySelector(".loading-container");
+
   const showAllBtn = document.createElement("button");
   showAllBtn.classList.add("btn", "btn-primary");
   showAllBtn.setAttribute("type", "button");

@@ -9,8 +9,12 @@ import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 import displayMessageNoTimer from "../state_handlers/displayMessage.js";
 
 export function renderIndexPage(listingsData, newestAuctionData) {
+
+  const loadingContainer = document.querySelector(".loading-container");
   const mainContainer = document.querySelector("main");
 
+  mainContainer.removeChild(loadingContainer);
+  
   const lastChanceListingsContainer = document.createElement("section");
   lastChanceListingsContainer.classList.add("homepage-last_chance_listings-container");
 
@@ -22,10 +26,7 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   const lastChanceListingsResultsContainer = document.createElement("div");
   lastChanceListingsResultsContainer.classList.add("last_chance-listings-results-container");
 
-  const loader = document.createElement("div");
-  loader.classList.add("loader");
 
-  lastChanceListingsResultsContainer.appendChild(loader);
 
   if (listingsData.errors) {
     displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", lastChanceListingsContainer);
@@ -34,7 +35,7 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   } else {
     const lastChanceListings = renderProfileListings(listingsData, "");
 
-    lastChanceListingsResultsContainer.removeChild(loader);
+
     lastChanceListingsResultsContainer.appendChild(lastChanceListings);
     lastChanceListingsContainer.appendChild(lastChanceListingsResultsContainer);
   }
@@ -50,10 +51,7 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   const newestListingsResultContainer = document.createElement("div");
   newestListingsResultContainer.classList.add("newest-listings-results-container");
 
-  const loader2 = document.createElement("div");
-  loader2.classList.add("loader");
 
-  newestListingsResultContainer.appendChild(loader2);
 
   if (newestAuctionData.errors) {
     displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", newestListingsContainer);
@@ -62,7 +60,7 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   } else {
     const newestListings = renderProfileListings(newestAuctionData, "");
 
-    newestListingsResultContainer.removeChild(loader2);
+
     newestListingsResultContainer.appendChild(newestListings);
     newestListingsContainer.appendChild(newestListingsResultContainer);
   }

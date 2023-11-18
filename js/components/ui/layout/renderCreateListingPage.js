@@ -11,6 +11,7 @@ import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 
 export async function renderCreatelistingPage(data) {
   const mainContainer = document.querySelector("main");
+  mainContainer.innerHTML = "";
 
   const mainContainerHeadingContainer = document.createElement("section");
   mainContainerHeadingContainer.classList.add("section-heading");
