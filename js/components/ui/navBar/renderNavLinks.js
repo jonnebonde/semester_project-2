@@ -6,7 +6,7 @@
  * @param {string} [type=""] - An optional type to add to the link's class list.
  * @returns {HTMLLIElement} The created list item element containing the link.
  */
-export function renderNavlinks(text, url, isActive, type = "", mode) {
+export function renderNavlinks(text, url, isActive, mode, type = "") {
   const li = document.createElement("li");
   li.classList.add("nav-item");
 

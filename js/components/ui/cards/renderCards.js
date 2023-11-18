@@ -25,8 +25,8 @@ export function renderCards(listing, container, type) {
   const cardTitle = document.createElement("h4");
   cardTitle.textContent = listing.title;
 
-  if (listing.title.length >= 30) {
-    cardTitle.classList.add("text-truncate");
+  if (listing.title.length >= 31) {
+    cardTitle.style.fontSize = "13px";
   } else if (listing.title.length >= 21) {
     cardTitle.style.fontSize = "17px";
   }

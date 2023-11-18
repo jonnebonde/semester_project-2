@@ -14,9 +14,9 @@ export function setupTagInput() {
   const input = document.querySelector("#listing-tag-input");
   const output = document.querySelector(".tags");
   const addTagBtn = document.querySelector("#add-tag-btn");
-  const numberOfTags = output.childElementCount;
+  const maxTags = 7;
 
-  if (numberOfTags >= 7) {
+  if (output.childElementCount >= maxTags) {
     input.disabled = true;
     input.placeholder = "Max number of tags reached!";
   }
@@ -43,39 +43,42 @@ export function setupTagInput() {
     input.value = "";
   }
 
-  if (addTagBtn) {
-    addTagBtn.addEventListener("click", (e) => {
+  function handleAddTagBtnClick(e) {
+    e.preventDefault();
+
+    if (input.value === "") {
       e.preventDefault();
-
-      if (input.value === "") {
-        e.preventDefault();
-      } else if (output.children.length >= 7) {
-        outputTag(input.value);
-        collectTagValues(input, output);
-        input.disabled = true;
-        input.placeholder = "Max number of tags reached!";
-      } else {
-        outputTag(input.value);
-        collectTagValues(input, output);
-      }
-    });
+    } else if (output.children.length >= 7) {
+      outputTag(input.value);
+      input.disabled = true;
+      input.placeholder = "Max number of tags reached!";
+    } else {
+      outputTag(input.value);
+    }
   }
 
-  if (input) {
-    input.addEventListener("input", () => {
-      const rmvWhitespace = input.value.replace(/\s/g, "");
-      input.value = rmvWhitespace.replace(/\s[^a-zA-Z0-9]/g, "");
-    });
+  function handleInputEvent() {
+    const rmvWhitespace = input.value.replace(/\s/g, "");
+    input.value = rmvWhitespace.replace(/\s[^a-zA-Z0-9]/g, "");
   }
 
-  window.addEventListener("click", (e) => {
+  function handleRemoveBtnClick(e) {
     if (e.target.classList.contains("remove-btn")) {
       e.target.parentElement.remove();
       input.disabled = false;
       input.placeholder = "Add a tag..";
-      collectTagValues(input, output);
     }
-  });
+  }
+
+  if (addTagBtn) {
+    addTagBtn.addEventListener("click", handleAddTagBtnClick);
+  }
+
+  if (input) {
+    input.addEventListener("input", handleInputEvent);
+  }
+
+  window.addEventListener("click", handleRemoveBtnClick);
 }
 
 export function collectTagValues() {

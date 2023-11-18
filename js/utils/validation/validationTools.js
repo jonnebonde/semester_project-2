@@ -29,11 +29,7 @@ export function validateEmail(email) {
     return emailRegex.test(email);
   }
 
-  if (checkEmail(email)) {
-    return true;
-  }
-
-  return false;
+  return checkEmail(email);
 }
 
 export function validateLength(value, len) {

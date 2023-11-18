@@ -9,8 +9,7 @@ import { renderBidForm } from "../forms/renderBidForm.js";
 import { renderCarousel } from "../carousel/renderCarousel.js";
 import { renderListingSellerInfo } from "../listing/renderListingSellerInfo.js";
 import { renderListingBidsTable } from "../listing/renderListingBidsTable.js";
-import { getUserInfoFromStorage } from "../../../utils/storage/userStorage.js";
-import { getSuperSecretToken } from "../../../utils/storage/userStorage.js";
+import { getUserInfoFromStorage, getSuperSecretToken } from "../../../utils/storage/userStorage.js";
 import { renderListingTags } from "../listing/renderListingTags.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 
@@ -74,7 +73,7 @@ export function renderListingPage(data) {
   listingTextContainer.appendChild(tagsContainer);
 
   const timeAndBidContainer = document.createElement("div");
-  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-5", "d-flex", "flex-column", "justify-content-between");
+  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-2","mx-sm-5" , "d-flex", "flex-column", "justify-content-between");
 
   renderTimeAndBidContainer(data, timeAndBidContainer);
 

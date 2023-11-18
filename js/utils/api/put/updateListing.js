@@ -15,7 +15,6 @@
 import { getSuperSecretToken } from "../../storage/userStorage.js";
 import { baseUrl } from "../../../settings/apiUrl.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
-import displayMessageTimer from "../../../components/ui/state_handlers/displayMessageTimer.js";
 
 export async function updateListing(data) {
   const token = getSuperSecretToken().token;
@@ -43,7 +42,9 @@ export async function updateListing(data) {
     const response = await fetch(url, options);
     if (response.status === 200) {
       displayMessage("success", "Listing was successfully updated", ".create-listing-message-container");
-     /*  location.reload(); */
+      setTimeout(() => {
+        window.location.href = "/listing.html?id=" + data.id;
+      }, 3000);
       return;
     }
   } catch (error) {

@@ -5,12 +5,11 @@
  */
 import { getUserInfoFromStorage, getSuperSecretToken } from "../../../utils/storage/userStorage.js";
 import { validateBid } from "../../../utils/validation/validateBidForm.js";
-import { findHighestBid } from "../../../utils/tools.js";
 import { renderFormSubmitBtn } from "./renderFormSubmitBtn.js";
 import { renderFormTextInputs } from "./renderFormTextInputs.js";
 import { submitBidForm } from "../../../settings/formKeys.js";
 import { setBidMessage } from "../../ui/state_handlers/displayBidMessages.js";
-import { timeDifference } from "../../../utils/tools.js";
+import { timeDifference, findHighestBid } from "../../../utils/tools.js";
 
 export function renderBidForm(target, data) {
   const user = getUserInfoFromStorage("user");
@@ -39,35 +38,31 @@ export function renderBidForm(target, data) {
       break;
 
     case user.length === 0 && token.length === 0:
-      const div = document.createElement("div");
-      div.classList.add("d-flex", "gap-1");
+      const loginRegisterLinkContainer = document.createElement("div");
+      loginRegisterLinkContainer.classList.add("loginRegisterLinkContainer", "d-flex", "gap-1", "flex-wrap");
 
-      const text = document.createElement("p");
-      text.textContent = "Please";
+      const textPlease = document.createElement("p");
+      textPlease.textContent = "Please";
 
       const loginLink = document.createElement("a");
       loginLink.href = "/login-and-register.html?register=false";
       loginLink.textContent = "Login";
 
-      const text2 = document.createElement("p");
-      text2.textContent = "or";
+      const textOr = document.createElement("p");
+      textOr.textContent = "or";
 
       const registerLink = document.createElement("a");
       registerLink.href = "/login-and-register.html?register=true";
       registerLink.textContent = "Register";
 
-      const text3 = document.createElement("p");
-      text3.textContent = "to place a bid";
-
-      div.appendChild(text);
-      div.appendChild(loginLink);
-      div.appendChild(text2);
-      div.appendChild(registerLink);
-      div.appendChild(text3);
+      loginRegisterLinkContainer.appendChild(textPlease);
+      loginRegisterLinkContainer.appendChild(loginLink);
+      loginRegisterLinkContainer.appendChild(textOr);
+      loginRegisterLinkContainer.appendChild(registerLink);
 
       target.removeChild(bidForm);
 
-      target.appendChild(div);
+      target.appendChild(loginRegisterLinkContainer);
 
       break;
 

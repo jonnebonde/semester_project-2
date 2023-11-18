@@ -7,7 +7,7 @@ import { renderTags } from "./renderTags.js";
 
 export function renderListingTags(data) {
   const tagsContainer = document.createElement("div");
-  tagsContainer.classList.add("listing-tags", "fw-bold", "mx-5");
+  tagsContainer.classList.add("listing-tags", "fw-bold", "mx-2", "mx-sm-5");
   tagsContainer.appendChild(document.createTextNode("Tags: "));
 
   if (data.tags.length === 0) {
