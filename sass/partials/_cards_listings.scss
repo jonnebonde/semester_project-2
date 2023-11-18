@@ -5,14 +5,26 @@
 }
 
 .card,
-.profile-listings-card,
-.profile-bids-card {
+.profile-listings-card {
   background-color: getColour(white, 0.6) !important;
   border: 1px getColour(accent-color, 1) solid !important;
 
   time {
     text-align: center;
     font-size: 14px;
+  }
+
+  .profile-listings-card-card-content {
+    padding: 0 5px;
+
+    p {
+      font-size: 16px;
+    }
+
+    h4 {
+      height: 50px;
+      font-size: 21px;
+    }
   }
 
   &:hover,
@@ -28,20 +40,17 @@
   width: 150px;
 
   .card-card-content {
-
     padding: 0 5px;
 
     p {
       font-size: 16px;
     }
-  
+
     h4 {
       height: 50px;
       font-size: 21px;
     }
   }
-
- 
 
   @media (min-width: $width-medium) {
     height: 220px;
@@ -50,7 +59,6 @@
     p {
       font-size: 18px;
     }
-
   }
 
   .card-img-top {

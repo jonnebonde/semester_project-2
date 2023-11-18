@@ -90,7 +90,7 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
     profileBidsMessageContainer.textContent = "No bids yet";
   } else {
     const filteredProfileBidsOnListings = filterProfileBiddings(profileBidsOnListings);
-    const profileBidsContainer = renderProfileListings(filteredProfileBidsOnListings, "profile-bids-");
+    const profileBidsContainer = renderProfileListings(filteredProfileBidsOnListings, "profile-listings-");
 
     profileBidsMainContainer.appendChild(profileBidsContainer);
   }

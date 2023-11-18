@@ -354,24 +354,33 @@ section .section-heading {
 }
 
 .card,
-.profile-listings-card,
-.profile-bids-card {
+.profile-listings-card {
   background-color: rgba(255, 255, 255, 0.6) !important;
   border: 1px rgb(50, 76, 42) solid !important;
 }
 .card time,
-.profile-listings-card time,
-.profile-bids-card time {
+.profile-listings-card time {
   text-align: center;
   font-size: 14px;
+}
+.card .profile-listings-card-card-content,
+.profile-listings-card .profile-listings-card-card-content {
+  padding: 0 5px;
+}
+.card .profile-listings-card-card-content p,
+.profile-listings-card .profile-listings-card-card-content p {
+  font-size: 16px;
+}
+.card .profile-listings-card-card-content h4, .card .profile-listings-card-card-content .h4,
+.profile-listings-card .profile-listings-card-card-content h4,
+.profile-listings-card .profile-listings-card-card-content .h4 {
+  height: 50px;
+  font-size: 21px;
 }
 .card:hover, .card:focus, .card:active,
 .profile-listings-card:hover,
 .profile-listings-card:focus,
-.profile-listings-card:active,
-.profile-bids-card:hover,
-.profile-bids-card:focus,
-.profile-bids-card:active {
+.profile-listings-card:active {
   box-shadow: 0 0.5rem 1rem rgba(54, 54, 54, 0.85);
   background-color: #FFFFFF !important;
 }
