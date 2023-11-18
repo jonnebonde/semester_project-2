@@ -25,8 +25,10 @@ export function renderCards(listing, container, type) {
   const cardTitle = document.createElement("h4");
   cardTitle.textContent = listing.title;
 
+  // there is to much insane long text in the database, so i had to do this.
   if (listing.title.length >= 31) {
     cardTitle.style.fontSize = "13px";
+    cardTitle.classList.add("text-truncate");
   } else if (listing.title.length >= 21) {
     cardTitle.style.fontSize = "17px";
   }

@@ -153,6 +153,16 @@ section .section-heading {
   width: 97% !important;
 }
 
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-truncate:hover, .text-truncate:focus, .text-truncate:active {
+  overflow: visible;
+  white-space: normal;
+}
+
 .loader {
   width: 48px;
   height: 48px;
