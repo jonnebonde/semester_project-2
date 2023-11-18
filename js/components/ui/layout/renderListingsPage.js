@@ -11,6 +11,9 @@ export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
   const mainContainer = document.querySelector("main");
   mainContainer.classList.add("container");
 
+  const loadingContainer = mainContainer.querySelector(".loading-container");
+  loadingContainer.remove();
+
   const messageAndHeadingContainer = document.createElement("section");
   messageAndHeadingContainer.classList.add("message-and-heading-container", "row");
 

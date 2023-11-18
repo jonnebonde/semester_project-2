@@ -15,6 +15,11 @@ import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 
 export function renderListingPage(data) {
   const mainContainer = document.querySelector("main");
+
+  const loadingContainer = mainContainer.querySelector(".loading-container");
+  loadingContainer.remove();
+
+
   const section1 = document.createElement("section");
   const listingTitle = renderSectionHeading("h1", data.title);
 
