@@ -5,6 +5,7 @@
   @media (min-width: $width-small) {
     max-width: 100%;
   }
+
   #bid-form {
     #bid-container {
       display: flex;
@@ -15,13 +16,14 @@
         margin-left: 1rem;
       }
     }
+
     button {
       width: 100%;
       max-width: 500px;
-    }
 
-    button:hover {
-      text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     span {
@@ -30,15 +32,13 @@
     }
   }
 
-
   .listing-message-container {
     height: 30px !important;
   }
 
   .listing-time-bid-container {
-   margin-top: auto;
+    margin-top: auto;
   }
-
 }
 
 .listing-seller-info-container {
@@ -64,6 +64,7 @@
   tbody {
     font-size: 15px;
   }
+
   th {
     background-color: getColour(primary-background-color, 0.8) !important;
     color: getColour(white, 1) !important;

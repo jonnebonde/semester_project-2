@@ -14,7 +14,8 @@
     font-size: 14px;
   }
 
-  .profile-listings-card-card-content {
+  .profile-listings-card-card-content,
+  .card-card-content {
     padding: 0 5px;
 
     p {
@@ -39,16 +40,12 @@
   height: 140px;
   width: 150px;
 
-  .card-card-content {
-    padding: 0 5px;
+  .card-img-top {
+    height: 140px;
+    object-fit: cover;
 
-    p {
-      font-size: 16px;
-    }
-
-    h4 {
-      height: 50px;
-      font-size: 21px;
+    @media (min-width: $width-medium) {
+      height: 180px;
     }
   }
 
@@ -58,15 +55,6 @@
 
     p {
       font-size: 18px;
-    }
-  }
-
-  .card-img-top {
-    height: 140px;
-    object-fit: cover;
-
-    @media (min-width: $width-medium) {
-      height: 180px;
     }
   }
 }

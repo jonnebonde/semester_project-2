@@ -1,5 +1,5 @@
 .carousel {
-  .carousel-item {
+  &-item {
     height: 100%;
 
     img {
@@ -7,7 +7,7 @@
     }
   }
 
-  .carousel-inner {
+  &-inner {
     height: 300px;
     width: 100%;
 
@@ -23,7 +23,7 @@
     }
   }
 
-  .carousel-indicators {
+  &-indicators {
     position: relative !important;
     margin: auto;
   }
