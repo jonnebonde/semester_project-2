@@ -5,10 +5,24 @@
  */
 
 import { renderSearchByTags } from "../listings/renderSearchByTags.js";
+import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 
 export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
   const mainContainer = document.querySelector("main");
   mainContainer.classList.add("container");
+
+  const messageAndHeadingContainer = document.createElement("section");
+  messageAndHeadingContainer.classList.add("message-and-heading-container", "row");
+
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("message-container");
+
+  const mainHeading = renderSectionHeading("h1", "All Listings");
+
+  messageAndHeadingContainer.appendChild(messageContainer);
+  messageAndHeadingContainer.appendChild(mainHeading);
+  mainContainer.appendChild(messageAndHeadingContainer);
+
 
   const mainGridContainer = document.createElement("div");
   mainGridContainer.classList.add("row", "main-grid-container");

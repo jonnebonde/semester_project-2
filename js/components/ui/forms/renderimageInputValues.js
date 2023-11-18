@@ -34,7 +34,7 @@ export function setupImageInput() {
 
     const thumbnail = document.createElement("img");
     thumbnail.src = imageFormat;
-    thumbnail.setAttribute("alt", "image");
+    thumbnail.setAttribute("alt", "Thumbnail image");
     thumbnail.classList.add("thumbnail");
     thumbnail.setAttribute("width", "100px");
     thumbnail.setAttribute("height", "100px");

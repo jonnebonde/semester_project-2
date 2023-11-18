@@ -14,7 +14,7 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   const lastChanceListingsContainer = document.createElement("section");
   lastChanceListingsContainer.classList.add("homepage-last_chance_listings-container");
 
-  const lastChanceListingsHeading = renderSectionHeading("h2", "Last chance Auctions");
+  const lastChanceListingsHeading = renderSectionHeading("h1", "Last chance Auctions");
   lastChanceListingsContainer.appendChild(lastChanceListingsHeading);
 
   mainContainer.appendChild(lastChanceListingsContainer);

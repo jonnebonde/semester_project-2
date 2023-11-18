@@ -13,6 +13,15 @@ import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 
 export function renderProfilePage(profileBidsOnListings, profileListings, profileInfo) {
   const profileMainContainer = document.querySelector("main");
+
+  const profileHeadingContainer = document.createElement("section");
+
+  const profileHeading = renderSectionHeading("h1", "My Profile");
+
+  profileHeadingContainer.appendChild(profileHeading);
+  profileMainContainer.appendChild(profileHeadingContainer);
+
+
   const profileWrappingContainer = document.createElement("section");
   profileWrappingContainer.classList.add("container");
 
