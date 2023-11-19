@@ -42,6 +42,7 @@ gh repo clone jonnebonde/semester_project-2
 ### Running
 
 If all files are cloned and runned live on your prefered live host or on localhost, the site should work and communicate with the Noroff api.
+please note that you dont need a real @stud.noroff.no mail to register if you want to test the full potential of the site and that the api gets a purge regulary.
 
 ## Contributing
 
