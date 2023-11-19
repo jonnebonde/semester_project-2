@@ -12,6 +12,7 @@ import { renderListingBidsTable } from "../listing/renderListingBidsTable.js";
 import { getUserInfoFromStorage, getSuperSecretToken } from "../../../utils/storage/userStorage.js";
 import { renderListingTags } from "../listing/renderListingTags.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
+import { renderRegisterToast } from "../toast/renderToast.js";
 
 export function renderListingPage(data) {
   const mainContainer = document.querySelector("main");
@@ -109,6 +110,14 @@ export function renderListingPage(data) {
   const messageContainer = document.createElement("div");
   messageContainer.classList.add("listing-message-container");
   listingInfoContainer.appendChild(messageContainer);
+
+  const toastContainer = renderRegisterToast();
+
+  if (!getUserInfoFromStorage().name && !getSuperSecretToken().token) {
+    mainContainer.appendChild(toastContainer);
+    const toast = new bootstrap.Toast(toastContainer.querySelector("#welcomeToast"));
+    toast.show();
+  }
 
   if (token.length !== 0 && user.length !== 0) {
     const listingSellerInfoContainer = document.createElement("div");

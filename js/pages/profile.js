@@ -15,15 +15,11 @@ import { getSuperSecretToken, getUserInfoFromStorage } from "../utils/storage/us
 renderNavBar();
 userLogout();
 
-const user = getUserInfoFromStorage();
-const token = getSuperSecretToken();
-
-if (user.length === 0 && token.length === 0) {
+if (!getUserInfoFromStorage().name && !getSuperSecretToken().token) {
   location.href = "/index.html";
 } else {
   getMultipleProfileInfo();
 }
-
 
 // im unsure if this is the best solution, but it worked the best of the other options i tried.
 async function getMultipleProfileInfo() {

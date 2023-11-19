@@ -14,5 +14,12 @@
     button {
       padding: 10px 20px;
     }
+
+    @media (max-width: $width-small) {
+      width: 70%;
+      margin: 0 auto;
+      text-align: center;
+      bottom: 1rem;
+    }
   }
 }

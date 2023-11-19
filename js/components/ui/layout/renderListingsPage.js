@@ -6,6 +6,8 @@
 
 import { renderSearchByTags } from "../listings/renderSearchByTags.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
+import { renderRegisterToast } from "../toast/renderToast.js";
+import { getUserInfoFromStorage, getSuperSecretToken } from "../../../utils/storage/userStorage.js";
 
 export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
   const mainContainer = document.querySelector("main");
@@ -25,7 +27,6 @@ export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
   messageAndHeadingContainer.appendChild(messageContainer);
   messageAndHeadingContainer.appendChild(mainHeading);
   mainContainer.appendChild(messageAndHeadingContainer);
-
 
   const mainGridContainer = document.createElement("div");
   mainGridContainer.classList.add("row", "main-grid-container");
@@ -57,6 +58,14 @@ export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
   mainGridContainer.appendChild(allListingsPaginationContainer);
 
   mainContainer.appendChild(mainGridContainer);
+
+  const toastContainer = renderRegisterToast();
+
+  if (!getUserInfoFromStorage().name && !getSuperSecretToken().token) {
+    mainContainer.appendChild(toastContainer);
+    const toast = new bootstrap.Toast(toastContainer.querySelector("#welcomeToast"));
+    toast.show();
+  }
 
   renderSearchByTags(".search-main-container", updateApiListingsConfig);
 

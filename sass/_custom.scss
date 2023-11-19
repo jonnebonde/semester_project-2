@@ -29,3 +29,10 @@ $border-color-translucent-dark: none;
 
 // carousel
 $carousel-transition: transform 0.1s ease-in-out !important;
+
+// toast
+
+$toast-background-color: getColour(primary-background-color, 0.9  );
+$toast-color: getColour(white, 1);
+$toast-header-color: getColour(white, 1);
+$toast-header-background-color: getColour(primary-background-color, 1);

@@ -10,16 +10,9 @@ import renderNavBar from "../components/ui/navBar/renderNav.js";
 import { renderLoginRegisterFormsPage } from "../components/ui/layout/renderRegisterLoginFormsPage.js";
 import { getUserInfoFromStorage, getSuperSecretToken } from "../utils/storage/userStorage.js";
 
-const user = getUserInfoFromStorage();
-const token = getSuperSecretToken();
-
-
-if (user.length === 0 && token.length === 0) {
+if (!getUserInfoFromStorage().name && !getSuperSecretToken().token) {
   renderNavBar();
-  renderLoginRegisterFormsPage(); 
+  renderLoginRegisterFormsPage();
 } else {
   location.href = "/index.html";
 }
-
-  
-

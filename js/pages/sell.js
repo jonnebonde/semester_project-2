@@ -15,10 +15,9 @@ import { getUserInfoFromStorage, getSuperSecretToken } from "../utils/storage/us
 import displayMessage from "../components/ui/state_handlers/displayMessage.js";
 import { getListing } from "../utils/api/get/getListing.js";
 
-const user = getUserInfoFromStorage("user");
-const token = getSuperSecretToken();
 
-if (!user || !token) {
+
+if (!getUserInfoFromStorage().name && !getSuperSecretToken().token) {
   location.href = "/index.html";
 } else {
   initializePage();

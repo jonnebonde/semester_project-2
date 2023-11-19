@@ -10,6 +10,7 @@
 @import "./partials/register_login-forms";
 @import "./partials/sell";
 @import "./partials/profile";
+@import "./partials/_toast";
 @import "./partials/footer";
 
 // scss-docs-start import-stack
@@ -43,6 +44,7 @@
 @import "../bootstrap_scss/modal";
 @import "../bootstrap_scss/carousel";
 @import "../bootstrap_scss/spinners";
+@import "../bootstrap_scss/toasts";
 
 // Helpers
 @import "../bootstrap_scss/helpers";
