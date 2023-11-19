@@ -24,6 +24,8 @@ if (user.length === 0 && token.length === 0) {
   getMultipleProfileInfo();
 }
 
+
+// im unsure if this is the best solution, but it worked the best of the other options i tried.
 async function getMultipleProfileInfo() {
   try {
     const profileBidsOnListings = await getProfileInfo("/bids?_listings=true&_bids=true&_active=true");

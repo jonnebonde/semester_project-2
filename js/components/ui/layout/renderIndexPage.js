@@ -64,4 +64,20 @@ export function renderIndexPage(listingsData, newestAuctionData) {
     newestListingsResultContainer.appendChild(newestListings);
     newestListingsContainer.appendChild(newestListingsResultContainer);
   }
+
+  const toTopButtonContainer = document.createElement("div");
+  toTopButtonContainer.classList.add("to-top-btn-container", "d-flex", "justify-content-center");
+
+  const toTopButton = document.createElement("button");
+  toTopButton.classList.add("btn", "btn-primary", "to-top-btn", "mt-5", "mb-5");
+  toTopButton.setAttribute("aria-label", "Scroll to top of page");
+  toTopButton.innerHTML = "To top ⬆"
+
+
+  toTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  toTopButtonContainer.appendChild(toTopButton);
+  mainContainer.appendChild(toTopButtonContainer);
 }

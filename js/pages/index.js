@@ -14,6 +14,8 @@ import { renderIndexPage } from "../components/ui/layout/renderIndexPage.js";
 renderNavBar();
 userLogout();
 
+
+// im unsure if this is the best solution, but it worked the best of the other options i tried.
 (async function () {
   try {
     const listingsData = await apiCall(baseUrl + "/listings?limit=8&sort=endsAt&sortOrder=asc&_bids=true&_active=true");

@@ -26,6 +26,8 @@ let apiListingsConfig = {
   _tag: "",
 };
 
+
+// im unsure if this is the best solution, but it worked the best of the other options i tried.
 async function updateApiListingsConfig(newConfig) {
   apiListingsConfig = { ...apiListingsConfig, ...newConfig };
 
