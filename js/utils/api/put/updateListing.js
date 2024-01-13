@@ -26,7 +26,7 @@ export async function updateListing(data) {
     endsAt: data.endsAt,
     id: data.id,
     tags: data.tags.tags,
-    images: data.images.media,
+    media: data.images.media,
   });
 
   const options = {
