@@ -9,7 +9,10 @@
  */
 import { baseUrl } from "../../../settings/apiUrl.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
-import { addUserInfoToStorage, saveSuperSecretToken } from "../../storage/userStorage.js";
+import {
+  addUserInfoToStorage,
+  saveSuperSecretToken,
+} from "../../storage/userStorage.js";
 
 export async function loginToService(loginInfo, loader) {
   const url = baseUrl + "/auth/login";
@@ -42,6 +45,10 @@ export async function loginToService(loginInfo, loader) {
       location.href = "/profile.html";
     }
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".message-container");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      ".message-container",
+    );
   }
 }

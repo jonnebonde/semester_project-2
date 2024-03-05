@@ -13,7 +13,12 @@ export function renderListingBidsTable(data, target) {
   listingBidTableContainer.innerHTML = "";
 
   const listingBidTable = document.createElement("table");
-  listingBidTable.classList.add("table", "table-sm", "table-bordered", "mx-auto");
+  listingBidTable.classList.add(
+    "table",
+    "table-sm",
+    "table-bordered",
+    "mx-auto",
+  );
 
   const listingBidTableHead = document.createElement("thead");
   listingBidTableHead.classList.add("table");

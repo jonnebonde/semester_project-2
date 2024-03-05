@@ -25,10 +25,18 @@ export async function deleteListing(id) {
     try {
       const response = await fetch(url, options);
       if (response) {
-        displayMessage("success", "Listing was successfully deleted", ".create-listing-message-container");
+        displayMessage(
+          "success",
+          "Listing was successfully deleted",
+          ".create-listing-message-container",
+        );
       }
     } catch (error) {
-      displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".create-listing-message-container");
+      displayMessage(
+        "error",
+        "Ooppps!! something went wrong, please try updating the page",
+        ".create-listing-message-container",
+      );
     }
   }
 }

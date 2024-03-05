@@ -7,7 +7,13 @@ export function renderSearchByTags(target, updateApiListingsConfig) {
   const container = document.querySelector(target);
 
   const searchByTagsContainer = document.createElement("div");
-  searchByTagsContainer.classList.add("search-by-tags-container", "d-flex", "justify-content-center", "mb-5", "input-group");
+  searchByTagsContainer.classList.add(
+    "search-by-tags-container",
+    "d-flex",
+    "justify-content-center",
+    "mb-5",
+    "input-group",
+  );
 
   const searchByTagsInput = document.createElement("input");
   searchByTagsInput.setAttribute("type", "text");

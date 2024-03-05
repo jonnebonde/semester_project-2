@@ -6,14 +6,20 @@
  */
 import { renderCarouselBtns } from "./renderCarouselControllers.js";
 
-export function renderCarousel( targetElement, data = []) {
-  const carouselIndicatorsContainer = document.querySelector(".carousel-indicators");
+export function renderCarousel(targetElement, data = []) {
+  const carouselIndicatorsContainer = document.querySelector(
+    ".carousel-indicators",
+  );
   const carouselImageContainer = document.querySelector(targetElement);
 
   carouselImageContainer.textContent = "";
   carouselIndicatorsContainer.textContent = "";
 
-  carouselImageContainer.classList.remove("d-grid", "justify-content-center", "align-content-center");
+  carouselImageContainer.classList.remove(
+    "d-grid",
+    "justify-content-center",
+    "align-content-center",
+  );
 
   let carouselImages = data.media;
 
@@ -25,7 +31,10 @@ export function renderCarousel( targetElement, data = []) {
   const carouselIndicatorsElementsArray = [];
 
   for (let i = 0; i < carouselImages.length; i++) {
-    carouselImageContainer.classList.remove("justify-content-center", "align-items-center");
+    carouselImageContainer.classList.remove(
+      "justify-content-center",
+      "align-items-center",
+    );
 
     const item = carouselImages[i];
 
@@ -52,7 +61,10 @@ export function renderCarousel( targetElement, data = []) {
     carouselItem.classList.add("d-block");
     carouselItem.setAttribute("src", item);
     carouselItem.setAttribute("alt", item.title);
-    carouselItem.setAttribute("onerror", "src='/assets/img/no-image-icon-23485.jpg'");
+    carouselItem.setAttribute(
+      "onerror",
+      "src='/assets/img/no-image-icon-23485.jpg'",
+    );
 
     carouselItemContainer.appendChild(carouselItem);
 
@@ -63,8 +75,16 @@ export function renderCarousel( targetElement, data = []) {
     carouselItemsElementsArray.push(carouselItemContainer);
 
     if (carouselImages.length >= 2) {
-      const carouselBtnPrev = renderCarouselBtns("carousel-control-prev", "#carousel-listing", "prev");
-      const carouselBtnNext = renderCarouselBtns("carousel-control-next", "#carousel-listing", "next");
+      const carouselBtnPrev = renderCarouselBtns(
+        "carousel-control-prev",
+        "#carousel-listing",
+        "prev",
+      );
+      const carouselBtnNext = renderCarouselBtns(
+        "carousel-control-next",
+        "#carousel-listing",
+        "next",
+      );
 
       carouselImageContainer.appendChild(carouselBtnPrev);
       carouselImageContainer.appendChild(carouselBtnNext);

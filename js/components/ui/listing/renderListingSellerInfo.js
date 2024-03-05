@@ -17,7 +17,7 @@ export function renderListingSellerInfo(data) {
     "flex-l-row",
     "justify-content-center",
     "align-items-center",
-    "justify-content-md-start"
+    "justify-content-md-start",
   );
 
   const sellerInfoAvatarContainer = document.createElement("div");
@@ -26,19 +26,27 @@ export function renderListingSellerInfo(data) {
     "d-flex",
     "justify-content-center",
     "align-items-center",
-    "justify-content-md-start"
+    "justify-content-md-start",
   );
 
   const sellerInfoAvatar = document.createElement("img");
   sellerInfoAvatar.classList.add("listing-seller-avatar", "rounded");
   sellerInfoAvatar.setAttribute("src", data.seller.avatar);
   sellerInfoAvatar.setAttribute("alt", data.seller.name);
-  sellerInfoAvatar.setAttribute("onerror", "src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'");
+  sellerInfoAvatar.setAttribute(
+    "onerror",
+    "src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'",
+  );
 
   sellerInfoAvatarContainer.appendChild(sellerInfoAvatar);
 
   const sellerCredentialsContainer = document.createElement("div");
-  sellerCredentialsContainer.classList.add("listing-seller-credentials-container", "d-flex", "flex-column", "text-break");
+  sellerCredentialsContainer.classList.add(
+    "listing-seller-credentials-container",
+    "d-flex",
+    "flex-column",
+    "text-break",
+  );
 
   const sellerName = document.createElement("span");
   sellerName.classList.add("listing-seller-name");

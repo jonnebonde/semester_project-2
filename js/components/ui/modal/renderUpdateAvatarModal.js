@@ -44,11 +44,19 @@ export function renderUpdateAvatarModal(avatar) {
   updateAvatarModalImgPreview.classList.add("update-avatar-preview");
   updateAvatarModalImgPreview.setAttribute("src", avatar);
   updateAvatarModalImgPreview.setAttribute("alt", "avatar preview");
-  updateAvatarModalImgPreview.setAttribute("onerror", "src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'");
+  updateAvatarModalImgPreview.setAttribute(
+    "onerror",
+    "src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'",
+  );
 
   updateAvatarModalBody.appendChild(updateAvatarModalImgPreview);
 
-  renderForm(updateAvatarModalBody, updateAvatarFormInput, "update-avatar", avatar);
+  renderForm(
+    updateAvatarModalBody,
+    updateAvatarFormInput,
+    "update-avatar",
+    avatar,
+  );
 
   updateAvatarModalContent.appendChild(updateAvatarModalHeader);
   updateAvatarModalContent.appendChild(updateAvatarModalBody);

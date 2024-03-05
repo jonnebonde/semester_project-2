@@ -29,7 +29,7 @@ export async function renderCreatelistingPage(data) {
   mainContainer.appendChild(formMainContainer);
 
   const formContainer = document.createElement("div");
-  formContainer.classList.add("col-12", "col-lg-6","col-md-8","m-auto");
+  formContainer.classList.add("col-12", "col-lg-6", "col-md-8", "m-auto");
   formContainer.id = "sell-create-form";
 
   formMainContainer.appendChild(formContainer);

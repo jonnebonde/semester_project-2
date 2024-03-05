@@ -4,7 +4,10 @@
  * @returns {HTMLFormElement} - The HTML form element for creating a new listing.
  */
 import { renderFormTextInputs } from "./renderFormTextInputs.js";
-import { createListingFormTextInputs, createlistingFormDateInput } from "../../../settings/formKeys.js";
+import {
+  createListingFormTextInputs,
+  createlistingFormDateInput,
+} from "../../../settings/formKeys.js";
 import { renderTagInput } from "./renderTagInputContainer.js";
 import { renderImageInputContainer } from "./renderImageInputContainer.js";
 import { renderFormSubmitBtn } from "../forms/renderFormSubmitBtn.js";

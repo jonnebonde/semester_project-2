@@ -8,10 +8,17 @@
 import { renderProfileInfo } from "../profile/renderProfileInfo.js";
 import { renderUpdateAvatarModal } from "../modal/renderUpdateAvatarModal.js";
 import { renderProfileListings } from "../profile/renderProfileListings.js";
-import { filterProfileBiddings, findProfileListingsWon } from "../../../utils/tools.js";
+import {
+  filterProfileBiddings,
+  findProfileListingsWon,
+} from "../../../utils/tools.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 
-export function renderProfilePage(profileBidsOnListings, profileListings, profileInfo) {
+export function renderProfilePage(
+  profileBidsOnListings,
+  profileListings,
+  profileInfo,
+) {
   const profileMainContainer = document.querySelector("main");
 
   profileMainContainer.innerHTML = "";
@@ -22,7 +29,6 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
 
   profileHeadingContainer.appendChild(profileHeading);
   profileMainContainer.appendChild(profileHeadingContainer);
-
 
   const profileWrappingContainer = document.createElement("section");
   profileWrappingContainer.classList.add("container");
@@ -40,12 +46,16 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   profileInfoContainer.classList.add("profile-info-container");
 
   const profileMessageContainer = document.createElement("div");
-  profileMessageContainer.classList.add("profile-message-container", "text-center");
+  profileMessageContainer.classList.add(
+    "profile-message-container",
+    "text-center",
+  );
 
   profileInfoContainer.appendChild(profileMessageContainer);
 
   if (profileInfo.errors) {
-    profileMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
+    profileMessageContainer.textContent =
+      "Ooppps!! something went wrong, please try updating the page";
   } else {
     const profileInfoContainer = renderProfileInfo(profileInfo);
     profileInfoMainContainer.appendChild(profileInfoContainer);
@@ -53,22 +63,33 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   profileGridRowContainer.appendChild(profileInfoMainContainer);
 
   const profileListingsMainContainer = document.createElement("div");
-  profileListingsMainContainer.classList.add("col-12", "col-lg-6", "profile-listings-main-container");
+  profileListingsMainContainer.classList.add(
+    "col-12",
+    "col-lg-6",
+    "profile-listings-main-container",
+  );
 
   const profileListingsHeading = renderSectionHeading("h2", "My listings");
   profileListingsMainContainer.appendChild(profileListingsHeading);
 
   const profileListingMessageContainer = document.createElement("div");
-  profileListingMessageContainer.classList.add("profile-listings-message-container", "text-center");
+  profileListingMessageContainer.classList.add(
+    "profile-listings-message-container",
+    "text-center",
+  );
 
   profileListingsMainContainer.appendChild(profileListingMessageContainer);
 
   if (profileListings.errors) {
-    profileListingMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
+    profileListingMessageContainer.textContent =
+      "Ooppps!! something went wrong, please try updating the page";
   } else if (profileListings.length === 0) {
     profileListingMessageContainer.textContent = "No listings yet";
   } else {
-    const profileListingsContainer = renderProfileListings(profileListings, "profile-listings-");
+    const profileListingsContainer = renderProfileListings(
+      profileListings,
+      "profile-listings-",
+    );
 
     profileListingsMainContainer.appendChild(profileListingsContainer);
   }
@@ -81,18 +102,27 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   const profileBidsHeading = renderSectionHeading("h2", "My bids");
 
   const profileBidsMessageContainer = document.createElement("div");
-  profileBidsMessageContainer.classList.add("profile-bids-message-container", "text-center");
+  profileBidsMessageContainer.classList.add(
+    "profile-bids-message-container",
+    "text-center",
+  );
 
   profileBidsMainContainer.appendChild(profileBidsHeading);
   profileBidsMainContainer.appendChild(profileBidsMessageContainer);
 
   if (profileBidsOnListings.errors) {
-    profileBidsMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
+    profileBidsMessageContainer.textContent =
+      "Ooppps!! something went wrong, please try updating the page";
   } else if (profileBidsOnListings.length === 0) {
     profileBidsMessageContainer.textContent = "No bids yet";
   } else {
-    const filteredProfileBidsOnListings = filterProfileBiddings(profileBidsOnListings);
-    const profileBidsContainer = renderProfileListings(filteredProfileBidsOnListings, "profile-listings-");
+    const filteredProfileBidsOnListings = filterProfileBiddings(
+      profileBidsOnListings,
+    );
+    const profileBidsContainer = renderProfileListings(
+      filteredProfileBidsOnListings,
+      "profile-listings-",
+    );
 
     profileBidsMainContainer.appendChild(profileBidsContainer);
   }
@@ -100,24 +130,41 @@ export function renderProfilePage(profileBidsOnListings, profileListings, profil
   profileGridRowContainer.appendChild(profileBidsMainContainer);
 
   const profileListingsWonMainContainer = document.createElement("div");
-  profileListingsWonMainContainer.classList.add("col-12", "profile-listings-won-main-container");
+  profileListingsWonMainContainer.classList.add(
+    "col-12",
+    "profile-listings-won-main-container",
+  );
 
   const profileListingsWonHeading = renderSectionHeading("h2", "My wins");
 
   const profileListingsWonMessageContainer = document.createElement("div");
-  profileListingsWonMessageContainer.classList.add("profile-listings-won-message-container", "text-center");
+  profileListingsWonMessageContainer.classList.add(
+    "profile-listings-won-message-container",
+    "text-center",
+  );
 
   profileListingsWonMainContainer.appendChild(profileListingsWonHeading);
-  profileListingsWonMainContainer.appendChild(profileListingsWonMessageContainer);
+  profileListingsWonMainContainer.appendChild(
+    profileListingsWonMessageContainer,
+  );
 
   if (profileBidsOnListings.errors) {
-    profileListingsWonMessageContainer.textContent = "Ooppps!! something went wrong, please try updating the page";
+    profileListingsWonMessageContainer.textContent =
+      "Ooppps!! something went wrong, please try updating the page";
   } else if (profileInfo.wins.length === 0) {
     profileListingsWonMessageContainer.textContent = "No wins yet";
   } else {
-    const profileListingsBiddings = filterProfileBiddings(profileBidsOnListings);
-    const profileListingsWonArray = findProfileListingsWon(profileListingsBiddings, profileInfo);
-    const profileListingsWonContainer = renderProfileListings(profileListingsWonArray, "profile-listings-");
+    const profileListingsBiddings = filterProfileBiddings(
+      profileBidsOnListings,
+    );
+    const profileListingsWonArray = findProfileListingsWon(
+      profileListingsBiddings,
+      profileInfo,
+    );
+    const profileListingsWonContainer = renderProfileListings(
+      profileListingsWonArray,
+      "profile-listings-",
+    );
 
     if (profileListingsWonArray.length === 0) {
       profileListingsMessageContainer.textContent = "No wins yet";

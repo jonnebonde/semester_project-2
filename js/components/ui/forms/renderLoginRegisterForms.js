@@ -11,13 +11,15 @@ export function renderLoginRegisterForms() {
   const currentUrl = new URLSearchParams(window.location.search);
   const register = currentUrl.get("register");
 
-  const loginRegisterContainer = document.querySelector(".login_register_form-container");
+  const loginRegisterContainer = document.querySelector(
+    ".login_register_form-container",
+  );
 
   if (register === "true") {
     loginRegisterFormState(true);
-    renderForm(loginRegisterContainer, registerForm, "register")
+    renderForm(loginRegisterContainer, registerForm, "register");
   } else {
     loginRegisterFormState(false);
-    renderForm(loginRegisterContainer, loginForm, "login")
+    renderForm(loginRegisterContainer, loginForm, "login");
   }
 }

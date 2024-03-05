@@ -9,7 +9,12 @@ import { findHighestBid, timeDifference } from "../../../utils/tools.js";
  */
 export function renderCards(listing, container, type) {
   const card = document.createElement("a");
-  card.classList.add(type, "listing-card", "link-dark", "link-underline-opacity-0");
+  card.classList.add(
+    type,
+    "listing-card",
+    "link-dark",
+    "link-underline-opacity-0",
+  );
   card.setAttribute("href", `listing.html?id=${listing.id}`);
 
   const cardImg = document.createElement("img");

@@ -37,7 +37,12 @@ export function renderTagInput() {
   descriptionHelp.textContent = "Add up to 8 relevant keywords or tags.";
 
   const tagsContainer = document.createElement("div");
-  tagsContainer.classList.add("tags", "d-flex", "flex-wrap", "align-items-center");
+  tagsContainer.classList.add(
+    "tags",
+    "d-flex",
+    "flex-wrap",
+    "align-items-center",
+  );
 
   const messageContainer = document.createElement("div");
   messageContainer.classList.add("tags-message-container");

@@ -18,7 +18,11 @@ export function validateAvatarForm(e) {
   const imageUrl = avatarInput.value;
 
   if (imageUrl === "") {
-    displayMessage("error", "Please enter an image URL", ".avatar-form-input-message-container");
+    displayMessage(
+      "error",
+      "Please enter an image URL",
+      ".avatar-form-input-message-container",
+    );
     changeInputStatus(avatarInput, "error");
     return;
   }
@@ -26,11 +30,19 @@ export function validateAvatarForm(e) {
   validateImageUrl(imageUrl, spinner).then((result) => {
     if (result) {
       spinner.hide();
-      displayMessage("success", "Image is valid", ".avatar-form-input-message-container");
+      displayMessage(
+        "success",
+        "Image is valid",
+        ".avatar-form-input-message-container",
+      );
       changeInputStatus(avatarInput, "success");
       updateProfileAvatar(imageUrl);
     } else {
-      displayMessage("error", "Please enter a valid image URL", ".avatar-form-input-message-container");
+      displayMessage(
+        "error",
+        "Please enter a valid image URL",
+        ".avatar-form-input-message-container",
+      );
       changeInputStatus(avatarInput, "error");
     }
   });

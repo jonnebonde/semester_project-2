@@ -83,12 +83,23 @@ export function renderLoginRegisterFormsPage() {
   sectionHeadingBottom.appendChild(h2Bottom);
 
   const changeFormContainer = document.createElement("div");
-  changeFormContainer.classList.add("login_register_change_form-container", "container", "d-flex", "justify-content-center");
+  changeFormContainer.classList.add(
+    "login_register_change_form-container",
+    "container",
+    "d-flex",
+    "justify-content-center",
+  );
 
   const changeFormButton = document.createElement("button");
   changeFormButton.id = "login_register-change-form_btn";
   changeFormButton.type = "button";
-  changeFormButton.classList.add("btn", "btn-primary", "link-dark", "link-underline-opacity-0", "link-underline-opacity-100-hover");
+  changeFormButton.classList.add(
+    "btn",
+    "btn-primary",
+    "link-dark",
+    "link-underline-opacity-0",
+    "link-underline-opacity-100-hover",
+  );
   changeFormButton.textContent = "Login";
 
   changeFormContainer.appendChild(changeFormButton);

@@ -9,7 +9,10 @@ import { renderBidForm } from "../forms/renderBidForm.js";
 import { renderCarousel } from "../carousel/renderCarousel.js";
 import { renderListingSellerInfo } from "../listing/renderListingSellerInfo.js";
 import { renderListingBidsTable } from "../listing/renderListingBidsTable.js";
-import { getUserInfoFromStorage, getSuperSecretToken } from "../../../utils/storage/userStorage.js";
+import {
+  getUserInfoFromStorage,
+  getSuperSecretToken,
+} from "../../../utils/storage/userStorage.js";
 import { renderListingTags } from "../listing/renderListingTags.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 import { renderRegisterToast } from "../toast/renderToast.js";
@@ -19,7 +22,6 @@ export function renderListingPage(data) {
 
   const loadingContainer = mainContainer.querySelector(".loading-container");
   loadingContainer.remove();
-
 
   const section1 = document.createElement("section");
   const listingTitle = renderSectionHeading("h1", data.title);
@@ -37,17 +39,33 @@ export function renderListingPage(data) {
   section2.classList.add("container");
 
   const rowDiv = document.createElement("div");
-  rowDiv.classList.add("row", "row-cols-lg-2", "row-cols-md-1", "row-cols-1", "row-gap-5");
+  rowDiv.classList.add(
+    "row",
+    "row-cols-lg-2",
+    "row-cols-md-1",
+    "row-cols-1",
+    "row-gap-5",
+  );
 
   section2.appendChild(rowDiv);
   mainContainer.appendChild(section2);
 
   const carouselContainer = document.createElement("div");
-  carouselContainer.classList.add("col", "carousel-container", "carousel", "slide");
+  carouselContainer.classList.add(
+    "col",
+    "carousel-container",
+    "carousel",
+    "slide",
+  );
   carouselContainer.id = "carousel-listing";
 
   const carouselInnerContainer = document.createElement("div");
-  carouselInnerContainer.classList.add("carousel-inner", "d-grid", "justify-content-center", "align-content-center");
+  carouselInnerContainer.classList.add(
+    "carousel-inner",
+    "d-grid",
+    "justify-content-center",
+    "align-content-center",
+  );
 
   const carouselIndicatorsContainer = document.createElement("div");
   carouselIndicatorsContainer.classList.add("carousel-indicators");
@@ -60,10 +78,16 @@ export function renderListingPage(data) {
 
   rowDiv.appendChild(carouselContainer);
 
-  renderCarousel( "#carousel-listing .carousel-inner", data);
+  renderCarousel("#carousel-listing .carousel-inner", data);
 
   const listingInfoContainer = document.createElement("div");
-  listingInfoContainer.classList.add("col", "listing-info-container", "d-flex", "flex-column", "justify-content-between");
+  listingInfoContainer.classList.add(
+    "col",
+    "listing-info-container",
+    "d-flex",
+    "flex-column",
+    "justify-content-between",
+  );
 
   const listingTextContainer = document.createElement("div");
   listingTextContainer.classList.add("listing-text-container");
@@ -79,13 +103,25 @@ export function renderListingPage(data) {
   listingTextContainer.appendChild(tagsContainer);
 
   const timeAndBidContainer = document.createElement("div");
-  timeAndBidContainer.classList.add("listing-time-bid-container", "mx-2","mx-sm-5" , "d-flex", "flex-column", "justify-content-between");
+  timeAndBidContainer.classList.add(
+    "listing-time-bid-container",
+    "mx-2",
+    "mx-sm-5",
+    "d-flex",
+    "flex-column",
+    "justify-content-between",
+  );
 
   renderTimeAndBidContainer(data, timeAndBidContainer);
 
   if (data.seller.name === user.name) {
     const updateBtnContainer = document.createElement("div");
-    updateBtnContainer.classList.add("update-btn-container", "d-flex", "justify-content-center", "align-items-center");
+    updateBtnContainer.classList.add(
+      "update-btn-container",
+      "d-flex",
+      "justify-content-center",
+      "align-items-center",
+    );
 
     const updateBtn = document.createElement("button");
     updateBtn.classList.add("btn", "btn-accent", "update-btn", "w-75");
@@ -115,25 +151,41 @@ export function renderListingPage(data) {
 
   if (!getUserInfoFromStorage().name && !getSuperSecretToken().token) {
     mainContainer.appendChild(toastContainer);
-    const toast = new bootstrap.Toast(toastContainer.querySelector("#welcomeToast"));
+    const toast = new bootstrap.Toast(
+      toastContainer.querySelector("#welcomeToast"),
+    );
     toast.show();
   }
 
   if (token.length !== 0 && user.length !== 0) {
     const listingSellerInfoContainer = document.createElement("div");
-    listingSellerInfoContainer.classList.add("listing-seller-info-container", "col");
+    listingSellerInfoContainer.classList.add(
+      "listing-seller-info-container",
+      "col",
+    );
 
-    const listingSellerSectionHeading = renderSectionHeading("h2", "Seller info");
+    const listingSellerSectionHeading = renderSectionHeading(
+      "h2",
+      "Seller info",
+    );
     listingSellerInfoContainer.appendChild(listingSellerSectionHeading);
 
     const listingBidHistoryContainer = document.createElement("div");
-    listingBidHistoryContainer.classList.add("listing-bid-history-container", "col");
+    listingBidHistoryContainer.classList.add(
+      "listing-bid-history-container",
+      "col",
+    );
 
-    const listingBidHistorySectionHeading = renderSectionHeading("h2", "Bid history");
+    const listingBidHistorySectionHeading = renderSectionHeading(
+      "h2",
+      "Bid history",
+    );
     listingBidHistoryContainer.appendChild(listingBidHistorySectionHeading);
 
     const listingBidHistoryTableContainer = document.createElement("div");
-    listingBidHistoryTableContainer.classList.add("listing-bid-table-container");
+    listingBidHistoryTableContainer.classList.add(
+      "listing-bid-table-container",
+    );
 
     listingBidHistoryContainer.appendChild(listingBidHistoryTableContainer);
 

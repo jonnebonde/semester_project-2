@@ -11,10 +11,16 @@ import displayMessage from "../../../components/ui/state_handlers/displayMessage
 
 export async function getListing(listingId) {
   try {
-    const listingData = await apiCall(baseUrl + `/listings/${listingId}?_bids=true&_seller=true&_active=true`);
+    const listingData = await apiCall(
+      baseUrl + `/listings/${listingId}?_bids=true&_seller=true&_active=true`,
+    );
 
     return listingData;
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", "main");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      "main",
+    );
   }
 }

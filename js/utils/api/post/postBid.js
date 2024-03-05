@@ -20,8 +20,11 @@ export async function postBid(bidInfo) {
   const token = getSuperSecretToken().token;
   const listingId = bidInfo.listingId;
   const bidAmount = bidInfo.bid;
-  const url = baseUrl + "/listings/" + listingId + "/bids?_bids=true&_seller=true";
-  const biddingContainer = document.querySelector(".listing-time-bid-container");
+  const url =
+    baseUrl + "/listings/" + listingId + "/bids?_bids=true&_seller=true";
+  const biddingContainer = document.querySelector(
+    ".listing-time-bid-container",
+  );
 
   const options = {
     method: "POST",
@@ -41,12 +44,20 @@ export async function postBid(bidInfo) {
       return;
     }
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listing-message-container");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      ".listing-message-container",
+    );
   }
 }
 
 function confirmedBidHandler(data, target) {
-  displayMessageTimer("success", "Bid successfully placed", ".listing-message-container");
+  displayMessageTimer(
+    "success",
+    "Bid successfully placed",
+    ".listing-message-container",
+  );
   renderTimeAndBidContainer(data, target);
   renderBidForm(target, data);
   updateCredits();

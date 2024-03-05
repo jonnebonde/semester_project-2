@@ -47,6 +47,10 @@ export async function regiserNewUser(details, loader) {
 
     loginToService(loginInfo, loader);
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".message-container");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      ".message-container",
+    );
   }
 }

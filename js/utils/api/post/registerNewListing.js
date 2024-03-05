@@ -42,11 +42,19 @@ export async function registerNewListing(newListingValues) {
     const json = await response.json();
 
     if (response.status !== 200 && response.status !== 201) {
-      displayMessage("error", json.errors[0].message, ".create-listing-message-container");
+      displayMessage(
+        "error",
+        json.errors[0].message,
+        ".create-listing-message-container",
+      );
     }
 
     if (response.status === 200 || response.status === 201) {
-      displayMessage("success", "Listing was successfully created", ".create-listing-message-container");
+      displayMessage(
+        "success",
+        "Listing was successfully created",
+        ".create-listing-message-container",
+      );
       setTimeout(() => {
         location.reload();
       }, 2000);
@@ -54,6 +62,10 @@ export async function registerNewListing(newListingValues) {
       return;
     }
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".create-listing-message-container");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      ".create-listing-message-container",
+    );
   }
 }

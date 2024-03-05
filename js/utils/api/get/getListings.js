@@ -15,6 +15,10 @@ export async function getListings(urlParamsConfig) {
     const allListings = await apiCall(url);
     return allListings;
   } catch (error) {
-    displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", "main");
+    displayMessageNoTimer(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      "main",
+    );
   }
 }
