@@ -7,6 +7,8 @@
     "test": "npm run test-unit",
     "test-unit": "jest",
     "format": "prettier --write .",
+    "lint": "eslint **/*.js",
+    "lint-fix": "eslint **/*.js --cache --fix",
     "prepare": "husky install"
   },
   "keywords": [

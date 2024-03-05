@@ -167,7 +167,7 @@ export function renderProfilePage(
     );
 
     if (profileListingsWonArray.length === 0) {
-      profileListingsMessageContainer.textContent = "No wins yet";
+      profileListingsWonMessageContainer.textContent = "No wins yet";
     }
 
     profileListingsWonMainContainer.appendChild(profileListingsWonContainer);
