@@ -8,7 +8,8 @@
     "test": "npm test",
     "format": "prettier -w .",
     "lint": "eslint .",
-    "lint-fix": "eslint . --fix --cache"
+    "lint-fix": "eslint . --fix --cache",
+    "prepare": "husky install"
   },
   "keywords": [
     "auction",
@@ -18,6 +19,12 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.2.5"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
