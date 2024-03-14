@@ -11,6 +11,7 @@ import {
   getUserInfoFromStorage,
   getSuperSecretToken,
 } from "../../../utils/storage/userStorage.js";
+import bootstrap from "bootstrap.js";
 
 export function renderListingsPage(updateApiListingsConfig, apiListingsConfig) {
   const mainContainer = document.querySelector("main");

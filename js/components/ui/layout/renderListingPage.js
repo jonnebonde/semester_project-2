@@ -16,6 +16,7 @@ import {
 import { renderListingTags } from "../listing/renderListingTags.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 import { renderRegisterToast } from "../toast/renderToast.js";
+import bootstrap from "bootstrap.js";
 
 export function renderListingPage(data) {
   const mainContainer = document.querySelector("main");

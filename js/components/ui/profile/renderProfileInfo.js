@@ -67,7 +67,7 @@ export function renderProfileInfo(profileInfo) {
   profileUpdateAvatarBtn.textContent = "Update Avatar";
   profileUpdateAvatarBtn.setAttribute("data-bs-toggle", "modal");
   profileUpdateAvatarBtn.setAttribute("data-bs-target", "#updateAvatarModal");
-  profileUpdateAvatarBtn.addEventListener("click", (e) => {
+  profileUpdateAvatarBtn.addEventListener("click", () => {
     const updateAvatarInput = document.querySelector("#avatar-form-input");
     updateAvatarInput.value = profileInfo.avatar;
   });

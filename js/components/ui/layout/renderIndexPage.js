@@ -13,6 +13,8 @@ import {
   getSuperSecretToken,
 } from "../../../utils/storage/userStorage.js";
 
+import bootstrap from "bootstrap";
+
 export function renderIndexPage(listingsData, newestAuctionData) {
   const loadingContainer = document.querySelector(".loading-container");
   const mainContainer = document.querySelector("main");
