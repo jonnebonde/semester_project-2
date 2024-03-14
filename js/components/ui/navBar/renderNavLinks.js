@@ -11,7 +11,12 @@ export function renderNavlinks(text, url, isActive, mode, type = "") {
   li.classList.add("nav-item");
 
   const link = document.createElement("a");
-  link.classList.add("navlink", "link-offset-1", "link-underline-opacity-0", "link-underline-opacity-100-hover");
+  link.classList.add(
+    "navlink",
+    "link-offset-1",
+    "link-underline-opacity-0",
+    "link-underline-opacity-100-hover",
+  );
   link.classList.add(`link-${mode}`);
 
   if (type) {

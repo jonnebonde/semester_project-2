@@ -1,11 +1,12 @@
 # Semester project 2
+
 My SP2 project - Building a Auction house site
+
 # Auction House
 
 ![Auction image](https://github.com/jonnebonde/semester_project-2/blob/dd1edd9fc0ae37b3125962f5cd8f53b0b5170e9f/assets/img/auctionHouse_screenshot.jpg)
 
-
- Auction house is an website where users can create listings to be bid on and bid on listings other users have made.
+Auction house is an website where users can create listings to be bid on and bid on listings other users have made.
 
 ## Description
 
@@ -13,11 +14,11 @@ Auction house serves as a vibrant online marketplace, offering users the ability
 
 ## Key Features:
 
- - Complete Responsiveness: Enjoy a seamless experience on any device.
- - Integration with Noroff Auction API: Access up-to-date data from the Noroff Auction platform.
- - User-Friendly Login System: Register, log in, and secure your account with ease.
- - Listing Management: Create, view, update, and delete your listings effortlessly.
- - User-Centric: Manage your listings and explore the platform even when not logged in.
+- Complete Responsiveness: Enjoy a seamless experience on any device.
+- Integration with Noroff Auction API: Access up-to-date data from the Noroff Auction platform.
+- User-Friendly Login System: Register, log in, and secure your account with ease.
+- Listing Management: Create, view, update, and delete your listings effortlessly.
+- User-Centric: Manage your listings and explore the platform even when not logged in.
 
 ## Built With
 
@@ -26,14 +27,12 @@ Auction house serves as a vibrant online marketplace, offering users the ability
 - Noroff auction API
 - HTML5
 - CSS3
-  
 
 ## Getting Started
 
 This project is already deployed, but feel free to host it yourself.
 
 Clone the repo:
-
 
 ```bash
 gh repo clone jonnebonde/semester_project-2
@@ -52,14 +51,11 @@ If you would like to contribute to the project, make sure to open a pull request
 
 If you would like to contact me, feel free to do so via the following methods:
 
-- Email: ```jonnebonde@gmail.com```
+- Email: `jonnebonde@gmail.com`
 
 - [LinkedIn](https://www.linkedin.com/in/jonne-martin-krosby-a689ba1b1/)
 - discord: (https://www.discordapp.com/users/9504)
 
-
 ## License
 
 This project is licensed under a Creative Commons license. It is open for contributions, but please credit the project if you use the code in your own projects.
-
- 

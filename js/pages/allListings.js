@@ -26,7 +26,6 @@ let apiListingsConfig = {
   _tag: "",
 };
 
-
 // im unsure if this is the best solution, but it worked the best of the other options i tried.
 async function updateApiListingsConfig(newConfig) {
   apiListingsConfig = { ...apiListingsConfig, ...newConfig };
@@ -34,11 +33,24 @@ async function updateApiListingsConfig(newConfig) {
   try {
     const allListings = await getListings(apiListingsConfig);
 
-    renderListingsSortingOptions(".filter-and-sort-main-container", updateApiListingsConfig, apiListingsConfig);
+    renderListingsSortingOptions(
+      ".filter-and-sort-main-container",
+      updateApiListingsConfig,
+      apiListingsConfig,
+    );
     renderListings(allListings, ".all-listings-cards-container", "card");
-    renderListingsPaginationButtons(".all-listings-pagination-container", updateApiListingsConfig, apiListingsConfig, allListings);
+    renderListingsPaginationButtons(
+      ".all-listings-pagination-container",
+      updateApiListingsConfig,
+      apiListingsConfig,
+      allListings,
+    );
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".message-container");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      ".message-container",
+    );
   }
 }
 

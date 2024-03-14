@@ -5,9 +5,15 @@
 export function loginRegisterFormState(state) {
   const isRegisterForm = state;
 
-  const loginRegisterTopHeading = document.querySelector("#login_register-top_heading");
-  const loginRegisterBottomHeading = document.querySelector("#login_register-bottom_heading");
-  const loginRegisterChangeFormButton = document.querySelector("#login_register-change-form_btn");
+  const loginRegisterTopHeading = document.querySelector(
+    "#login_register-top_heading",
+  );
+  const loginRegisterBottomHeading = document.querySelector(
+    "#login_register-bottom_heading",
+  );
+  const loginRegisterChangeFormButton = document.querySelector(
+    "#login_register-change-form_btn",
+  );
 
   loginRegisterChangeFormButton.addEventListener("click", () => {
     if (isRegisterForm === false) {

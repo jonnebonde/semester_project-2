@@ -27,15 +27,27 @@ export function validateLogin(e) {
     displayMessage("success", "Email is valid", ".email-message-container");
     changeInputStatus(emailInput, "success");
   } else {
-    displayMessage("error", "The email must be a noroff.no or stud.noroff.no email address", ".email-message-container");
+    displayMessage(
+      "error",
+      "The email must be a noroff.no or stud.noroff.no email address",
+      ".email-message-container",
+    );
     changeInputStatus(emailInput, "error");
   }
 
   if (password) {
-    displayMessage("success", "Password is valid", ".password-message-container");
+    displayMessage(
+      "success",
+      "Password is valid",
+      ".password-message-container",
+    );
     changeInputStatus(passwordInput, "success");
   } else {
-    displayMessage("error", "Password must be at least 8 characters long", ".password-message-container");
+    displayMessage(
+      "error",
+      "Password must be at least 8 characters long",
+      ".password-message-container",
+    );
     changeInputStatus(passwordInput, "error");
   }
 

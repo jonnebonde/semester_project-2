@@ -8,7 +8,10 @@ import { renderProfileListings } from "../profile/renderProfileListings.js";
 import { renderSectionHeading } from "../shared/renderSectionHeading.js";
 import displayMessageNoTimer from "../state_handlers/displayMessage.js";
 import { renderRegisterToast } from "../toast/renderToast.js";
-import { getUserInfoFromStorage, getSuperSecretToken } from "../../../utils/storage/userStorage.js";
+import {
+  getUserInfoFromStorage,
+  getSuperSecretToken,
+} from "../../../utils/storage/userStorage.js";
 
 export function renderIndexPage(listingsData, newestAuctionData) {
   const loadingContainer = document.querySelector(".loading-container");
@@ -17,20 +20,35 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   mainContainer.removeChild(loadingContainer);
 
   const lastChanceListingsContainer = document.createElement("section");
-  lastChanceListingsContainer.classList.add("homepage-last_chance_listings-container");
+  lastChanceListingsContainer.classList.add(
+    "homepage-last_chance_listings-container",
+  );
 
-  const lastChanceListingsHeading = renderSectionHeading("h1", "Last chance Auctions");
+  const lastChanceListingsHeading = renderSectionHeading(
+    "h1",
+    "Last chance Auctions",
+  );
   lastChanceListingsContainer.appendChild(lastChanceListingsHeading);
 
   mainContainer.appendChild(lastChanceListingsContainer);
 
   const lastChanceListingsResultsContainer = document.createElement("div");
-  lastChanceListingsResultsContainer.classList.add("last_chance-listings-results-container");
+  lastChanceListingsResultsContainer.classList.add(
+    "last_chance-listings-results-container",
+  );
 
   if (listingsData.errors) {
-    displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", lastChanceListingsContainer);
+    displayMessageNoTimer(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      lastChanceListingsContainer,
+    );
   } else if (listingsData.length === 0) {
-    displayMessageNoTimer("normal", "Received no listings, please refresh page", lastChanceListingsContainer);
+    displayMessageNoTimer(
+      "normal",
+      "Received no listings, please refresh page",
+      lastChanceListingsContainer,
+    );
   } else {
     const lastChanceListings = renderProfileListings(listingsData, "");
 
@@ -47,12 +65,22 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   mainContainer.appendChild(newestListingsContainer);
 
   const newestListingsResultContainer = document.createElement("div");
-  newestListingsResultContainer.classList.add("newest-listings-results-container");
+  newestListingsResultContainer.classList.add(
+    "newest-listings-results-container",
+  );
 
   if (newestAuctionData.errors) {
-    displayMessageNoTimer("error", "Ooppps!! something went wrong, please try updating the page", newestListingsContainer);
+    displayMessageNoTimer(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      newestListingsContainer,
+    );
   } else if (newestAuctionData.length === 0) {
-    displayMessageNoTimer("normal", "Received no listings, please refresh page", newestListingsContainer);
+    displayMessageNoTimer(
+      "normal",
+      "Received no listings, please refresh page",
+      newestListingsContainer,
+    );
   } else {
     const newestListings = renderProfileListings(newestAuctionData, "");
 
@@ -61,7 +89,11 @@ export function renderIndexPage(listingsData, newestAuctionData) {
   }
 
   const toTopButtonContainer = document.createElement("div");
-  toTopButtonContainer.classList.add("to-top-btn-container", "d-flex", "justify-content-center");
+  toTopButtonContainer.classList.add(
+    "to-top-btn-container",
+    "d-flex",
+    "justify-content-center",
+  );
 
   const toTopButton = document.createElement("button");
   toTopButton.classList.add("btn", "btn-primary", "to-top-btn", "mt-5", "mb-5");
@@ -79,7 +111,9 @@ export function renderIndexPage(listingsData, newestAuctionData) {
 
   if (!getUserInfoFromStorage().name && !getSuperSecretToken().token) {
     mainContainer.appendChild(toastContainer);
-    const toast = new bootstrap.Toast(toastContainer.querySelector("#welcomeToast"));
+    const toast = new bootstrap.Toast(
+      toastContainer.querySelector("#welcomeToast"),
+    );
     toast.show();
   }
 }

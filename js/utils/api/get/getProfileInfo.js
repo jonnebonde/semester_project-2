@@ -5,7 +5,10 @@
  */
 import { baseUrl } from "../../../settings/apiUrl.js";
 import displayMessage from "../../../components/ui/state_handlers/displayMessage.js";
-import { getSuperSecretToken, getUserInfoFromStorage } from "../../storage/userStorage.js";
+import {
+  getSuperSecretToken,
+  getUserInfoFromStorage,
+} from "../../storage/userStorage.js";
 
 export async function getProfileInfo(profileUrl) {
   const user = getUserInfoFromStorage();
@@ -25,6 +28,10 @@ export async function getProfileInfo(profileUrl) {
     const json = await response.json();
     return json;
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".listings-container");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      ".listings-container",
+    );
   }
 }

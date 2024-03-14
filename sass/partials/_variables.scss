@@ -1,40 +1,44 @@
 $colours: (
   primary-background-color: rgba(54, 54, 54, 1),
   secondary-background-color: rgba(50, 76, 42, 0.1),
-  white: #FFFFFF,
+  white: #ffffff,
   black: #000000,
   primary-color: rgba(255, 92, 0, 1),
   accent-color: rgba(50, 76, 42, 1),
-  error-message-color: rgba(232,43,72,1),
-  success-message-color: rgba(29,131,72,1)
+  error-message-color: rgba(232, 43, 72, 1),
+  success-message-color: rgba(29, 131, 72, 1),
 );
 
 @function getColour($colour, $alpha: 1) {
   $original-color: map-get($colours, $colour);
   @if $alpha != 1 {
-    @return rgba(red($original-color), green($original-color), blue($original-color), $alpha);
-  }
-  @else {
+    @return rgba(
+      red($original-color),
+      green($original-color),
+      blue($original-color),
+      $alpha
+    );
+  } @else {
     @return $original-color;
   }
 }
 
 @font-face {
-  font-family: 'bebas';
+  font-family: "bebas";
   src: url(/assets/fonts/BebasNeue-Regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'roboto';
+  font-family: "roboto";
   src: url(/assets/fonts/Roboto-Regular.ttf);
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'montserrat';
+  font-family: "montserrat";
   src: url(/assets/fonts/Montserrat-VariableFont_wght.ttf);
   font-weight: normal;
   font-style: normal;
@@ -47,7 +51,6 @@ $colours: (
   font-style: normal;
 }
 
-
 $width-small: 576px;
-$width-medium: 792px ;
+$width-medium: 792px;
 $width-large: 992px;

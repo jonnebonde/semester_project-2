@@ -2,14 +2,19 @@
   "name": "semester_project_2",
   "version": "1.0.1",
   "description": "aution house semester project 2",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "format": "prettier -w ."
   },
   "keywords": [
     "auction",
     "house"
   ],
   "author": "jonne",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
 }

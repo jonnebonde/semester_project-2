@@ -1,4 +1,8 @@
-import { addLocalStorage, deleteFromLocalStorage, getFromLocalStorage } from "./localStorage.js";
+import {
+  addLocalStorage,
+  deleteFromLocalStorage,
+  getFromLocalStorage,
+} from "./localStorage.js";
 
 export function addUserInfoToStorage(user) {
   const userInfo = {

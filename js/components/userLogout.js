@@ -8,7 +8,6 @@ import { deleteUserInfoFromStorage } from "../utils/storage/userStorage.js";
 export default function userLogout() {
   const logOutBtn = document.querySelector("#logout-btn");
   if (logOutBtn) {
-
     function logOut() {
       const logOutConfirm = confirm("Are you sure you want to log out?");
 
@@ -19,5 +18,4 @@ export default function userLogout() {
     }
     logOutBtn.addEventListener("click", logOut);
   }
-
 }

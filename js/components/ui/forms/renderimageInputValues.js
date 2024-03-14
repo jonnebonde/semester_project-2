@@ -40,7 +40,12 @@ export function setupImageInput() {
     thumbnail.setAttribute("height", "100px");
 
     const removeBtn = document.createElement("i");
-    removeBtn.classList.add("fas", "fa-times", "remove-btn", "position-absolute");
+    removeBtn.classList.add(
+      "fas",
+      "fa-times",
+      "remove-btn",
+      "position-absolute",
+    );
 
     imageContainer.appendChild(thumbnail);
     imageContainer.appendChild(removeBtn);
@@ -64,14 +69,22 @@ export function setupImageInput() {
   function validateImageUrlAndHandleImage(imageUrl) {
     if (imageUrl === "") {
       spinner.hide();
-      displayMessageTimer("error", "Please enter an image URL", ".image-message-container");
+      displayMessageTimer(
+        "error",
+        "Please enter an image URL",
+        ".image-message-container",
+      );
     } else {
       validateImageUrl(imageUrl, spinner).then((result) => {
         if (result) {
           spinner.hide();
           handleImageIfExist();
         } else {
-          displayMessageTimer("error", "Please enter a valid image URL", ".image-message-container");
+          displayMessageTimer(
+            "error",
+            "Please enter a valid image URL",
+            ".image-message-container",
+          );
         }
       });
     }

@@ -26,6 +26,10 @@ const listingId = params.get("id");
     const listing = await getListing(listingId);
     renderListingPage(listing);
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", "main");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      "main",
+    );
   }
 })();

@@ -11,11 +11,12 @@
 import renderNavbar from "../components/ui/navBar/renderNav.js";
 import { renderCreatelistingPage } from "../components/ui/layout/renderCreateListingPage.js";
 import userLogout from "../components/userLogout.js";
-import { getUserInfoFromStorage, getSuperSecretToken } from "../utils/storage/userStorage.js";
+import {
+  getUserInfoFromStorage,
+  getSuperSecretToken,
+} from "../utils/storage/userStorage.js";
 import displayMessage from "../components/ui/state_handlers/displayMessage.js";
 import { getListing } from "../utils/api/get/getListing.js";
-
-
 
 if (!getUserInfoFromStorage().name && !getSuperSecretToken().token) {
   location.href = "/index.html";
@@ -36,7 +37,11 @@ async function initializePage() {
       const data = await getListing(listingId);
       renderCreatelistingPage(data);
     } catch (error) {
-      displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".create-listing-message-container");
+      displayMessage(
+        "error",
+        "Ooppps!! something went wrong, please try updating the page",
+        ".create-listing-message-container",
+      );
     }
   }
 }

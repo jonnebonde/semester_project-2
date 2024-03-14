@@ -1,5 +1,3 @@
-
-
 /**
  * This module exports a string containing the terms and conditions text for the Auction House website.
  * The text includes a description of the bidding process, the role of the auctioneer's gavel, the types of lots available, and the rules and policies of the website.

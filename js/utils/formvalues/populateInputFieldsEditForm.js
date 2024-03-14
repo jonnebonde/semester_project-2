@@ -44,7 +44,12 @@ export function fillInValuesToEditListingForm(data) {
     thumbnail.setAttribute("height", "100px");
 
     const removeBtn = document.createElement("i");
-    removeBtn.classList.add("fas", "fa-times", "remove-btn", "position-absolute");
+    removeBtn.classList.add(
+      "fas",
+      "fa-times",
+      "remove-btn",
+      "position-absolute",
+    );
 
     imageContainer.appendChild(thumbnail);
     imageContainer.appendChild(removeBtn);

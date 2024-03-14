@@ -8,7 +8,10 @@
  */
 import renderNavBar from "../components/ui/navBar/renderNav.js";
 import { renderLoginRegisterFormsPage } from "../components/ui/layout/renderRegisterLoginFormsPage.js";
-import { getUserInfoFromStorage, getSuperSecretToken } from "../utils/storage/userStorage.js";
+import {
+  getUserInfoFromStorage,
+  getSuperSecretToken,
+} from "../utils/storage/userStorage.js";
 
 if (!getUserInfoFromStorage().name && !getSuperSecretToken().token) {
   renderNavBar();

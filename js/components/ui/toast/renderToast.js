@@ -1,6 +1,12 @@
 export function renderRegisterToast() {
   const toastContainer = document.createElement("div");
-  toastContainer.classList.add("toast-container", "position-fixed", "bottom-50", "end-0", "p-3");
+  toastContainer.classList.add(
+    "toast-container",
+    "position-fixed",
+    "bottom-50",
+    "end-0",
+    "p-3",
+  );
 
   const liveToast = document.createElement("div");
   liveToast.id = "welcomeToast";
@@ -12,7 +18,7 @@ export function renderRegisterToast() {
 
   const toastHeader = document.createElement("div");
   toastHeader.classList.add("toast-header");
-  toastHeader.setAttribute("data-bs-theme", "dark")
+  toastHeader.setAttribute("data-bs-theme", "dark");
 
   const toastImage = document.createElement("img");
   toastImage.src = "/assets/img/ah_hero_img.jpg";

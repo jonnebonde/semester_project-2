@@ -29,7 +29,13 @@ export function renderNavBarLoggedInMenu() {
   loggedInBtnProfileImage.setAttribute("height", "40");
 
   const loggedInBtnbadgeCredits = document.createElement("span");
-  loggedInBtnbadgeCredits.classList.add("nav-credit", "position-absolute", "rounded-pill", "bg-secondary", "badge");
+  loggedInBtnbadgeCredits.classList.add(
+    "nav-credit",
+    "position-absolute",
+    "rounded-pill",
+    "bg-secondary",
+    "badge",
+  );
   loggedInBtnbadgeCredits.setAttribute("href", "#");
   loggedInBtnbadgeCredits.textContent = `${loggedInUserCredits} kr`;
 
@@ -43,7 +49,12 @@ export function renderNavBarLoggedInMenu() {
   const loggedInBtnDropdownMenuItem1 = document.createElement("li");
 
   const loggedInBtnDropdownMenuItemProfile = document.createElement("a");
-  loggedInBtnDropdownMenuItemProfile.classList.add("dropdown-item", "text-center", "border-top", "p-2");
+  loggedInBtnDropdownMenuItemProfile.classList.add(
+    "dropdown-item",
+    "text-center",
+    "border-top",
+    "p-2",
+  );
   loggedInBtnDropdownMenuItemProfile.setAttribute("href", "profile.html");
   loggedInBtnDropdownMenuItemProfile.textContent = "Profile";
 
@@ -51,7 +62,11 @@ export function renderNavBarLoggedInMenu() {
 
   const loggedInBtnDropdownMenuItemLogout = document.createElement("a");
   loggedInBtnDropdownMenuItemLogout.setAttribute("id", "logout-btn");
-  loggedInBtnDropdownMenuItemLogout.classList.add("dropdown-item", "text-center", "p-2");
+  loggedInBtnDropdownMenuItemLogout.classList.add(
+    "dropdown-item",
+    "text-center",
+    "p-2",
+  );
   loggedInBtnDropdownMenuItemLogout.setAttribute("href", "#");
   loggedInBtnDropdownMenuItemLogout.textContent = "Logout";
 

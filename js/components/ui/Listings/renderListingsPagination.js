@@ -6,12 +6,23 @@
  * @param {Object} apiListingsConfig - The current API listings configuration.
  * @param {Array} data - The data to be displayed in the listings container.
  */
-export function renderListingsPaginationButtons(target, updateApiListingsConfig, apiListingsConfig, data) {
+export function renderListingsPaginationButtons(
+  target,
+  updateApiListingsConfig,
+  apiListingsConfig,
+  data,
+) {
   const container = document.querySelector(target);
   container.innerHTML = "";
 
   const paginationContainer = document.createElement("div");
-  paginationContainer.classList.add("pagination-container", "d-flex", "justify-content-center", "gap-3", "mt-3");
+  paginationContainer.classList.add(
+    "pagination-container",
+    "d-flex",
+    "justify-content-center",
+    "gap-3",
+    "mt-3",
+  );
 
   const prevBtn = document.createElement("button");
   prevBtn.classList.add("btn", "btn-primary");

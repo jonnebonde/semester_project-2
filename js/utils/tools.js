@@ -9,7 +9,7 @@
  * @param {Array} bids - An array of bid objects.
  * @returns {number} The highest bid amount.
  */
- 
+
 /**
  * Calculates the time difference between the current time and a given end time.
  * @param {string} timeUntilEnds - The end time in string format.
@@ -61,7 +61,9 @@ export function timeDifference(timeUntilEnds) {
 
   function convertTimeToDays(timeDifference) {
     let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let hours = Math.floor(
+      (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+    );
     let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
     let timeString = "";
 
@@ -104,9 +106,11 @@ export function filterProfileBiddings(profileBidsOnListings) {
   const filteredProfileBidsOnListings = [];
 
   profileBidsOnListings.forEach(function (listing) {
-    const existingListing = filteredProfileBidsOnListings.find(function (filteredListing) {
-      return filteredListing.listing.id === listing.listing.id;
-    });
+    const existingListing = filteredProfileBidsOnListings.find(
+      function (filteredListing) {
+        return filteredListing.listing.id === listing.listing.id;
+      },
+    );
 
     if (existingListing) {
       if (existingListing.bid < listing.bid) {
@@ -119,21 +123,22 @@ export function filterProfileBiddings(profileBidsOnListings) {
     return filteredProfileBidsOnListings;
   });
 
-  const filteredProfileBidsOnListingsNewList = filteredProfileBidsOnListings.map(function (listing) {
-    const filteredListing = {
-      bids: [{ amount: listing.amount }],
-      id: listing.listing.id,
-      title: listing.listing.title,
-      description: listing.listing.description,
-      media: listing.listing.media,
-      tags: listing.listing.tags,
-      created: listing.listing.created,
-      updated: listing.listing.updated,
-      endsAt: listing.listing.endsAt,
-    };
+  const filteredProfileBidsOnListingsNewList =
+    filteredProfileBidsOnListings.map(function (listing) {
+      const filteredListing = {
+        bids: [{ amount: listing.amount }],
+        id: listing.listing.id,
+        title: listing.listing.title,
+        description: listing.listing.description,
+        media: listing.listing.media,
+        tags: listing.listing.tags,
+        created: listing.listing.created,
+        updated: listing.listing.updated,
+        endsAt: listing.listing.endsAt,
+      };
 
-    return filteredListing;
-  });
+      return filteredListing;
+    });
 
   return filteredProfileBidsOnListingsNewList;
 }

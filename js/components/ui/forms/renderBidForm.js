@@ -3,7 +3,10 @@
  * @param {HTMLElement} target - The element to which the bid form will be appended.
  * @param {Object} data - The listing data object containing information about the listing and its bids.
  */
-import { getUserInfoFromStorage, getSuperSecretToken } from "../../../utils/storage/userStorage.js";
+import {
+  getUserInfoFromStorage,
+  getSuperSecretToken,
+} from "../../../utils/storage/userStorage.js";
 import { validateBid } from "../../../utils/validation/validateBidForm.js";
 import { renderFormSubmitBtn } from "./renderFormSubmitBtn.js";
 import { renderFormTextInputs } from "./renderFormTextInputs.js";
@@ -33,7 +36,12 @@ export function renderBidForm(target, data) {
   bidForm.addEventListener("submit", (e) => validateBid(e, target, data));
 
   const loginRegisterLinkContainer = document.createElement("div");
-  loginRegisterLinkContainer.classList.add("loginRegisterLinkContainer", "d-flex", "gap-1", "flex-wrap");
+  loginRegisterLinkContainer.classList.add(
+    "loginRegisterLinkContainer",
+    "d-flex",
+    "gap-1",
+    "flex-wrap",
+  );
 
   const textPlease = document.createElement("p");
   textPlease.textContent = "Please";

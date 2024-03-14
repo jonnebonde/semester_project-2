@@ -41,13 +41,21 @@ export async function updateListing(data) {
   try {
     const response = await fetch(url, options);
     if (response.status === 200) {
-      displayMessage("success", "Listing was successfully updated", ".create-listing-message-container");
+      displayMessage(
+        "success",
+        "Listing was successfully updated",
+        ".create-listing-message-container",
+      );
       setTimeout(() => {
         window.location.href = "/listing.html?id=" + data.id;
       }, 3000);
       return;
     }
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".create-listing-message-container");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      ".create-listing-message-container",
+    );
   }
 }

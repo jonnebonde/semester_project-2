@@ -4,14 +4,27 @@
  * @param {Function} updateApiListingsConfig - The function to update the API listings configuration.
  * @param {Object} apiListingsConfig - The current API listings configuration.
  */
-export function renderListingsSortingOptions(target, updateApiListingsConfig, apiListingsConfig) {
+export function renderListingsSortingOptions(
+  target,
+  updateApiListingsConfig,
+  apiListingsConfig,
+) {
   const container = document.querySelector(target);
   container.innerHTML = "";
 
   const sortingOptionsContainer = document.createElement("div");
-  sortingOptionsContainer.classList.add("sorting-options-container", "d-flex", "justify-content-center", "gap-3", "mb-5", "flex-wrap");
+  sortingOptionsContainer.classList.add(
+    "sorting-options-container",
+    "d-flex",
+    "justify-content-center",
+    "gap-3",
+    "mb-5",
+    "flex-wrap",
+  );
 
-  const searchByTagsInput = document.querySelector(".search-by-tags-container input");
+  const searchByTagsInput = document.querySelector(
+    ".search-by-tags-container input",
+  );
 
   const loadingContainer = document.querySelector(".loading-container");
 
@@ -33,7 +46,8 @@ export function renderListingsSortingOptions(target, updateApiListingsConfig, ap
   sortAtoZBtn.classList.add("btn", "btn-primary");
   sortAtoZBtn.setAttribute("type", "button");
   sortAtoZBtn.textContent = "Sort A to Z";
-  sortAtoZBtn.disabled = apiListingsConfig.sortOrder === "asc" && apiListingsConfig.sort === "title";
+  sortAtoZBtn.disabled =
+    apiListingsConfig.sortOrder === "asc" && apiListingsConfig.sort === "title";
   sortAtoZBtn.addEventListener("click", function () {
     updateApiListingsConfig({
       offset: 0,
@@ -46,7 +60,9 @@ export function renderListingsSortingOptions(target, updateApiListingsConfig, ap
   sortZtoABtn.classList.add("btn", "btn-primary");
   sortZtoABtn.setAttribute("type", "button");
   sortZtoABtn.textContent = "Sort Z to A";
-  sortZtoABtn.disabled = apiListingsConfig.sortOrder === "desc" && apiListingsConfig.sort === "title";
+  sortZtoABtn.disabled =
+    apiListingsConfig.sortOrder === "desc" &&
+    apiListingsConfig.sort === "title";
   sortZtoABtn.addEventListener("click", function () {
     updateApiListingsConfig({
       offset: 0,
@@ -59,7 +75,9 @@ export function renderListingsSortingOptions(target, updateApiListingsConfig, ap
   sortNewestBtn.classList.add("btn", "btn-primary");
   sortNewestBtn.setAttribute("type", "button");
   sortNewestBtn.textContent = "Newest";
-  sortNewestBtn.disabled = apiListingsConfig.sortOrder === "desc" && apiListingsConfig.sort === "created";
+  sortNewestBtn.disabled =
+    apiListingsConfig.sortOrder === "desc" &&
+    apiListingsConfig.sort === "created";
   sortNewestBtn.addEventListener("click", function () {
     updateApiListingsConfig({
       offset: 0,
@@ -72,7 +90,9 @@ export function renderListingsSortingOptions(target, updateApiListingsConfig, ap
   sortLastChanceBtn.classList.add("btn", "btn-primary");
   sortLastChanceBtn.setAttribute("type", "button");
   sortLastChanceBtn.textContent = "Last chance";
-  sortLastChanceBtn.disabled = apiListingsConfig.sortOrder === "asc" && apiListingsConfig.sort === "endsAt";
+  sortLastChanceBtn.disabled =
+    apiListingsConfig.sortOrder === "asc" &&
+    apiListingsConfig.sort === "endsAt";
   sortLastChanceBtn.addEventListener("click", function () {
     updateApiListingsConfig({
       offset: 0,

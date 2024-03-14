@@ -14,10 +14,14 @@ export async function updateCredits() {
     const userInfoUrl = "?_listings=true&_count";
     const userInfo = await getProfileInfo(userInfoUrl);
     addUserInfoToStorage(userInfo);
-    
+
     const creditsContainer = document.querySelector(".nav-credit");
     creditsContainer.textContent = userInfo.credits + " kr";
   } catch (error) {
-    displayMessage("error", "Ooppps!! something went wrong, please try updating the page", ".nav-credit");
+    displayMessage(
+      "error",
+      "Ooppps!! something went wrong, please try updating the page",
+      ".nav-credit",
+    );
   }
 }

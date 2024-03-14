@@ -16,7 +16,10 @@ export function renderImageInputContainer() {
 
   const input = document.createElement("input");
   input.setAttribute("type", "text");
-  input.setAttribute("placeholder", "Example: https://www.example.com/image.jpg");
+  input.setAttribute(
+    "placeholder",
+    "Example: https://www.example.com/image.jpg",
+  );
   input.setAttribute("id", "listing-image-input");
   input.setAttribute("autocomplete", "off");
   input.classList.add("w-75", "border-0");
@@ -36,7 +39,13 @@ export function renderImageInputContainer() {
   descriptionHelp.textContent = "Add a image url";
 
   const imagesContainer = document.createElement("div");
-  imagesContainer.classList.add("images", "d-flex", "flex-wrap", "align-items-center", "gap-2");
+  imagesContainer.classList.add(
+    "images",
+    "d-flex",
+    "flex-wrap",
+    "align-items-center",
+    "gap-2",
+  );
 
   const messageContainer = document.createElement("div");
   messageContainer.classList.add("image-message-container");
