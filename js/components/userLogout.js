@@ -7,6 +7,7 @@ import { deleteUserInfoFromStorage } from "../utils/storage/userStorage.js";
 
 export default function userLogout() {
   const logOutBtn = document.querySelector("#logout-btn");
+
   if (logOutBtn) {
     logOutBtn.addEventListener("click", logOut);
   }
