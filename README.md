@@ -32,6 +32,8 @@ Auction house serves as a vibrant online marketplace, offering users the ability
 
 This project is already deployed, but feel free to host it yourself.
 
+https://theauctionhouse.netlify.app/
+
 Clone the repo:
 
 
